@@ -17,7 +17,7 @@ shift
 
 BUILD_PATH="build"
 if [ "$APP_TYPE" == "wallet" ]; then
-	APP_NAME="TONWallet"
+	APP_NAME="NiceGramWallet"
 else
 	APP_NAME="Telegram"
 fi
