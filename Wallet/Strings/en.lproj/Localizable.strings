@@ -72,8 +72,8 @@
 "Wallet.Intro.ImportExisting" = "Import existing wallet";
 "Wallet.Intro.CreateErrorTitle" = "An Error Occurred";
 "Wallet.Intro.CreateErrorText" = "Sorry. Please try again.";
-"Wallet.Intro.Title" = "Gram Wallet";
-"Wallet.Intro.Text" = "Gram wallet allows you to make fast and secure blockchain-based payments without intermediaries.";
+"Wallet.Intro.Title" = "NiceGram Wallet";
+"Wallet.Intro.Text" = "NiceGram wallet allows you to make fast and secure blockchain-based payments without intermediaries.";
 "Wallet.Intro.CreateWallet" = "Create My Wallet";
 "Wallet.Intro.Terms" = "By creating a wallet you accept the\n[Terms of Conditions]().";
 "Wallet.Created.Title" = "Congratulations";
