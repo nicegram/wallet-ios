@@ -31,8 +31,8 @@ def app_binary_configs():
         "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIconWallet",
         "BUILD_NUMBER": get_build_number(),
         "PRODUCT_BUNDLE_SHORT_VERSION": get_short_version(),
-        "APP_NAME": "TON Wallet",
-        "PRODUCT_NAME": "TON Wallet",
+        "APP_NAME": "NiceGram Wallet",
+        "PRODUCT_NAME": "NiceGram Wallet",
         "TARGETED_DEVICE_FAMILY": "1,2",
     }
     config = merge_dict(SHARED_CONFIGS, config)
@@ -48,8 +48,8 @@ def app_info_plist_substitutions():
         "DEVELOPMENT_LANGUAGE": DEVELOPMENT_LANGUAGE,
         "EXECUTABLE_NAME": "Wallet",
         "PRODUCT_BUNDLE_IDENTIFIER": bundle_identifier(suffix=""),
-        "PRODUCT_NAME": "TON Wallet",
-        "APP_NAME": "TON Wallet",
+        "PRODUCT_NAME": "NiceGram Wallet",
+        "APP_NAME": "NiceGram Wallet",
         "CURRENT_PROJECT_VERSION": "1",
         "BUILD_NUMBER": get_build_number(),
         "PRODUCT_BUNDLE_SHORT_VERSION": get_short_version(),
