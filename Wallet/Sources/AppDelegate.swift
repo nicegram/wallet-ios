@@ -543,6 +543,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         let pluralizationRulesCode = languageCode
         let localeDict = getLangDict(languageCode)
         
+        let timeFormat = getTimeFormat(languageCode)
         
         let accentColor = UIColor(rgb: 0x007ee5)
         
@@ -633,7 +634,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 secondaryComponent: nil,
                 groupingSeparator: " "
             ), dateTimeFormat: WalletPresentationDateTimeFormat(
-                timeFormat: .regular,
+                timeFormat: timeFormat,
                 dateFormat: .dayFirst,
                 dateSeparator: ".",
                 decimalSeparator: ".",

@@ -2,6 +2,15 @@ import Foundation
 import AppBundle
 import StringPluralization
 
+public func getTimeFormat(_ lang: String) -> WalletTimeFormat {
+    switch (lang) {
+        case "ru":
+            return .military
+        default:
+            return .regular
+    }
+}
+
 public func getLangDict(_ lang: String) -> [String: String]
 {
     guard let mainPath = getAppBundle().path(forResource: lang, ofType: "lproj"), let bundle = Bundle(path: mainPath) else {
