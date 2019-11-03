@@ -2,6 +2,20 @@ import Foundation
 import AppBundle
 import StringPluralization
 
+public func getLangDict(_ lang: String) -> [String: String]
+{
+    guard let mainPath = getAppBundle().path(forResource: lang, ofType: "lproj"), let bundle = Bundle(path: mainPath) else {
+        return [:]
+    }
+    guard let path = bundle.path(forResource: "Localizable", ofType: "strings") else {
+        return [:]
+    }
+    guard let dict = NSDictionary(contentsOf: URL(fileURLWithPath: path)) as? [String: String] else {
+        return [:]
+    }
+    return dict
+}
+
 private let fallbackDict: [String: String] = {
     guard let mainPath = getAppBundle().path(forResource: "en", ofType: "lproj"), let bundle = Bundle(path: mainPath) else {
         return [:]

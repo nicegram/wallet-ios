@@ -346,7 +346,7 @@ private final class WalletContextImpl: NSObject, WalletContext, UIImagePickerCon
     let window: Window1
     
     let supportsCustomConfigurations: Bool = true
-    let termsUrl: String? = nil
+    let termsUrl: String? = "https://wallet.nicegram.app/privacy-policy"
     let feeInfoUrl: String? = nil
     
     private var currentImagePickerCompletion: ((UIImage) -> Void)?
@@ -538,6 +538,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             }
         }
         
+        let languageCode = Bundle.main.preferredLocalizations[0]
+        let localizedName = "English" // not used
+        let pluralizationRulesCode = languageCode
+        let localeDict = getLangDict(languageCode)
+        
         
         let accentColor = UIColor(rgb: 0x007ee5)
         
@@ -620,10 +625,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 )
             ), strings: WalletStrings(
                 primaryComponent: WalletStringsComponent(
-                    languageCode: "en",
-                    localizedName: "English",
-                    pluralizationRulesCode: "en",
-                    dict: [:]
+                    languageCode: languageCode,
+                    localizedName: localizedName,
+                    pluralizationRulesCode: pluralizationRulesCode,
+                    dict: localeDict
                 ),
                 secondaryComponent: nil,
                 groupingSeparator: " "
