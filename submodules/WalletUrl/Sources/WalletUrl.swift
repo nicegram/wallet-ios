@@ -15,7 +15,7 @@ private func isValidWalletAddress(_ address: String) -> Bool {
 }
 
 public func parseWalletUrl(_ url: URL) -> ParsedWalletUrl? {
-    guard url.scheme == "ton" && url.host == "transfer" else {
+    guard (url.scheme == "ton" || url.scheme == "ngw") && url.host == "transfer" else {
         return nil
     }
     let updatedUrl = URL(string: url.absoluteString.replacingOccurrences(of: "+", with: "%20"), relativeTo: nil) ?? url

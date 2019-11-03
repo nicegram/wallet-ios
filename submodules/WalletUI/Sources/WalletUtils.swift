@@ -5,13 +5,13 @@ import UrlEscaping
 let walletAddressLength: Int = 48
 let walletTextLimit: Int = 512
 
-func formatAddress(_ address: String) -> String {
+public func formatAddress(_ address: String) -> String {
     var address = address
     address.insert("\n", at: address.index(address.startIndex, offsetBy: address.count / 2))
     return address
 }
 
-func formatBalanceText(_ value: Int64, decimalSeparator: String) -> String {
+public func formatBalanceText(_ value: Int64, decimalSeparator: String) -> String {
     var balanceText = "\(abs(value))"
     while balanceText.count < 10 {
         balanceText.insert("0", at: balanceText.startIndex)

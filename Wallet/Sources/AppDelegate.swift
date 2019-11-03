@@ -6,6 +6,7 @@ import BuildConfig
 import WalletUI
 import WalletCore
 import AVFoundation
+import WalletUrl
 
 private func encodeText(_ string: String, _ key: Int) -> String {
     var result = ""
@@ -516,6 +517,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     private var mainWindow: Window1?
     private var walletContext: WalletContextImpl?
     
+    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
+        self.application(application, didFinishLaunchingWithOptions: [.url: url])
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let statusBarHost = ApplicationStatusBarHost()
         let (window, hostView) = nativeWindowHostView()
@@ -523,6 +529,15 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         self.mainWindow = mainWindow
         hostView.containerView.backgroundColor = UIColor.white
         self.window = window
+        
+        var launchParsedUrl: ParsedWalletUrl? = nil
+        if let url = launchOptions?[.url] as? URL {
+            let parsedUrl = parseWalletUrl(url)
+            if let parsedUrl = parsedUrl {
+                launchParsedUrl = parsedUrl
+            }
+        }
+        
         
         let accentColor = UIColor(rgb: 0x007ee5)
         
@@ -695,8 +710,19 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             let walletContext = WalletContextImpl(basePath: documentsPath, storage: storage, config: initialResolvedConfig.value, blockchainName: initialConfigBlockchainName, presentationData: presentationData, navigationBarTheme: navigationBarTheme, window: mainWindow)
             self.walletContext = walletContext
             
-            let beginWithController: (ViewController) -> Void = { controller in
+            let beginWithController: (ViewController, ParsedWalletUrl?, WalletInfo?) -> Void = { controller, parsedUrl, walletInfo in
                 navigationController.setViewControllers([controller], animated: false)
+                
+                if let parsedUrl = parsedUrl, let walletInfo = walletInfo {
+                    var randomId: Int64 = 0
+                    arc4random_buf(&randomId, 8)
+                    
+                    let address = parsedUrl.address
+                    let amount = parsedUrl.amount
+                    let comment = parsedUrl.comment
+                    
+                    controller.push(walletSendScreen(context: walletContext, randomId: randomId, walletInfo: walletInfo, address: address, amount: amount, comment: comment))
+                }
                 
                 var previousBlockchainName = initialConfigBlockchainName
                 
@@ -737,27 +763,27 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                                 let _ = (walletAddress(publicKey: record.info.publicKey, tonInstance: walletContext.tonInstance)
                                 |> deliverOnMainQueue).start(next: { address in
                                     let infoScreen = WalletInfoScreen(context: walletContext, walletInfo: record.info, address: address, enableDebugActions: false)
-                                    beginWithController(infoScreen)
+                                    beginWithController(infoScreen, launchParsedUrl, record.info)
                                 })
                             } else {
                                 let createdScreen = WalletSplashScreen(context: walletContext, mode: .created(record.info, nil), walletCreatedPreloadState: nil)
-                                beginWithController(createdScreen)
+                                beginWithController(createdScreen, nil, nil)
                             }
                         } else {
                             let splashScreen = WalletSplashScreen(context: walletContext, mode: .secureStorageReset(.changed), walletCreatedPreloadState: nil)
-                            beginWithController(splashScreen)
+                            beginWithController(splashScreen, nil, nil)
                         }
                     } else {
                         let splashScreen = WalletSplashScreen(context: walletContext, mode: WalletSplashMode.secureStorageReset(.notAvailable), walletCreatedPreloadState: nil)
-                        beginWithController(splashScreen)
+                        beginWithController(splashScreen, nil, nil)
                     }
                 } else {
                     if publicKey != nil {
                         let splashScreen = WalletSplashScreen(context: walletContext, mode: .intro, walletCreatedPreloadState: nil)
-                        beginWithController(splashScreen)
+                        beginWithController(splashScreen, nil, nil)
                     } else {
                         let splashScreen = WalletSplashScreen(context: walletContext, mode: .secureStorageNotAvailable, walletCreatedPreloadState: nil)
-                        beginWithController(splashScreen)
+                        beginWithController(splashScreen, nil, nil)
                     }
                 }
             })
