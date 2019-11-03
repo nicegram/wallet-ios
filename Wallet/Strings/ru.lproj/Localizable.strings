@@ -43,11 +43,11 @@
 "Wallet.Qr.Title" = "QR Код";
 "Wallet.Receive.Title" = "Получить Gram";
 "Wallet.Receive.AddressHeader" = "АДРЕС ВАШЕГО КОШЕЛЬКА";
-"Wallet.Receive.InvoiceUrlHeader" = "Ссылка на чек";
+"Wallet.Receive.InvoiceUrlHeader" = "Ссылка на Чек";
 "Wallet.Receive.CopyAddress" = "Скопировать Адрес Кошелька";
-"Wallet.Receive.CopyInvoiceUrl" = "Копировать ссылку на чек";
+"Wallet.Receive.CopyInvoiceUrl" = "Копировать ссылку на Чек";
 "Wallet.Receive.ShareAddress" = "Поделиться Адресом Кошелька";
-"Wallet.Receive.ShareInvoiceUrl" = "Поделиться ссылкой на чек";
+"Wallet.Receive.ShareInvoiceUrl" = "Поделиться ссылкой на Чек";
 "Wallet.Receive.ShareUrlInfo" = "Поделитесь этой ссылкой с другими владельцами кошельков Gram, чтобы получить от них граммы.";
 "Wallet.Receive.AmountHeader" = "СУММА";
 "Wallet.Receive.AmountText" = "Gram для получения";
@@ -55,7 +55,7 @@
 "Wallet.Receive.CommentHeader" = "КОММЕНТАРИЙ (ОПЦИОНАЛЬНО)";
 "Wallet.Receive.CommentInfo" = "Описание платежа";
 "Wallet.Receive.AddressCopied" = "Адрес скопирован в буфер обмена";
-"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на чек скопирована в буфер обмена";
+"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на Чек скопирована в буфер обмена";
 "Wallet.Send.Title" = "Отправить Gram";
 "Wallet.Send.AddressHeader" = "АДРЕС КОШЕЛЬКА ПОЛУЧАТЕЛЯ";
 "Wallet.Send.AddressText" = "Введите адрес кошелька...";
@@ -156,7 +156,7 @@
 "Wallet.Send.UninitializedTitle" = "Внимание";
 "Wallet.Send.UninitializedText" = "Этот адрес принадлежит пустому кошельку. Вы уверены, что хотите перевести грамы на него?";
 "Wallet.Send.SendAnyway" = "Всё равно отправить";
-"Wallet.Receive.CreateInvoice" = "Создать чек";
+"Wallet.Receive.CreateInvoice" = "Создать Чек";
 "Wallet.Receive.CreateInvoiceInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
 "Wallet.Configuration.Title" = "Настройки Сервера";
 "Wallet.Configuration.Apply" = "Сохранить";
@@ -175,7 +175,7 @@
 "Wallet.Configuration.BlockchainNameChangedTitle" = "Внимание";
 "Wallet.Configuration.BlockchainNameChangedText" = "Вы уверены, что хотите изменить идентификатор блокчейна? Вам это не нужно, если вы не тестируете свою собственную сеть TON.\n\nЕсли вы продолжите, вам нужно будет снова подключить свой кошелек, используя 24 секретных слова.";
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Продолжить";
-"Wallet.CreateInvoice.Title" = "Создать чек";
+"Wallet.CreateInvoice.Title" = "Создать Чек";
 "Wallet.Navigation.Close" = "Закрыть";
 "Wallet.Navigation.Back" = "Назад";
 "Wallet.Navigation.Done" = "Готово";
