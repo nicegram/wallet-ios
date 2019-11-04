@@ -11,9 +11,7 @@
 "Wallet.Updated.HoursAgo_3_10" = "%@ saat önce güncellendi";
 "Wallet.Updated.HoursAgo_any" = "%@ saat önce güncellendi";
 "Wallet.Updated.HoursAgo_many" = "%@ saat önce güncellendi";
-"Wallet.Updated.HoursAgo_0" = "%@ hours ago";
 "Wallet.Updated.YesterdayAt" = "dün saat %@";
-"Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "bugün saat %@";
 "Wallet.Info.WalletCreated" = "Cüzdan Oluşturuldu";
 "Wallet.Info.Address" = "Cüzdan adresiniz";
@@ -90,15 +88,12 @@
 "Wallet.RestoreFailed.EnterWords" = "24 Kelimeyi Girin";
 "Wallet.Sending.Title" = "Gramlar Gönderiliyor";
 "Wallet.Sending.Text" = "Lütfen işleminizin gerçekleşmesi için birkaç saniye bekleyin...";
-"Wallet.Sending.Title" = "Sending Grams";
 "Wallet.Sent.Title" = "Tamamlandı!";
 "Wallet.Sent.Text" = "**%@ Gram** gönderildi.";
 "Wallet.Sent.ViewWallet" = "Cüzdanımı Görüntüle";
 "Wallet.SecureStorageNotAvailable.Title" = "Bir Parola Ayarla";
 "Wallet.SecureStorageNotAvailable.Text" = "Gram cüzdanınızla güvenli ödemeler yapmak için lütfen cihazında bir Parola ayarlayın.";
 "Wallet.SecureStorageReset.Title" = "Güvenlik Ayarları Değiştirildi";
-"Wallet.SecureStorageReset.BiometryTouchId" = "Touch ID";
-"Wallet.SecureStorageReset.BiometryFaceId" = "Face ID";
 "Wallet.SecureStorageReset.BiometryText" = "Maalesef cüzdanınız artık kullanılamaz, çünkü sistem parolanız ya da %@ kapandı. Lütfen devam etmeden önce onu etkinleştirin.";
 "Wallet.SecureStorageReset.PasscodeText" = "Maalesef cüzdanınız artık kullanılamaz, çünkü sistem parolanız kapandı. Lütfen devam etmeden önce onu etkinleştirin.";
 "Wallet.SecureStorageChanged.BiometryText" = "Maalesef sistem güvenlik ayarlarınızdaki (Parola/%@) değişiklik nedeniyle cüzdanınız artık kullanılamaz. Cüzdanınızı kurtarmak için, “Mevcut cüzdanı içe aktar” seçeneğine dokunun.";
@@ -154,7 +149,6 @@
 "Wallet.Configuration.Apply" = "Kaydet";
 "Wallet.Configuration.SourceHeader" = "KAYNAK";
 "Wallet.Configuration.SourceURL" = "BAĞLANTI";
-"Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.SourceInfo" = "Farklı bir ayar kullanmak size Lite Sunucu adreslerini değiştirmenize izin verir.";
 "Wallet.Configuration.BlockchainIdHeader" = "BLOK ZİNCİR ID";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Blok Zincir ID";
@@ -200,7 +194,6 @@
 "Wallet.Month.ShortDecember" = "Aralık";
 "Wallet.Weekday.Today" = "Bugün";
 "Wallet.Weekday.Yesterday" = "Dün";
-"Wallet.Info.TransactionDateHeader" = "%1$@ %2$@";
 "Wallet.Info.TransactionDateHeaderYear" = "%1$@ %2$@ %3$@";
 "Wallet.UnknownError" = "Bir hata oldu. Lütfen daha sonra tekrar deneyin.";
 "Wallet.ContextMenuCopy" = "Kopyala";
