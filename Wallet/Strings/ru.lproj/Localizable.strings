@@ -11,7 +11,7 @@
 "Wallet.Updated.HoursAgo_3_10" = "%@ часа назад";
 "Wallet.Updated.HoursAgo_any" = "%@ часов назад";
 "Wallet.Updated.HoursAgo_many" = "%@ часов назад";
-"Wallet.Updated.HoursAgo_0" = "%@ hours ago";
+"Wallet.Updated.HoursAgo_0" = "%@ часов назад";
 "Wallet.Updated.YesterdayAt" = "вчера в %@";
 "Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "сегодня в %@";
@@ -90,7 +90,7 @@
 "Wallet.RestoreFailed.EnterWords" = "Введите 24 слова";
 "Wallet.Sending.Title" = "Отправка Gram";
 "Wallet.Sending.Text" = "Пожалуйста, подождите несколько секунд, пока ваша транзакция будет обработана...";
-"Wallet.Sending.Title" = "Sending Grams";
+"Wallet.Sending.Title" = "Отправка Gram";
 "Wallet.Sent.Title" = "Готово!";
 "Wallet.Sent.Text" = "**%@ Gram** были отправлены.";
 "Wallet.Sent.ViewWallet" = "Открыть кошелек";
