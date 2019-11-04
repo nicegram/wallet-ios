@@ -45,8 +45,8 @@
 "Wallet.Receive.AmountInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
 "Wallet.Receive.CommentHeader" = "КОММЕНТАРИЙ (ОПЦИОНАЛЬНО)";
 "Wallet.Receive.CommentInfo" = "Описание платежа";
-"Wallet.Receive.AddressCopied" = "Адрес скопирован в буфер обмена";
-"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на Чек скопирована в буфер обмена";
+"Wallet.Receive.AddressCopied" = "Адрес скопирован в буфер обмена.";
+"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на Чек скопирована в буфер обмена.";
 "Wallet.Send.Title" = "Отправить Gram";
 "Wallet.Send.AddressHeader" = "АДРЕС КОШЕЛЬКА ПОЛУЧАТЕЛЯ";
 "Wallet.Send.AddressText" = "Введите адрес кошелька...";
@@ -117,7 +117,7 @@
 "Wallet.TransactionInfo.OtherFeeHeader" = "ПЛАТА ЗА ТРАНЗАКЦИЮ";
 "Wallet.TransactionInfo.StorageFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за хранение информации о вашем децентрализованном кошельке и обработку ваших транзакций.";
 "Wallet.TransactionInfo.StorageFeeInfoUrl" = "Блокчейн-валидаторы собирают небольшую плату за хранение информации о вашем децентрализованном кошельке и обработку ваших транзакций. [Подробнее]()";
-"Wallet.TransactionInfo.OtherFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций";
+"Wallet.TransactionInfo.OtherFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций.";
 "Wallet.TransactionInfo.OtherFeeInfoUrl" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций. [Подробнее]()";
 "Wallet.WordCheck.Title" = "Проверка!";
 "Wallet.WordCheck.Text" = "Давайте проверим, правильно ли вы их записали. Пожалуйста, введите слова\n**%1$@**, **%2$@** и **%3$@**";
