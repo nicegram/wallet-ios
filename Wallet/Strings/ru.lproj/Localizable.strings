@@ -1,20 +1,10 @@
 "Wallet.Updated.JustNow" = "обновлено только что";
-"Wallet.Updated.MinutesAgo_0" = "%@ минут назад";
-
-/*three to ten*/
-"Wallet.Updated.MinutesAgo_1" = "1 минуту назад";
-
-/*one*/
-"Wallet.Updated.MinutesAgo_2" = "2 минуты назад";
-
-/*two*/
-"Wallet.Updated.MinutesAgo_3_10" = "%@ минуты назад";
-
-/*three to ten*/
-"Wallet.Updated.MinutesAgo_many" = "%@ минут назад";
-
-/*more than ten*/
-"Wallet.Updated.MinutesAgo_any" = "%@ минут назад";
+"Wallet.Updated.MinutesAgo_0" = "%@ минут назад"; // three to ten
+"Wallet.Updated.MinutesAgo_1" = "1 минуту назад"; // one
+"Wallet.Updated.MinutesAgo_2" = "2 минуты назад"; // two
+"Wallet.Updated.MinutesAgo_3_10" = "%@ минуты назад"; // three to ten
+"Wallet.Updated.MinutesAgo_many" = "%@ минут назад"; // more than ten
+"Wallet.Updated.MinutesAgo_any" = "%@ минут назад"; // more than ten
 "Wallet.Updated.HoursAgo_0" = "%@ часов назад";
 "Wallet.Updated.HoursAgo_1" = "1 час назад";
 "Wallet.Updated.HoursAgo_2" = "2 часа назад";
@@ -22,7 +12,6 @@
 "Wallet.Updated.HoursAgo_any" = "%@ часов назад";
 "Wallet.Updated.HoursAgo_many" = "%@ часов назад";
 "Wallet.Updated.YesterdayAt" = "вчера в %@";
-"Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "сегодня в %@";
 "Wallet.Info.WalletCreated" = "Кошелек Создан";
 "Wallet.Info.Address" = "Адрес вашего кошелька";
@@ -105,8 +94,6 @@
 "Wallet.SecureStorageNotAvailable.Title" = "Установить пароль";
 "Wallet.SecureStorageNotAvailable.Text" = "Пожалуйста, установите пароль на вашем устройстве, чтобы обеспечить безопасные платежи с помощью вашего кошелька Gram.";
 "Wallet.SecureStorageReset.Title" = "Изменение Параметров Безопасности";
-"Wallet.SecureStorageReset.BiometryTouchId" = "Touch ID";
-"Wallet.SecureStorageReset.BiometryFaceId" = "Face ID";
 "Wallet.SecureStorageReset.BiometryText" = "К сожалению, Ваш кошелек больше не доступен, потому что ваш системный пароль или %@ был отключен. Пожалуйста, включите их, прежде чем продолжить.";
 "Wallet.SecureStorageReset.PasscodeText" = "К сожалению, Ваш кошелек больше не доступен, потому что ваш системный пароль был отключен. Пожалуйста, включите его, прежде чем продолжить.";
 "Wallet.SecureStorageChanged.BiometryText" = "К сожалению, Ваш кошелек больше не доступен из-за изменения настроек безопасности вашей системы (Пароль/%@). Чтобы восстановить свой кошелек, нажмите \"Импортировать существующий кошелек\".";
@@ -161,8 +148,6 @@
 "Wallet.Configuration.Title" = "Настройки Сервера";
 "Wallet.Configuration.Apply" = "Сохранить";
 "Wallet.Configuration.SourceHeader" = "ИСТОЧНИК";
-"Wallet.Configuration.SourceURL" = "URL";
-"Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.SourceInfo" = "Использование другой конфигурации позволяет изменять адреса серверов Lite.";
 "Wallet.Configuration.BlockchainIdHeader" = "ID БЛОКЧЕЙНА";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "ID Блокчейна";
@@ -208,8 +193,6 @@
 "Wallet.Month.ShortDecember" = "Дек";
 "Wallet.Weekday.Today" = "Сегодня";
 "Wallet.Weekday.Yesterday" = "Вчера";
-"Wallet.Info.TransactionDateHeader" = "%1$@ %2$@";
-"Wallet.Info.TransactionDateHeaderYear" = "%1$@ %2$@, %3$@";
 "Wallet.UnknownError" = "Произошла ошибка. Пожалуйста, повторите попытку позже.";
 "Wallet.ContextMenuCopy" = "Копировать";
 "Wallet.Time.PreciseDate_m1" = "Январь %1$@, %2$@ в %3$@";
