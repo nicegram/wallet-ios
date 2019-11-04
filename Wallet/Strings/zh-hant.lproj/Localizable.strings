@@ -113,7 +113,6 @@
 "Wallet.TransactionInfo.AddressCopied" = "地址已復製到剪貼簿。";
 "Wallet.TransactionInfo.SendGrams" = "傳送 Grams 到這個地址";
 "Wallet.TransactionInfo.CommentHeader" = "說明";
-"Wallet.TransactionInfo.StorageFeeHeader" = "STORAGE FEE";
 "Wallet.TransactionInfo.OtherFeeHeader" = "手續費";
 "Wallet.TransactionInfo.StorageFeeInfo" = "區塊鏈驗證者收取少許費用來儲存並處理您的交易資訊。";
 "Wallet.TransactionInfo.StorageFeeInfoUrl" = "區塊鏈驗證者收取少許費用來儲存並處理您的交易資訊。[更多資訊]()";
