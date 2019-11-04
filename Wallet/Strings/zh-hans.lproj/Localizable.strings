@@ -1,0 +1,16 @@
+"Wallet.Updated.JustNow" = "刚刚更新";
+"Wallet.Updated.MinutesAgo_0" = "%@ 分钟前"; // three to ten
+"Wallet.Updated.MinutesAgo_1" = "1 分钟前"; // one
+"Wallet.Updated.MinutesAgo_2" = "2 分钟前"; // two
+"Wallet.Updated.MinutesAgo_3_10" = "%@ 分钟前"; // three to ten
+"Wallet.Updated.MinutesAgo_many" = "%@ 分钟前"; // more than ten
+"Wallet.Updated.MinutesAgo_any" = "%@ 分钟前"; // more than ten
+"Wallet.Updated.HoursAgo_0" = "%@ 小时前";
+"Wallet.Updated.HoursAgo_1" = "1 小时前";
+"Wallet.Updated.HoursAgo_2" = "2 小时前";
+"Wallet.Updated.HoursAgo_3_10" = "%@ 小时前";
+"Wallet.Updated.HoursAgo_any" = "%@ 小时前";
+"Wallet.Updated.HoursAgo_many" = "%@ 小时前";
+"Wallet.Updated.HoursAgo_0" = "%@ 小时前";
+"Wallet.Qr.ScanCode" = "扫描二维码";
+"Wallet.Qr.Title" = "二维码";
