@@ -12,5 +12,9 @@
 "Wallet.Updated.HoursAgo_any" = "%@ 小时前";
 "Wallet.Updated.HoursAgo_many" = "%@ 小时前";
 "Wallet.Updated.HoursAgo_0" = "%@ 小时前";
+"Wallet.Info.YourBalance" = "您的余额";
 "Wallet.Qr.ScanCode" = "扫描二维码";
 "Wallet.Qr.Title" = "二维码";
+"Wallet.Settings.ConfigurationInfo" = "高级设置";
+"Wallet.Navigation.Close" = "关闭";
+"Wallet.Navigation.Cancel" = "取消";
