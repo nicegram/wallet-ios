@@ -48,7 +48,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "Копировать ссылку на Чек";
 "Wallet.Receive.ShareAddress" = "Поделиться Адресом Кошелька";
 "Wallet.Receive.ShareInvoiceUrl" = "Поделиться ссылкой на Чек";
-"Wallet.Receive.ShareUrlInfo" = "Поделитесь этой ссылкой с другими владельцами кошельков Gram, чтобы получить от них Gram.";
+"Wallet.Receive.ShareUrlInfo" = "Поделитесь ссылкой на ваш кошелек для получения Gram.";
 "Wallet.Receive.AmountHeader" = "СУММА";
 "Wallet.Receive.AmountText" = "Gram для получения";
 "Wallet.Receive.AmountInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
@@ -128,7 +128,7 @@
 "Wallet.TransactionInfo.OtherFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций";
 "Wallet.TransactionInfo.OtherFeeInfoUrl" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций. [Подробнее]()";
 "Wallet.WordCheck.Title" = "Проверка!";
-"Wallet.WordCheck.Text" = "Давайте проверим, правильно ли вы их записали. Пожалуйста, введите слова\n**%1$@**, **%2$@** и * * %3$@**";
+"Wallet.WordCheck.Text" = "Давайте проверим, правильно ли вы их записали. Пожалуйста, введите слова\n**%1$@**, **%2$@** и **%3$@**";
 "Wallet.WordCheck.Continue" = "Продолжить";
 "Wallet.WordCheck.IncorrectHeader" = "Неверные слова!";
 "Wallet.WordCheck.IncorrectText" = "Секретные слова, которые вы ввели, не совпадают с теми, что в списке.";
@@ -225,4 +225,4 @@
 "Wallet.Time.PreciseDate_m11" = "Ноя %1$@, %2$@ в %3$@";
 "Wallet.Time.PreciseDate_m12" = "Дек %1$@, %2$@ в %3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "Очистить текст";
-"Wallet.Receive.ShareInvoiceUrlInfo" = "Поделитесь этой ссылкой с другими владельцами кошельков Gram, чтобы получить от них %@ Gram.";
+"Wallet.Receive.ShareInvoiceUrlInfo" = "Поделитесь ссылкой на ваш кошелек для получения %@ Gram.";
