@@ -1,0 +1,11 @@
+"Wallet.Updated.JustNow" = "aggiornato adesso";
+"Wallet.Updated.MinutesAgo_0" = "%@ minuti fa"; // three to ten
+"Wallet.Updated.MinutesAgo_1" = "1 minuto fa"; // one
+"Wallet.Updated.MinutesAgo_2" = "2 minuti fa"; // two
+"Wallet.Updated.MinutesAgo_3_10" = "%@ minuti fa"; // three to ten
+"Wallet.Updated.MinutesAgo_many" = "%@ minuti fa"; // more than ten
+"Wallet.Updated.MinutesAgo_any" = "%@ minuti fa"; // more than ten
+"Wallet.Updated.HoursAgo_0" = "%@ ore fa";
+"Wallet.Updated.HoursAgo_1" = "1 ora fa";
+"Wallet.Updated.HoursAgo_2" = "2 ore fa";
+"Wallet.Updated.HoursAgo_3_10" = "%@ ore fa";
