@@ -16,5 +16,7 @@
 "Wallet.Qr.ScanCode" = "扫描二维码";
 "Wallet.Qr.Title" = "二维码";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
+"Wallet.Created.Title" = "恭喜";
+"Wallet.WordCheck.Text" = "一起来确认一下您是否把它们正确地记下来了。请输入单词 **%1$@**，**%2$@** 和 **%3$@**";
 "Wallet.Navigation.Close" = "关闭";
 "Wallet.Navigation.Cancel" = "取消";
