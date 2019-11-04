@@ -22,7 +22,7 @@
 "Wallet.Info.ReceiveGrams" = "Gram Al";
 "Wallet.Info.Send" = "Gönder";
 "Wallet.Info.RefreshErrorTitle" = "Ağ yok";
-"Wallet.Info.RefreshErrorText" = "Bakiye yenilenemedi. Lütfen internet bağlantınızın çalışır olduğundan emin olun ve tekrar deneyin";
+"Wallet.Info.RefreshErrorText" = "Bakiye yenilenemedi. Lütfen internet bağlantınızın çalışır olduğundan emin olun ve tekrar deneyin.";
 "Wallet.Info.RefreshErrorNetworkText" = "Cüzdan durumu şu anda alınamıyor. Lütfen daha sonra tekrar deneyin.";
 "Wallet.Info.UnknownTransaction" = "Boş İşlem";
 "Wallet.Info.TransactionTo" = "şuna";
