@@ -26,6 +26,7 @@ resource_dependencies = [
     ":InfoPlistStringResources",
     ":Icons",
     ":LaunchScreen",
+    ":CurrenciesJson"
 ]
 
 apple_resource(
@@ -43,6 +44,14 @@ apple_resource(
     variants = glob([
         "InfoPlistStrings/*.lproj/InfoPlist.strings",
     ]),
+    visibility = ["PUBLIC"],
+)
+
+apple_resource(
+    name = "CurrenciesJson",
+    files = [
+        "currencies.json",
+    ],
     visibility = ["PUBLIC"],
 )
 
