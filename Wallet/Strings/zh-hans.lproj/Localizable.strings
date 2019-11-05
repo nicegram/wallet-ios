@@ -43,6 +43,8 @@
 "Wallet.Intro.CreateErrorTitle" = "发生错误";
 "Wallet.Intro.CreateErrorText" = "抱歉。请重试。";
 "Wallet.Intro.Title" = "NiceGram Wallet";
+"Wallet.Intro.Text" = "NiceGram Wallet 在无需中介的情况下即可让您基于区块链进行快捷而又安全的支付。";
+"Wallet.Intro.CreateWallet" = "创建我的钱包";
 "Wallet.Created.Title" = "恭喜";
 "Wallet.SecureStorageReset.BiometryTouchId" = "触控 ID";
 "Wallet.SecureStorageReset.BiometryFaceId" = "面容 ID";
