@@ -205,3 +205,4 @@
 "Wallet.Time.PreciseDate_m11" = "%1$@ Novembre %2$@ alle %3$@";
 "Wallet.Time.PreciseDate_m12" = "%1$@ Dicembre %2$@ alle %3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "Cancella il testo";
+"Wallet.Receive.ShareInvoiceUrlInfo" = "Condividi questo link con altri per ottenere %@ Grams da loro.";
