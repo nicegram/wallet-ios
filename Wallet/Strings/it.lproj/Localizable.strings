@@ -108,6 +108,12 @@
 "Wallet.TransactionInfo.NoAddress" = "Nessun indirizzo";
 "Wallet.TransactionInfo.RecipientHeader" = "RICEVENTE";
 "Wallet.TransactionInfo.SenderHeader" = "INVIATORE";
+"Wallet.TransactionInfo.CopyAddress" = "Copia l’indirizzo del portafoglio";
+"Wallet.TransactionInfo.AddressCopied" = "Indirizzo copiato negli appunti.";
+"Wallet.TransactionInfo.SendGrams" = "Invia Grams a questo indirizzo";
+"Wallet.TransactionInfo.CommentHeader" = "COMMENTO";
+"Wallet.TransactionInfo.OtherFeeHeader" = "Tassa per la transazione";
+"Wallet.WordCheck.Title" = "Ora della verifica!";
 "Wallet.Configuration.BlockchainIdInfo" = "Questa impostazione è per gli sviluppatori. Modificala solo se stai lavorando alla creazione della tua rete TON.";
 "Wallet.Configuration.ApplyErrorTitle" = "Errore";
 "Wallet.Configuration.ApplyErrorTextURLInvalid" = "L'URL inserito non è valido. Si prega di riprovare.";
