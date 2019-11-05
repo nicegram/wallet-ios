@@ -11,7 +11,9 @@
 "Wallet.Updated.HoursAgo_3_10" = "%@ часа назад";
 "Wallet.Updated.HoursAgo_any" = "%@ часов назад";
 "Wallet.Updated.HoursAgo_many" = "%@ часов назад";
+"Wallet.Updated.HoursAgo_0" = "%@ часов назад";
 "Wallet.Updated.YesterdayAt" = "вчера в %@";
+"Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "сегодня в %@";
 "Wallet.Info.WalletCreated" = "Кошелек Создан";
 "Wallet.Info.Address" = "Адрес вашего кошелька";
@@ -43,8 +45,8 @@
 "Wallet.Receive.AmountInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
 "Wallet.Receive.CommentHeader" = "КОММЕНТАРИЙ (ОПЦИОНАЛЬНО)";
 "Wallet.Receive.CommentInfo" = "Описание платежа";
-"Wallet.Receive.AddressCopied" = "Адрес скопирован в буфер обмена";
-"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на Чек скопирована в буфер обмена";
+"Wallet.Receive.AddressCopied" = "Адрес скопирован в буфер обмена.";
+"Wallet.Receive.InvoiceUrlCopied" = "Ссылка на Чек скопирована в буфер обмена.";
 "Wallet.Send.Title" = "Отправить Gram";
 "Wallet.Send.AddressHeader" = "АДРЕС КОШЕЛЬКА ПОЛУЧАТЕЛЯ";
 "Wallet.Send.AddressText" = "Введите адрес кошелька...";
@@ -88,12 +90,15 @@
 "Wallet.RestoreFailed.EnterWords" = "Введите 24 слова";
 "Wallet.Sending.Title" = "Отправка Gram";
 "Wallet.Sending.Text" = "Пожалуйста, подождите несколько секунд, пока ваша транзакция будет обработана...";
+"Wallet.Sending.Title" = "Отправка Gram";
 "Wallet.Sent.Title" = "Готово!";
 "Wallet.Sent.Text" = "**%@ Gram** были отправлены.";
 "Wallet.Sent.ViewWallet" = "Открыть кошелек";
 "Wallet.SecureStorageNotAvailable.Title" = "Установить пароль";
 "Wallet.SecureStorageNotAvailable.Text" = "Пожалуйста, установите пароль на вашем устройстве, чтобы обеспечить безопасные платежи с помощью вашего кошелька Gram.";
 "Wallet.SecureStorageReset.Title" = "Изменение Параметров Безопасности";
+"Wallet.SecureStorageReset.BiometryTouchId" = "Touch ID";
+"Wallet.SecureStorageReset.BiometryFaceId" = "Face ID";
 "Wallet.SecureStorageReset.BiometryText" = "К сожалению, Ваш кошелек больше не доступен, потому что ваш системный пароль или %@ был отключен. Пожалуйста, включите их, прежде чем продолжить.";
 "Wallet.SecureStorageReset.PasscodeText" = "К сожалению, Ваш кошелек больше не доступен, потому что ваш системный пароль был отключен. Пожалуйста, включите его, прежде чем продолжить.";
 "Wallet.SecureStorageChanged.BiometryText" = "К сожалению, Ваш кошелек больше не доступен из-за изменения настроек безопасности вашей системы (Пароль/%@). Чтобы восстановить свой кошелек, нажмите \"Импортировать существующий кошелек\".";
@@ -112,7 +117,7 @@
 "Wallet.TransactionInfo.OtherFeeHeader" = "ПЛАТА ЗА ТРАНЗАКЦИЮ";
 "Wallet.TransactionInfo.StorageFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за хранение информации о вашем децентрализованном кошельке и обработку ваших транзакций.";
 "Wallet.TransactionInfo.StorageFeeInfoUrl" = "Блокчейн-валидаторы собирают небольшую плату за хранение информации о вашем децентрализованном кошельке и обработку ваших транзакций. [Подробнее]()";
-"Wallet.TransactionInfo.OtherFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций";
+"Wallet.TransactionInfo.OtherFeeInfo" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций.";
 "Wallet.TransactionInfo.OtherFeeInfoUrl" = "Блокчейн-валидаторы собирают небольшую плату за обработку Ваших децентрализованных транзакций. [Подробнее]()";
 "Wallet.WordCheck.Title" = "Проверка!";
 "Wallet.WordCheck.Text" = "Давайте проверим, правильно ли вы их записали. Пожалуйста, введите слова\n**%1$@**, **%2$@** и **%3$@**";
@@ -148,6 +153,8 @@
 "Wallet.Configuration.Title" = "Настройки Сервера";
 "Wallet.Configuration.Apply" = "Сохранить";
 "Wallet.Configuration.SourceHeader" = "ИСТОЧНИК";
+"Wallet.Configuration.SourceURL" = "URL";
+"Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.SourceInfo" = "Использование другой конфигурации позволяет изменять адреса серверов Lite.";
 "Wallet.Configuration.BlockchainIdHeader" = "ID БЛОКЧЕЙНА";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "ID Блокчейна";
@@ -193,6 +200,8 @@
 "Wallet.Month.ShortDecember" = "Дек";
 "Wallet.Weekday.Today" = "Сегодня";
 "Wallet.Weekday.Yesterday" = "Вчера";
+"Wallet.Info.TransactionDateHeader" = "%1$@ %2$@";
+"Wallet.Info.TransactionDateHeaderYear" = "%1$@ %2$@, %3$@";
 "Wallet.UnknownError" = "Произошла ошибка. Пожалуйста, повторите попытку позже.";
 "Wallet.ContextMenuCopy" = "Копировать";
 "Wallet.Time.PreciseDate_m1" = "Январь %1$@, %2$@ в %3$@";
