@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+import AppBundle
 
 public func getCurrencyData() -> [String:Any]? {
-    if let path = Bundle.main.path(forResource: "currencies", ofType: "json") {
+    if let path = getAppBundle().path(forResource: "currencies", ofType: "json") {
         do {
               let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
               let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
