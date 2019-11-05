@@ -71,7 +71,7 @@
 "Wallet.Intro.ImportExisting" = "Importa un portafoglio esistente";
 "Wallet.Intro.CreateErrorTitle" = "Si è verificato un errore";
 "Wallet.Intro.CreateErrorText" = "Oops! Si prega di riprovare.";
-"Wallet.Intro.Title" = "Wallet di Nicegram";
+"Wallet.Intro.Title" = "NiceGram Wallet";
 "Wallet.Intro.Text" = "Il wallet di Nicegram ti permette di effettuare pagamenti basati sulla blockchain in modo rapido e sicuro senza intermediari.";
 "Wallet.Intro.CreateWallet" = "Crea il mio Portafoglio";
 "Wallet.Intro.Terms" = "Creando un portafoglio accetti i\n[Terms of Conditions]().";
