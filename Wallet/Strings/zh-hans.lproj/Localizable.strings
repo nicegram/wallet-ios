@@ -20,6 +20,8 @@
 "Wallet.Info.ReceiveGrams" = "接收 Grams";
 "Wallet.Info.Send" = "发送";
 "Wallet.Info.RefreshErrorTitle" = "无网络";
+"Wallet.Info.RefreshErrorText" = "无法刷新余额。请确认您的网络连接正常并重试。";
+"Wallet.Info.RefreshErrorNetworkText" = "当前无法获取钱包状态。请稍后重试。";
 "Wallet.Info.Updating" = "更新中";
 "Wallet.Qr.ScanCode" = "扫描二维码";
 "Wallet.Qr.Title" = "二维码";
@@ -28,13 +30,18 @@
 "Wallet.Receive.CopyAddress" = "复制钱包地址";
 "Wallet.Receive.ShareAddress" = "分享钱包地址";
 "Wallet.Receive.ShareUrlInfo" = "与其他的 Gram Wallet 拥有者分享该链接，便可从他们那里接收 Grams。";
+"Wallet.Receive.CommentHeader" = "留言（可选）";
 "Wallet.Receive.AddressCopied" = "地址已复制到剪贴板中。";
 "Wallet.Send.Confirmation" = "确认";
+"Wallet.Send.OwnAddressAlertTitle" = "警告";
+"Wallet.Send.TransactionInProgress" = "请等待当前交易完成。";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
 "Wallet.Settings.BackupWallet" = "备份钱包";
 "Wallet.Settings.DeleteWallet" = "删除钱包";
+"Wallet.Intro.CreateErrorTitle" = "发生错误";
+"Wallet.Intro.CreateErrorText" = "抱歉。请重试。";
 "Wallet.Intro.Title" = "NiceGram Wallet";
 "Wallet.Created.Title" = "恭喜";
 "Wallet.SecureStorageReset.BiometryTouchId" = "触控 ID";
