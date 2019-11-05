@@ -302,6 +302,9 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
     private let scrollNode: ASScrollNode
     private let amountNode: WalletInfoBalanceNode
     private let activateArea: AccessibilityAreaNode
+    
+    private let fiatNode: ImmediateTextNode
+    
     private let feesNode: ImmediateTextNode
     private let feesInfoIconNode: ASImageNode
     private let feesButtonNode: ASButtonNode
@@ -339,6 +342,11 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
         self.scrollNode = ASScrollNode()
         
         self.amountNode = WalletInfoBalanceNode(dateTimeFormat: presentationData.dateTimeFormat)
+        
+        self.fiatNode = ImmediateTextNode()
+        self.fiatNode.textAlignment = .center
+        self.fiatNode.maximumNumberOfLines = 1
+        self.fiatNode.lineSpacing = 0.35
         
         self.feesNode = ImmediateTextNode()
         self.feesNode.textAlignment = .center
@@ -390,6 +398,7 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
         self.backgroundColor = self.presentationData.theme.list.plainBackgroundColor
         
         self.addSubnode(self.scrollNode)
+        self.addSubnode(self.fiatNode)
         self.addSubnode(self.feesNode)
         self.addSubnode(self.feesInfoIconNode)
         self.addSubnode(self.feesButtonNode)
@@ -419,9 +428,13 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
         if transferredValue <= 0 {
             amountString = "\(formatBalanceText(-transferredValue, decimalSeparator: self.presentationData.dateTimeFormat.decimalSeparator))"
             amountColor = self.presentationData.theme.info.outgoingFundsTitleColor
+            
+            self.fiatNode.attributedText = NSAttributedString(string: gramToFiatStr(-transferredValue, false), font: Font.medium(20.0), textColor: amountColor)
         } else {
             amountString = "\(formatBalanceText(transferredValue, decimalSeparator: self.presentationData.dateTimeFormat.decimalSeparator))"
             amountColor = self.presentationData.theme.info.incomingFundsTitleColor
+            
+            self.fiatNode.attributedText = NSAttributedString(string: gramToFiatStr(transferredValue, false), font: Font.medium(20.0), textColor: amountColor)
         }
         self.amountNode.balance = (amountString, amountColor)
                 
@@ -581,8 +594,12 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
         transition.updateFrame(node: self.amountNode, frame: balanceFrame)
         transition.updateSublayerTransformScale(node: self.amountNode, scale: headerScale)
         
+        let fiatSize = self.fiatNode.updateLayout(CGSize(width: layout.size.width - sideInset * 2.0, height: CGFloat.greatestFiniteMagnitude))
+        let fiatFrame = CGRect(origin: CGPoint(x: floor((layout.size.width - fiatSize.width) / 2.0), y: headerY + 56.0), size: fiatSize)
+        transition.updateFrame(node: self.fiatNode, frame: fiatFrame)
+        
         let feesSize = self.feesNode.updateLayout(CGSize(width: layout.size.width - sideInset * 2.0, height: CGFloat.greatestFiniteMagnitude))
-        let feesFrame = CGRect(origin: CGPoint(x: floor((layout.size.width - feesSize.width) / 2.0), y: headerY + 64.0), size: feesSize)
+        let feesFrame = CGRect(origin: CGPoint(x: floor((layout.size.width - feesSize.width) / 2.0), y: headerY + 96.0), size: feesSize)
         transition.updateFrame(node: self.feesNode, frame: feesFrame)
         transition.updateFrame(node: self.feesButtonNode, frame: feesFrame)
         self.feesButtonNode.isUserInteractionEnabled = feesAlpha > 1.0 - CGFloat.ulpOfOne
@@ -647,7 +664,7 @@ private final class WalletTransactionInfoScreenNode: ViewControllerTracingNode, 
         transition.updateFrame(node: self.scrollNode, frame: scrollFrame)
         
         let commentSize = self.commentTextNode.updateLayout(CGSize(width: layout.size.width - 36.0 * 2.0, height: CGFloat.greatestFiniteMagnitude))
-        let commentOrigin = CGPoint(x: floor((layout.size.width - commentSize.width) / 2.0), y: 175.0)
+        let commentOrigin = CGPoint(x: floor((layout.size.width - commentSize.width) / 2.0), y: 175.0 + 20.0)
         let commentFrame = CGRect(origin: commentOrigin, size: commentSize)
         transition.updateFrame(node: self.commentTextNode, frame: commentFrame)
 

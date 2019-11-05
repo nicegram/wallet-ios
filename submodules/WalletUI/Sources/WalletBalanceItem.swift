@@ -13,19 +13,21 @@ class WalletBalanceItem: ListViewItem, ItemListItem {
     let sectionId: ItemListSectionId
     let style: ItemListStyle
     let isAlwaysPlain: Bool = true
+    var useIcon: Bool = true
     
-    init(theme: WalletTheme, title: String, value: String, insufficient: Bool, sectionId: ItemListSectionId, style: ItemListStyle = .blocks) {
+    init(theme: WalletTheme, title: String, value: String, insufficient: Bool, sectionId: ItemListSectionId, style: ItemListStyle = .blocks, useIcon: Bool = true) {
         self.theme = theme
         self.title = title
         self.value = value
         self.insufficient = insufficient
         self.sectionId = sectionId
         self.style = style
+        self.useIcon = useIcon
     }
     
     func nodeConfiguredForParams(async: @escaping (@escaping () -> Void) -> Void, params: ListViewItemLayoutParams, synchronousLoads: Bool, previousItem: ListViewItem?, nextItem: ListViewItem?, completion: @escaping (ListViewItemNode, @escaping () -> (Signal<Void, NoError>?, (ListViewItemApply) -> Void)) -> Void) {
         async {
-            let node = WalletBalanceItemNode()
+            let node = WalletBalanceItemNode(self.useIcon)
             let (layout, apply) = node.asyncLayout()(self, params, itemListNeighbors(item: self, topItem: previousItem as? ItemListItem, bottomItem: nextItem as? ItemListItem))
             
             node.contentSize = layout.contentSize
@@ -70,7 +72,11 @@ class WalletBalanceItemNode: ListViewItemNode {
     
     private var item: WalletBalanceItem?
     
-    init() {
+    private var useIcon: Bool = true
+    
+    init(_ useIcon: Bool = true) {
+        self.useIcon = useIcon
+
         self.titleNode = TextNode()
         self.titleNode.isUserInteractionEnabled = false
         self.titleNode.contentMode = .left
@@ -92,7 +98,9 @@ class WalletBalanceItemNode: ListViewItemNode {
         
         self.addSubnode(self.titleNode)
         self.addSubnode(self.valueNode)
-        self.addSubnode(self.iconNode)
+        if (self.useIcon) {
+            self.addSubnode(self.iconNode)
+        }
         self.addSubnode(self.activateArea)
     }
     
@@ -113,7 +121,10 @@ class WalletBalanceItemNode: ListViewItemNode {
             let verticalInset: CGFloat = 7.0
             
             let iconImage: UIImage? = transactionIcon
-            let iconSize = CGSize(width: 12.0, height: 10.0)
+            var iconSize = CGSize(width: 12.0, height: 10.0)
+            if !self.useIcon {
+                iconSize = CGSize(width: 0.0, height: 0.0)
+            }
             
             let textColor = item.insufficient ? item.theme.list.freeTextErrorColor : item.theme.list.freeTextColor
             
@@ -148,7 +159,10 @@ class WalletBalanceItemNode: ListViewItemNode {
                     let _ = titleApply()
                     let _ = valueApply()
                     
-                    let iconSpacing: CGFloat = 3.0
+                    var iconSpacing: CGFloat = 3.0
+                    if !strongSelf.useIcon {
+                        iconSpacing = 0.0
+                    }
                     let valueSpacing: CGFloat = 2.0
                     strongSelf.titleNode.frame = CGRect(origin: CGPoint(x: leftInset, y: verticalInset), size: titleLayout.size)
                     strongSelf.valueNode.frame = CGRect(origin: CGPoint(x: leftInset + titleLayout.size.width + iconSpacing + iconSize.width + valueSpacing, y: verticalInset), size: valueLayout.size)

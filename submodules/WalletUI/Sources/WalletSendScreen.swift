@@ -57,6 +57,7 @@ private enum WalletSendScreenEntryTag: ItemListItemTag {
 private enum WalletSendScreenEntry: ItemListNodeEntry {
     case amount(WalletTheme, String)
     case balance(WalletTheme, String, String, Bool)
+    case fiatBalance(WalletTheme, String, String, Bool)
     case addressHeader(WalletTheme, String)
     case address(WalletTheme, String, String)
     case addressInfo(WalletTheme, String)
@@ -65,7 +66,7 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
     
     var section: ItemListSectionId {
         switch self {
-        case .amount, .balance:
+        case .amount, .balance, .fiatBalance:
             return WalletSendScreenSection.amount.rawValue
         case .addressHeader, .address, .addressInfo:
             return WalletSendScreenSection.address.rawValue
@@ -80,16 +81,18 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             return 0
         case .balance:
             return 1
-        case .addressHeader:
+        case .fiatBalance:
             return 2
-        case .address:
+        case .addressHeader:
             return 3
-        case .addressInfo:
+        case .address:
             return 4
-        case .commentHeader:
+        case .addressInfo:
             return 5
-        case .comment:
+        case .commentHeader:
             return 6
+        case .comment:
+            return 7
         }
     }
     
@@ -103,6 +106,12 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             }
         case let .balance(lhsTheme, lhsTitle, lhsBalance, lhsInsufficient):
             if case let .balance(rhsTheme, rhsTitle, rhsBalance, rhsInsufficient) = rhs, lhsTheme === rhsTheme, lhsTitle == rhsTitle, lhsBalance == rhsBalance, lhsInsufficient == rhsInsufficient {
+                return true
+            } else {
+                return false
+            }
+        case let .fiatBalance(lhsTheme, lhsTitle, lhsBalance, lhsInsufficient):
+            if case let .fiatBalance(rhsTheme, rhsTitle, rhsBalance, rhsInsufficient) = rhs, lhsTheme === rhsTheme, lhsTitle == rhsTitle, lhsBalance == rhsBalance, lhsInsufficient == rhsInsufficient {
                 return true
             } else {
                 return false
@@ -174,6 +183,8 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             }, tag: WalletSendScreenEntryTag.amount)
         case let .balance(theme, title, balance, insufficient):
             return WalletBalanceItem(theme: theme, title: title, value: balance, insufficient: insufficient, sectionId: self.section)
+        case let .fiatBalance(theme, title, balance, insufficient):
+            return WalletBalanceItem(theme: theme, title: title, value: balance, insufficient: insufficient, sectionId: self.section, useIcon: false)
         case let .addressHeader(theme, text):
             return ItemListSectionHeaderItem(theme: theme, text: text, sectionId: self.section)
         case let .address(theme, placeholder, address):
@@ -249,7 +260,7 @@ private func walletSendScreenEntries(presentationData: WalletPresentationData, b
     let balance = max(0, balance ?? 0)
     entries.append(.amount(presentationData.theme, state.amount ?? ""))
     entries.append(.balance(presentationData.theme, presentationData.strings.Wallet_Send_Balance("").0, formatBalanceText(balance, decimalSeparator: presentationData.dateTimeFormat.decimalSeparator), balance == 0 || (amount > 0 && balance < amount)))
-    
+    entries.append(.fiatBalance(presentationData.theme, presentationData.strings.Wallet_Send_Balance("").0, gramToFiatStr(balance, false, " "), balance == 0 || (amount > 0 && balance < amount)))
     entries.append(.addressHeader(presentationData.theme, presentationData.strings.Wallet_Send_AddressHeader))
     entries.append(.address(presentationData.theme, presentationData.strings.Wallet_Send_AddressText, state.address))
     entries.append(.addressInfo(presentationData.theme, presentationData.strings.Wallet_Send_AddressInfo))

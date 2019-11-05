@@ -75,6 +75,7 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
     private let containerNode: ASDisplayNode
     private let textNode: TextFieldNode
     private let iconNode: AnimatedStickerNode
+    private let fiatNode: TextFieldNode
     private let measureNode: TextNode
         
     private var item: WalletAmountItem?
@@ -102,6 +103,7 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
         }
         
         self.measureNode = TextNode()
+        self.fiatNode = TextFieldNode()
         
         super.init(layerBacked: false, dynamicBounce: false)
         
@@ -109,6 +111,7 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
         
         self.addSubnode(self.containerNode)
         self.containerNode.addSubnode(self.textNode)
+        self.containerNode.addSubnode(self.fiatNode)
         self.containerNode.addSubnode(self.iconNode)
     }
     
@@ -128,6 +131,20 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
         self.textNode.textField.delegate = self
         self.textNode.textField.addTarget(self, action: #selector(self.textFieldTextChanged(_:)), for: .editingChanged)
         self.textNode.hitTestSlop = UIEdgeInsets(top: -5.0, left: -5.0, bottom: -5.0, right: -5.0)
+        
+        self.fiatNode.textField.textAlignment = .center
+        self.fiatNode.textField.typingAttributes = [NSAttributedString.Key.font: integralFont]
+        self.fiatNode.textField.font = integralFont
+        if let item = self.item {
+            self.fiatNode.textField.textColor = item.theme.list.itemPrimaryTextColor
+            self.fiatNode.textField.keyboardAppearance = item.theme.keyboardAppearance
+            self.fiatNode.textField.tintColor = item.theme.list.itemAccentColor
+            //self.textNode.textField.accessibilityHint = item.placeholder
+        }
+        self.fiatNode.clipsToBounds = true
+        self.fiatNode.textField.delegate = self
+//        self.textNode.textField.addTarget(self, action: #selector(self.textFieldTextChanged(_:)), for: .editingChanged)
+//        self.textNode.hitTestSlop = UIEdgeInsets(top: -5.0, left: -5.0, bottom: -5.0, right: -5.0)
     }
     
     private func inputFieldAsyncLayout() -> (_ item: WalletAmountItem, _ params: ListViewItemLayoutParams) -> (NSAttributedString, NSAttributedString, () -> Void) {
@@ -138,8 +155,10 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
             let layout = ListViewItemNodeLayout(contentSize: contentSize, insets: UIEdgeInsets())
             
             let attributedPlaceholderText = NSAttributedString(string: "0", font: integralFont, textColor: item.theme.list.itemPlaceholderTextColor)
-            let attributedAmountText = amountAttributedString(item.amount, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor)
+            let attributedAmountText = amountAttributedString(item.amount, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor, placeHolderColor: item.theme.list.itemPlaceholderTextColor)
                  
+            let attributedFiatAmount = NSAttributedString(string: gramToFiatStr(Int64(item.amount)), font: integralFont, textColor: item.theme.list.itemPlaceholderTextColor)
+            
             let (measureLayout, _) = makeMeasureLayout(TextNodeLayoutArguments(attributedString: item.amount.isEmpty ? attributedPlaceholderText : attributedAmountText, backgroundColor: nil, maximumNumberOfLines: 1, truncationType: .end, constrainedSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude), alignment: .natural, cutout: nil, insets: UIEdgeInsets()))
             
             return (attributedPlaceholderText, attributedAmountText, { [weak self] in
@@ -303,7 +322,7 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
             if result != string {
                 var text = textField.text ?? ""
                 text.replaceSubrange(text.index(text.startIndex, offsetBy: range.lowerBound) ..< text.index(text.startIndex, offsetBy: range.upperBound), with: result)
-                textField.attributedText = amountAttributedString(text, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor)
+                textField.attributedText = amountAttributedString(text, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor, placeHolderColor: item.theme.list.itemPlaceholderTextColor)
                 if let startPosition = textField.position(from: textField.beginningOfDocument, offset: range.lowerBound + result.count) {
                     let selectionRange = textField.textRange(from: startPosition, to: startPosition)
                     DispatchQueue.main.async {
@@ -315,7 +334,7 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
             }
         }
         if let item = self.item {
-            textField.attributedText = amountAttributedString(newText, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor)
+            textField.attributedText = amountAttributedString(newText, integralFont: integralFont, fractionalFont: fractionalFont, color: item.theme.list.itemPrimaryTextColor, placeHolderColor: item.theme.list.itemPlaceholderTextColor)
             self.textFieldTextChanged(textField)
             return false
         } else {

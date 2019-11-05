@@ -189,7 +189,7 @@ func walletInvoiceUrl(address: String, amount: String? = nil, comment: String? =
 }
 
 private let amountDelimeterCharacters = CharacterSet(charactersIn: "0123456789").inverted
-func amountAttributedString(_ string: String, integralFont: UIFont, fractionalFont: UIFont, color: UIColor) -> NSAttributedString {
+func amountAttributedString(_ string: String, integralFont: UIFont, fractionalFont: UIFont, color: UIColor, placeHolderColor: UIColor) -> NSAttributedString {
     let result = NSMutableAttributedString()
     if let range = string.rangeOfCharacter(from: amountDelimeterCharacters) {
         let integralPart = String(string[..<range.lowerBound])

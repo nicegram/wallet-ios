@@ -268,6 +268,8 @@ private final class WalletInfoHeaderNode: ASDisplayNode {
     
     private let hasActions: Bool
     
+    let presentationData: WalletPresentationData
+    
     let balanceNode: WalletInfoBalanceNode
     let refreshNode: WalletRefreshNode
     private let balanceSubtitleNode: ImmediateTextNode
@@ -279,12 +281,12 @@ private final class WalletInfoHeaderNode: ASDisplayNode {
     
     init(presentationData: WalletPresentationData, hasActions: Bool, sendAction: @escaping () -> Void, receiveAction: @escaping () -> Void) {
         self.hasActions = hasActions
-        
+        self.presentationData = presentationData
         self.balanceNode = WalletInfoBalanceNode(dateTimeFormat: presentationData.dateTimeFormat)
         
         self.balanceSubtitleNode = ImmediateTextNode()
         self.balanceSubtitleNode.displaysAsynchronously = false
-        self.balanceSubtitleNode.attributedText = NSAttributedString(string: hasActions ? presentationData.strings.Wallet_Info_YourBalance : "balance", font: Font.regular(13), textColor: UIColor(white: 1.0, alpha: 0.6))
+        self.balanceSubtitleNode.attributedText = NSAttributedString(string: hasActions ? presentationData.strings.Wallet_Info_YourBalance + " " + gramToFiatStr(self.balance) : "balance", font: Font.regular(13), textColor: UIColor(white: 1.0, alpha: 0.6))
         
         self.headerBackgroundNode = ASDisplayNode()
         self.headerBackgroundNode.backgroundColor = .black
@@ -360,6 +362,9 @@ private final class WalletInfoHeaderNode: ASDisplayNode {
         let buttonTransition: CGFloat = max(0.0, min(1.0, (effectiveOffset - minButtonsOffset) / (maxButtonsOffset - minButtonsOffset)))
         let buttonAlpha: CGFloat = buttonTransition
         
+        
+        self.balanceSubtitleNode.attributedText = NSAttributedString(string: hasActions ? self.presentationData.strings.Wallet_Info_YourBalance + " " + gramToFiatStr(self.balance) : "balance", font: Font.regular(13), textColor: UIColor(white: 1.0, alpha: 0.6))
+
         let balanceSubtitleSize = self.balanceSubtitleNode.updateLayout(CGSize(width: size.width - sideInset * 2.0, height: 200.0))
         
         let headerScaleTransition: CGFloat = max(0.0, min(1.0, (effectiveOffset - minHeaderOffset) / (maxHeaderOffset - minHeaderOffset)))
