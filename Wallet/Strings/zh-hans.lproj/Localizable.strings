@@ -18,6 +18,7 @@
 "Wallet.Info.YourBalance" = "您的余额";
 "Wallet.Info.Receive" = "接收";
 "Wallet.Info.ReceiveGrams" = "接收 Grams";
+"Wallet.Info.Send" = "发送";
 "Wallet.Info.RefreshErrorTitle" = "无网络";
 "Wallet.Info.Updating" = "更新中";
 "Wallet.Qr.ScanCode" = "扫描二维码";
@@ -26,6 +27,7 @@
 "Wallet.Receive.AddressHeader" = "您的钱包地址";
 "Wallet.Receive.CopyAddress" = "复制钱包地址";
 "Wallet.Receive.ShareAddress" = "分享钱包地址";
+"Wallet.Receive.ShareUrlInfo" = "与其他的 Gram 钱包拥有者分享该链接，便可从他们那里接收 Grams。";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
