@@ -27,11 +27,15 @@
 "Wallet.Receive.AddressHeader" = "您的钱包地址";
 "Wallet.Receive.CopyAddress" = "复制钱包地址";
 "Wallet.Receive.ShareAddress" = "分享钱包地址";
-"Wallet.Receive.ShareUrlInfo" = "与其他的 Gram 钱包拥有者分享该链接，便可从他们那里接收 Grams。";
+"Wallet.Receive.ShareUrlInfo" = "与其他的 Gram Wallet 拥有者分享该链接，便可从他们那里接收 Grams。";
+"Wallet.Receive.AddressCopied" = "地址已复制到剪贴板中。";
+"Wallet.Send.Confirmation" = "确认";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
 "Wallet.Settings.BackupWallet" = "备份钱包";
+"Wallet.Settings.DeleteWallet" = "删除钱包";
+"Wallet.Intro.Title" = "NiceGram Wallet";
 "Wallet.Created.Title" = "恭喜";
 "Wallet.SecureStorageReset.BiometryTouchId" = "触控 ID";
 "Wallet.SecureStorageReset.BiometryFaceId" = "面容 ID";
