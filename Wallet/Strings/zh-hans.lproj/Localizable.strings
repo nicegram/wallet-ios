@@ -16,9 +16,15 @@
 "Wallet.Info.WalletCreated" = "钱包已创建";
 "Wallet.Info.Address" = "您的钱包地址";
 "Wallet.Info.YourBalance" = "您的余额";
+"Wallet.Info.Receive" = "接收";
+"Wallet.Info.ReceiveGrams" = "接收 Grams";
+"Wallet.Info.RefreshErrorTitle" = "无网络";
+"Wallet.Info.Updating" = "更新中";
 "Wallet.Qr.ScanCode" = "扫描二维码";
 "Wallet.Qr.Title" = "二维码";
+"Wallet.Receive.Title" = "接收 Grams";
 "Wallet.Receive.AddressHeader" = "您的钱包地址";
+"Wallet.Receive.CopyAddress" = "复制钱包地址";
 "Wallet.Receive.ShareAddress" = "分享钱包地址";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
