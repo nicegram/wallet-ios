@@ -33,6 +33,8 @@
 "Wallet.Receive.CommentHeader" = "留言（可选）";
 "Wallet.Receive.AddressCopied" = "地址已复制到剪贴板中。";
 "Wallet.Send.Confirmation" = "确认";
+"Wallet.Send.ConfirmationConfirm" = "确认";
+"Wallet.Send.Send" = "发送";
 "Wallet.Send.OwnAddressAlertTitle" = "警告";
 "Wallet.Send.TransactionInProgress" = "请等待当前交易完成。";
 "Wallet.Settings.Title" = "设置";
@@ -40,11 +42,13 @@
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
 "Wallet.Settings.BackupWallet" = "备份钱包";
 "Wallet.Settings.DeleteWallet" = "删除钱包";
+"Wallet.Intro.ImportExisting" = "导入现有钱包";
 "Wallet.Intro.CreateErrorTitle" = "发生错误";
 "Wallet.Intro.CreateErrorText" = "抱歉。请重试。";
 "Wallet.Intro.Title" = "NiceGram Wallet";
 "Wallet.Intro.Text" = "NiceGram Wallet 在无需中介的情况下即可让您基于区块链进行快捷而又安全的支付。";
 "Wallet.Intro.CreateWallet" = "创建我的钱包";
+"Wallet.Intro.Terms" = "选择创建钱包，即代表您接受了我们的[条款和条件]()。";
 "Wallet.Created.Title" = "恭喜";
 "Wallet.SecureStorageReset.BiometryTouchId" = "触控 ID";
 "Wallet.SecureStorageReset.BiometryFaceId" = "面容 ID";
