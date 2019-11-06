@@ -158,6 +158,7 @@
 "Wallet.Configuration.SourceInfo" = "使用其它配置可以更改 Lite 服务器地址。";
 "Wallet.Configuration.BlockchainIdHeader" = "区块链 ID";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "区块链 ID";
+"Wallet.Configuration.BlockchainIdInfo" = "开发人员专用设置。仅当您创建自己的 TON 网络时才可更改此项。";
 "Wallet.Configuration.ApplyErrorTitle" = "错误";
 "Wallet.Configuration.ApplyErrorTextURLInvalid" = "您输入的 URL 无效。请重试。";
 "Wallet.Configuration.ApplyErrorTextURLUnreachable" = "从 %@ 下载配置时出错。\n请重试。";
