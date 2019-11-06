@@ -82,8 +82,16 @@
 "Wallet.Completed.Title" = "已就绪！";
 "Wallet.Completed.ViewWallet" = "查看我的钱包";
 "Wallet.RestoreFailed.CreateWallet" = "创建一个新的钱包";
+"Wallet.RestoreFailed.EnterWords" = "输入 24 组暗号";
+"Wallet.Sending.Title" = "发送 Grams";
+"Wallet.Sending.Text" = "请等待您的交易处理完成......";
 "Wallet.Sending.Title" = "发送 Grams";
 "Wallet.Sent.Title" = "完成！";
+"Wallet.Sent.Text" = "已发送 **%@ Grams**。";
+"Wallet.Sent.ViewWallet" = "查看我的钱包";
+"Wallet.SecureStorageNotAvailable.Title" = "设置一个密码";
+"Wallet.SecureStorageNotAvailable.Text" = "请在您的设备上设置一个密码，以为您的 Grams Wallet 启用安全支付。";
+"Wallet.SecureStorageReset.Title" = "安全设置已更改";
 "Wallet.SecureStorageReset.BiometryTouchId" = "触控 ID";
 "Wallet.SecureStorageReset.BiometryFaceId" = "面容 ID";
 "Wallet.WordCheck.Text" = "一起来确认一下您是否把它们正确地记下来了。请输入单词 **%1$@**，**%2$@** 和 **%3$@**";
