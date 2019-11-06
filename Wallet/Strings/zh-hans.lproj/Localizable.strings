@@ -115,8 +115,12 @@
 "Wallet.TransactionInfo.CommentHeader" = "留言";
 "Wallet.TransactionInfo.StorageFeeHeader" = "保管费";
 "Wallet.TransactionInfo.OtherFeeHeader" = "交易手续费";
+"Wallet.TransactionInfo.StorageFeeInfo" = "区块链验证者会收取少量手续费，以存储您的去中心化钱包信息和处理您的交易。";
+"Wallet.TransactionInfo.StorageFeeInfoUrl" = "区块链验证者会收取少量手续费，以存储您的去中心化钱包信息和处理您的交易。[更多信息]()";
+"Wallet.TransactionInfo.OtherFeeInfo" = "区块链验证者会收取少量手续费，以处理您的去中心化交易。";
+"Wallet.TransactionInfo.OtherFeeInfoUrl" = "区块链验证者会收取少量手续费，以处理您的去中心化交易。[更多信息]()";
 "Wallet.WordCheck.Title" = "测试时间！";
-"Wallet.WordCheck.Text" = "一起来确认一下您是否把它们正确地记下来了。请输入暗号 **%1$@**，**%2$@** 和 **%3$@**";
+"Wallet.WordCheck.Text" = "一起来确认一下您是否把它们正确地记下来了。\n请输入暗号 **%1$@**，**%2$@** 和 **%3$@**";
 "Wallet.WordCheck.Continue" = "继续";
 "Wallet.WordCheck.IncorrectHeader" = "暗号错误！";
 "Wallet.WordCheck.IncorrectText" = "您输入的暗号与列表中的不一致。";
@@ -125,6 +129,7 @@
 "Wallet.WordImport.Title" = "24 组暗号";
 "Wallet.WordImport.Text" = "请通过以下方式恢复对您的钱包的访问权限\n输入您在创建钱包时记下的 24 组暗号。";
 "Wallet.WordImport.Continue" = "继续";
+"Wallet.WordImport.CanNotRemember" = "我没记下来";
 "Wallet.WordImport.IncorrectTitle" = "暗号错误";
 "Wallet.WordImport.IncorrectText" = "抱歉，您的暗号输入错误。请仔细检查并重试。";
 "Wallet.Words.Title" = "24 组暗号";
@@ -136,7 +141,9 @@
 "Wallet.Send.SendAnyway" = "仍然发送";
 "Wallet.Receive.CreateInvoice" = "开具发票";
 "Wallet.Configuration.Title" = "服务器设置";
-"Wallet.Configuration.SourceURL" = "链接";
+"Wallet.Configuration.Apply" = "保存";
+"Wallet.Configuration.SourceHeader" = "来源";
+"Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.BlockchainIdHeader" = "区块链 ID";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "区块链 ID";
