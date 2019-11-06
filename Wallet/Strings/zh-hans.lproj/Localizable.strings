@@ -202,5 +202,17 @@
 "Wallet.Weekday.Yesterday" = "昨天";
 "Wallet.UnknownError" = "出错了。请稍后重试。";
 "Wallet.ContextMenuCopy" = "复制";
+"Wallet.Time.PreciseDate_m1" = "%2$@ 年 1 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m2" = "%2$@ 年 2 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m3" = "%2$@ 年 3 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m4" = "%2$@ 年 4 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m5" = "%2$@ 年 5 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m6" = "%2$@ 年 6 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m7" = "%2$@ 年 7 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m8" = "%2$@ 年 8 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m9" = "%2$@ 年 9 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m10" = "%2$@ 年 10 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m11" = "%2$@ 年 11 月 %1$@ 日，%3$@";
+"Wallet.Time.PreciseDate_m12" = "%2$@ 年 12 月 %1$@ 日，%3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "清除文本";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "与其他 Gram Wallet 拥有者分享该链接，便可从他们那里接收 %@ Grams。";
