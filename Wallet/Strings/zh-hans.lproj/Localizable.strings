@@ -128,6 +128,7 @@
 "Wallet.WordImport.IncorrectTitle" = "暗号错误";
 "Wallet.WordImport.IncorrectText" = "抱歉，您的暗号输入错误。请仔细检查并重试。";
 "Wallet.Words.Title" = "24 组暗号";
+"Wallet.Words.Text" = "请按顺序记下这 24 组暗号，并将其保存在一个安全又隐秘的地方。\n\n如果您忘记了密码或是丢失了设备，可以使用这些暗号来帮您恢复您对钱包的访问权限。";
 "Wallet.Words.Done" = "完成";
 "Wallet.Send.NetworkErrorTitle" = "无网络";
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "Grams 不足";
