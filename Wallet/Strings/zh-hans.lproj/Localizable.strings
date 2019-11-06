@@ -200,6 +200,8 @@
 "Wallet.Month.ShortDecember" = "12 月";
 "Wallet.Weekday.Today" = "今天";
 "Wallet.Weekday.Yesterday" = "昨天";
+"Wallet.Info.TransactionDateHeader" = "%1$@ %2$@ 日";
+"Wallet.Info.TransactionDateHeaderYear" = "%3$@ 年 %1$@ %2$@ 日";
 "Wallet.UnknownError" = "出错了。请稍后重试。";
 "Wallet.ContextMenuCopy" = "复制";
 "Wallet.Time.PreciseDate_m1" = "%2$@ 年 1 月 %1$@ 日，%3$@";
