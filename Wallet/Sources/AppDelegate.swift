@@ -452,7 +452,7 @@ private final class WalletContextImpl: NSObject, WalletContext, UIImagePickerCon
         self.storageImpl = storage
         
         self.window = window
-        
+        checkIsTestnetId(blockchainName)
         self.tonInstance = TonInstance(
             basePath: basePath + "/keys",
             config: config,

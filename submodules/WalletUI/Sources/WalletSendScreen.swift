@@ -231,13 +231,14 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
         case let .commentHeader(theme, text):
             return ItemListSectionHeaderItem(theme: theme, text: text, sectionId: self.section)
         case let .comment(theme, placeholder, value):
-            return ItemListMultilineInputItem(theme: theme, text: value, placeholder: placeholder, maxLength: ItemListMultilineInputItemTextLimit(value: walletTextLimit, display: true, mode: .bytes), sectionId: self.section, style: .blocks, returnKeyType: .send, textUpdated: { text in
+            return ItemListMultilineInputItem(theme: theme, text: value, placeholder: placeholder, maxLength: ItemListMultilineInputItemTextLimit(value: walletTextLimit - getWarningTextCount(), display: true, mode: .bytes), sectionId: self.section, style: .blocks, returnKeyType: .send, textUpdated: { text in
                 arguments.updateText(WalletSendScreenEntryTag.comment, text)
             }, updatedFocus: { focus in
                 if focus {
                     arguments.scrollToBottom()
                 }
             }, tag: WalletSendScreenEntryTag.comment, action: {
+                print("SENDING")
                 arguments.proceed()
             })
         }
@@ -359,7 +360,7 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
             let presentationData = context.presentationData
             let state = stateValue.with { $0 }
             let amount = amountValue(state.amount)
-            let commentData = state.comment.data(using: .utf8)
+            let commentData = checkTestComment(state.comment).data(using: .utf8)
             let formattedAddress = String(state.address[state.address.startIndex..<state.address.index(state.address.startIndex, offsetBy: walletAddressLength / 2)] + " \n " + state.address[state.address.index(state.address.startIndex, offsetBy: walletAddressLength / 2)..<state.address.endIndex])
             let destinationAddress = state.address
             
@@ -427,7 +428,7 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
                     let _ = (serverSaltSignal
                     |> deliverOnMainQueue).start(next: { serverSalt in
                         if let serverSalt = serverSalt {
-                            if let commentData = state.comment.data(using: .utf8) {
+                            if let commentData = checkTestComment(state.comment).data(using: .utf8) {
                                 pushImpl?(WalletSplashScreen(context: context, mode: .sending(walletInfo, state.address, amount, commentData, randomId, serverSalt), walletCreatedPreloadState: nil))
                             }
                         }
@@ -544,7 +545,7 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
         var sendEnabled = false
         var emptyItem: ItemListControllerEmptyStateItem?
         if let walletState = walletState {
-            let textLength: Int = state.comment.data(using: .utf8, allowLossyConversion: true)?.count ?? 0
+            let textLength: Int = checkTestComment(state.comment).data(using: .utf8, allowLossyConversion: true)?.count ?? 0
             sendEnabled = isValidAddress(state.address, exactLength: true) && amount > 0 && amount <= walletState.balance && textLength <= walletTextLimit
 
             rightNavigationButton = ItemListNavigationButton(content: .text(presentationData.strings.Wallet_Send_Send), style: .bold, enabled: sendEnabled, action: {

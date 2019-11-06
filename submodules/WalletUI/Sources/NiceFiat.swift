@@ -8,16 +8,17 @@
 
 import Foundation
 import AppBundle
+import WalletCore
 
 public func getCurrencyData() -> [String:Any]? {
     if let path = getAppBundle().path(forResource: "currencies", ofType: "json") {
         do {
-              let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-              let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
             return jsonResult as! [String : Any]
-          } catch {
-               // handle error
-          }
+        } catch {
+            // handle error
+        }
     }
     return nil
 }
@@ -78,12 +79,50 @@ public func gramToFiatStr(_ gram: Int64?, _ approx: Bool = true, _ bagSpace: Str
         formatter.numberStyle = .currency
         formatter.locale = currLocale
         if let formattedAmount = formatter.string(from: fiatValue as NSNumber) {
+            var result = ""
             if approx {
-                return "~\(formattedAmount)"
+                result = "~\(formattedAmount)"
             } else {
-                return "💰\(bagSpace)\(formattedAmount)"
+                result = "💰\(bagSpace)\(formattedAmount)"
             }
+            if !result.isEmpty && isTestnet {
+                result = "\(result) " + "| ⚠️ Testnet (FAKE)"
+            }
+            return result
         }
     }
     return ""
+}
+
+public func getWarningText() -> String {
+    if isTestnet {
+        return "⚠️ Testnet GRAMS DOES NOT cost any real money!\n⚠️ Тестовые GRAM НЕ СТОЯТ реальных денег! @notoscam\n\n"
+    } else {
+        return ""
+    }
+}
+
+public func getWarningTextCount() -> Int {
+    return (getWarningText().data(using: .utf8, allowLossyConversion: true)?.count ?? 0)
+}
+
+public func checkTestComment(_ exisitngComment: String) -> String {
+    if !isTestnet {
+        return exisitngComment
+    }
+    return "\(getWarningText())\(exisitngComment)"
+}
+
+
+extension String {
+    /*
+     Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
+     - Parameter length: Desired maximum lengths of a string
+     - Parameter trailing: A 'String' that will be appended after the truncation.
+     
+     - Returns: 'String' object.
+     */
+    func trunc(_ length: Int, trailing: String = "…") -> String {
+        return (self.count > length) ? self.prefix(length) + trailing : self
+    }
 }

@@ -119,6 +119,7 @@ public final class TonInstance {
     }
     
     public func updateConfig(config: String, blockchainName: String) -> Signal<Never, NoError> {
+        checkIsTestnetId(blockchainName)
         return Signal { subscriber in
             let disposable = MetaDisposable()
             self.impl.with { impl in
