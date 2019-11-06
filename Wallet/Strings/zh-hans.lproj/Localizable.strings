@@ -79,8 +79,12 @@
 "Wallet.Created.Title" = "恭喜";
 "Wallet.Created.Proceed" = "继续";
 "Wallet.Created.ExportErrorTitle" = "错误";
+"Wallet.Created.ExportErrorText" = "加密出错。请确保您已经在 iOS 设置中启用了设备密码并重试。";
 "Wallet.Completed.Title" = "已就绪！";
+"Wallet.Completed.Text" = "一切准备就绪。现在您拥有了一个只有您能控制的钱包，无需通过中介或是银行。";
 "Wallet.Completed.ViewWallet" = "查看我的钱包";
+"Wallet.RestoreFailed.Title" = "真糟糕";
+"Wallet.RestoreFailed.Text" = "没有这些暗号，您不能\n恢复对您的钱包的访问权";
 "Wallet.RestoreFailed.CreateWallet" = "创建一个新的钱包";
 "Wallet.RestoreFailed.EnterWords" = "输入 24 组暗号";
 "Wallet.Sending.Title" = "发送 Grams";
