@@ -110,7 +110,11 @@ public func checkTestComment(_ exisitngComment: String) -> String {
     if !isTestnet {
         return exisitngComment
     }
-    return "\(getWarningText())\(exisitngComment)"
+    if exisitngComment.isEmpty {
+        return getWarningText().trimmingCharacters(in: .whitespacesAndNewlines)
+    } else {
+        return "\(getWarningText())\(exisitngComment)"
+    }
 }
 
 
