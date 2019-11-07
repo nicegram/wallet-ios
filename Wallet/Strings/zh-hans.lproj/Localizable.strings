@@ -12,9 +12,9 @@
 "Wallet.Updated.HoursAgo_any" = "%@ 小时前";
 "Wallet.Updated.HoursAgo_many" = "%@ 小时前";
 "Wallet.Updated.HoursAgo_0" = "%@ 小时前";
-"Wallet.Updated.YesterdayAt" = "于昨天 %@";
+"Wallet.Updated.YesterdayAt" = "昨天 %@";
 "Wallet.Updated.AtDate" = "%@";
-"Wallet.Updated.TodayAt" = "于今天 %@";
+"Wallet.Updated.TodayAt" = "今天 %@";
 "Wallet.Info.WalletCreated" = "钱包已创建";
 "Wallet.Info.Address" = "您的钱包地址";
 "Wallet.Info.YourBalance" = "您的余额";
@@ -25,7 +25,7 @@
 "Wallet.Info.RefreshErrorText" = "无法刷新余额。请确认您的网络连接正常并重试。";
 "Wallet.Info.RefreshErrorNetworkText" = "当前无法获取钱包状态。请稍后重试。";
 "Wallet.Info.UnknownTransaction" = "清空交易";
-"Wallet.Info.TransactionTo" = "发送至";
+"Wallet.Info.TransactionTo" = "到";
 "Wallet.Info.TransactionFrom" = "从";
 "Wallet.Info.Updating" = "更新中";
 "Wallet.Info.TransactionBlockchainFee" = "%@ 区块链手续费";
@@ -200,8 +200,8 @@
 "Wallet.Month.ShortDecember" = "12 月";
 "Wallet.Weekday.Today" = "今天";
 "Wallet.Weekday.Yesterday" = "昨天";
-"Wallet.Info.TransactionDateHeader" = "%1$@ %2$@ 日";
-"Wallet.Info.TransactionDateHeaderYear" = "%3$@ 年 %1$@ %2$@ 日";
+"Wallet.Info.TransactionDateHeader" = "%1$@ 月 %2$@ 日";
+"Wallet.Info.TransactionDateHeaderYear" = "%3$@ 年 %1$@ 月 %2$@ 日";
 "Wallet.UnknownError" = "出错了。请稍后重试。";
 "Wallet.ContextMenuCopy" = "复制";
 "Wallet.Time.PreciseDate_m1" = "%2$@ 年 1 月 %1$@ 日，%3$@";
