@@ -144,15 +144,15 @@
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "Grams insufficienti";
 "Wallet.Send.ErrorNotEnoughFundsText" = "Sfortunatamente, il trasferimento non può essere completato. Non hai abbastanza Grams.";
 "Wallet.Send.ErrorInvalidAddress" = "Indirizzo del portafoglio non valido. Per favore, controlla e riprova.";
-"Wallet.Send.ErrorDecryptionFailed" = "Per favore controlla che il tuo device abbia il codice di blocco impostata nelle impostazioni e riprova.";
+"Wallet.Send.ErrorDecryptionFailed" = "Per favore controlla che il tuo device abbia il codice di blocco impostato e riprova.";
 "Wallet.Send.UninitializedTitle" = "Attenzione";
 "Wallet.Send.UninitializedText" = "Questo indirizzo appartiene ad un portafoglio vuoto. Sei sicuro di voler trasferire i tuoi gram lì?";
 "Wallet.Send.SendAnyway" = "Invia comunque";
 "Wallet.Receive.CreateInvoice" = "Crea una fattura";
 "Wallet.Receive.CreateInvoiceInfo" = "È possibile specificare l'importo e lo scopo del pagamento per salvare al mittente un po' di tempo.";
-"Wallet.Configuration.Title" = "Impostazioni";
+"Wallet.Configuration.Title" = "Impostazioni del server";
 "Wallet.Configuration.Apply" = "Salva";
-"Wallet.Configuration.SourceHeader" = "SOURCE";
+"Wallet.Configuration.SourceHeader" = "FONTE";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.SourceInfo" = "Usare una configurazione diversa ti permette di cambiare gli indirizzi dei Lite Server.";
@@ -216,5 +216,5 @@
 "Wallet.Time.PreciseDate_m10" = "%1$@ Ottobre %2$@ alle %3$@";
 "Wallet.Time.PreciseDate_m11" = "%1$@ Novembre %2$@ alle %3$@";
 "Wallet.Time.PreciseDate_m12" = "%1$@ Dicembre %2$@ alle %3$@";
-"Wallet.VoiceOver.Editing.ClearText" = "Testo chiaro";
-"Wallet.Receive.ShareInvoiceUrlInfo" = "Condividi questo link con altri per ottenere %@ Grams da loro.";
+"Wallet.VoiceOver.Editing.ClearText" = "Cancella il testo";
+"Wallet.Receive.ShareInvoiceUrlInfo" = "Condividi questo link con altri utenti per ottenere %@ Grams da loro.";
