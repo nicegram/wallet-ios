@@ -67,6 +67,7 @@
 "Wallet.Settings.ConfigurationInfo" = "Impostazioni avanzate";
 "Wallet.Settings.BackupWallet" = "Backup del portafoglio";
 "Wallet.Settings.DeleteWallet" = "Elimina il portafoglio";
+"Wallet.Settings.DeleteWalletInfo" = "Questo scollegherà il tuo portafoglio da questa app. Sarai in grado di ripristinare il tuo portafoglio utilizzando le 24 parole segrete – o importando un altro portafoglio.\n\nIl tuo portafoglio si trova nella TON Blockchain. Se vuoi che un portafoglio sia eliminato, basta trasferire tutti i gram fuori da esso e lasciarlo vuoto.";
 "Wallet.Intro.NotNow" = "Non ora";
 "Wallet.Intro.ImportExisting" = "Importa un portafoglio esistente";
 "Wallet.Intro.CreateErrorTitle" = "Si è verificato un errore";
@@ -112,6 +113,7 @@
 "Wallet.TransactionInfo.AddressCopied" = "Indirizzo copiato negli appunti.";
 "Wallet.TransactionInfo.SendGrams" = "Invia Grams a questo indirizzo";
 "Wallet.TransactionInfo.CommentHeader" = "COMMENTO";
+"Wallet.TransactionInfo.StorageFeeHeader" = "TASSA SULLO SPAZIO UTILIZZATO";
 "Wallet.TransactionInfo.OtherFeeHeader" = "Tassa per la transazione";
 "Wallet.WordCheck.Title" = "Ora della verifica!";
 "Wallet.WordCheck.Text" = "Controlliamo se hai scritto correttamente.\nInserisci queste parole\n**%1$@**, **%2$@** e **%3$@**";
