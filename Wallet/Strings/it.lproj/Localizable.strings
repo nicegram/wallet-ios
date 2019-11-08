@@ -115,6 +115,10 @@
 "Wallet.TransactionInfo.CommentHeader" = "COMMENTO";
 "Wallet.TransactionInfo.StorageFeeHeader" = "TASSA SULLO SPAZIO UTILIZZATO";
 "Wallet.TransactionInfo.OtherFeeHeader" = "Tassa per la transazione";
+"Wallet.TransactionInfo.StorageFeeInfo" = "I validatori della blockchain ricevono una piccola commissione per la memorizzazione delle informazioni del tuo portafoglio decentralizzato ed per l'elaborazione delle tue transazioni.";
+"Wallet.TransactionInfo.StorageFeeInfoUrl" = "I validatori della blockchain ricevono una piccola commissione per la memorizzazione delle informazioni del tuo portafoglio decentralizzato ed per l'elaborazione delle tue transazioni. [Più info]()";
+"Wallet.TransactionInfo.OtherFeeInfo" = "I validatori della blockchain ricevono una piccola commissione per l'elaborazione delle tue transazioni.";
+"Wallet.TransactionInfo.OtherFeeInfoUrl" = "I validatori della blockchain ricevono una piccola commissione per l'elaborazione delle tue transazioni. [Più info]()";
 "Wallet.WordCheck.Title" = "Ora della verifica!";
 "Wallet.WordCheck.Text" = "Controlliamo se hai scritto correttamente.\nInserisci queste parole\n**%1$@**, **%2$@** e **%3$@**";
 "Wallet.WordCheck.Continue" = "Continua";
@@ -131,6 +135,7 @@
 "Wallet.Words.Title" = "24 parole segrete";
 "Wallet.Words.Text" = "Scrivi queste 24 parole segrete e salvale in un posto sicuro e segreto.\n\nUsa queste parole segrete per recuperare l’accesso del tuo portafoglio in caso tu perda il telefono o il codice sblocco.";
 "Wallet.Words.Done" = "Fatto";
+"Wallet.Words.NotDoneTitle" = "Sicuro di aver fatto?";
 "Wallet.Words.NotDoneText" = "Non hai avuto abbastanza tempo per scrivere le parole segrete.";
 "Wallet.Words.NotDoneOk" = "Ok, scusa";
 "Wallet.Words.NotDoneResponse" = "Scuse accettate";
@@ -141,13 +146,17 @@
 "Wallet.Send.ErrorInvalidAddress" = "Indirizzo del portafoglio non valido. Controlla e riprova.";
 "Wallet.Send.ErrorDecryptionFailed" = "Per favore controlla che il tuo device abbia il codice di blocco impostata nelle impostazioni e riprova.";
 "Wallet.Send.UninitializedTitle" = "Attenzione";
+"Wallet.Send.UninitializedText" = "Questo indirizzo appartiene ad un portafoglio vuoto. Sei sicuro di voler trasferire i tuoi gram lì?";
 "Wallet.Send.SendAnyway" = "Invia comunque";
 "Wallet.Receive.CreateInvoice" = "Crea una fattura";
+"Wallet.Receive.CreateInvoiceInfo" = "È possibile specificare l'importo e lo scopo del pagamento per salvare al mittente un po' di tempo.";
 "Wallet.Configuration.Title" = "Impostazioni";
 "Wallet.Configuration.Apply" = "Salva";
 "Wallet.Configuration.SourceHeader" = "SOURCE";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
+"Wallet.Configuration.SourceInfo" = "Usare una configurazione diversa ti permette di cambiare gli indirizzi dei Lite Server.";
+"Wallet.Configuration.BlockchainIdHeader" = "ID BLOCKCHAIN";
 "Wallet.Configuration.BlockchainIdInfo" = "Questa impostazione è per gli sviluppatori. Modificala solo se stai lavorando alla creazione della tua rete TON.";
 "Wallet.Configuration.ApplyErrorTitle" = "Errore";
 "Wallet.Configuration.ApplyErrorTextURLInvalid" = "L'URL inserito non è valido. Si prega di riprovare.";
