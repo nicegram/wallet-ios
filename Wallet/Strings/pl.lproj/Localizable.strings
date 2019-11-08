@@ -58,7 +58,9 @@
 "Wallet.Configuration.Apply" = "Zapisz";
 "Wallet.Configuration.SourceHeader" = "ŹRÓDŁO";
 "Wallet.Configuration.ApplyErrorTitle" = "Błąd";
+"Wallet.Navigation.Close" = "Zamknij";
 "Wallet.Navigation.Cancel" = "Anuluj";
+"Wallet.Alert.OK" = "OK";
 "Wallet.Alert.Cancel" = "Anuluj";
 "Wallet.Month.GenJanuary" = "Styczeń";
 "Wallet.Month.GenFebruary" = "Luty";
@@ -74,6 +76,7 @@
 "Wallet.Month.GenDecember" = "Grudzień";
 "Wallet.Month.ShortJanuary" = "Sty";
 "Wallet.Month.ShortFebruary" = "Lut";
+"Wallet.Month.ShortMarch" = "Mar";
 "Wallet.Month.ShortApril" = "Kwi";
 "Wallet.Month.ShortMay" = "Maj";
 "Wallet.Month.ShortJune" = "Cze";
