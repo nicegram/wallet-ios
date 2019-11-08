@@ -113,14 +113,14 @@
 "Wallet.TransactionInfo.AddressCopied" = "Indirizzo copiato negli appunti.";
 "Wallet.TransactionInfo.SendGrams" = "Invia Grams a questo indirizzo";
 "Wallet.TransactionInfo.CommentHeader" = "COMMENTO";
-"Wallet.TransactionInfo.StorageFeeHeader" = "TASSA SULLO SPAZIO UTILIZZATO";
-"Wallet.TransactionInfo.OtherFeeHeader" = "Tassa per la transazione";
+"Wallet.TransactionInfo.StorageFeeHeader" = "TASSA SULL'ARCHIVIAZIONE";
+"Wallet.TransactionInfo.OtherFeeHeader" = "Tassa sulla transazione";
 "Wallet.TransactionInfo.StorageFeeInfo" = "I validatori della blockchain ricevono una piccola commissione per la memorizzazione delle informazioni del tuo portafoglio decentralizzato ed per l'elaborazione delle tue transazioni.";
 "Wallet.TransactionInfo.StorageFeeInfoUrl" = "I validatori della blockchain ricevono una piccola commissione per la memorizzazione delle informazioni del tuo portafoglio decentralizzato ed per l'elaborazione delle tue transazioni. [Più info]()";
 "Wallet.TransactionInfo.OtherFeeInfo" = "I validatori della blockchain ricevono una piccola commissione per l'elaborazione delle tue transazioni.";
 "Wallet.TransactionInfo.OtherFeeInfoUrl" = "I validatori della blockchain ricevono una piccola commissione per l'elaborazione delle tue transazioni. [Più info]()";
 "Wallet.WordCheck.Title" = "Ora della verifica!";
-"Wallet.WordCheck.Text" = "Controlliamo se hai scritto correttamente.\nInserisci queste parole\n**%1$@**, **%2$@** e **%3$@**";
+"Wallet.WordCheck.Text" = "Controlliamo se hai scritto le parole segrete correttamente. Inserisci queste parole\n**%1$@**, **%2$@** e **%3$@**";
 "Wallet.WordCheck.Continue" = "Continua";
 "Wallet.WordCheck.IncorrectHeader" = "Parole errate!";
 "Wallet.WordCheck.IncorrectText" = "Le parole segrete che hai inserito non corrispondono con quelle della lista.";
