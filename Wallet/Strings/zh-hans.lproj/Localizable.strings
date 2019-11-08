@@ -24,7 +24,7 @@
 "Wallet.Info.RefreshErrorTitle" = "无网络";
 "Wallet.Info.RefreshErrorText" = "无法刷新余额。请确认您的网络连接正常并重试。";
 "Wallet.Info.RefreshErrorNetworkText" = "当前无法获取钱包状态。请稍后重试。";
-"Wallet.Info.UnknownTransaction" = "空白交易";
+"Wallet.Info.UnknownTransaction" = "交易为空";
 "Wallet.Info.TransactionTo" = "到";
 "Wallet.Info.TransactionFrom" = "从";
 "Wallet.Info.Updating" = "更新中";
