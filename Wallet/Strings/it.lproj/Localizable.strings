@@ -127,11 +127,11 @@
 "Wallet.WordCheck.TryAgain" = "Riprova";
 "Wallet.WordCheck.ViewWords" = "Visualizza le parole";
 "Wallet.WordImport.Title" = "24 parole segrete";
-"Wallet.WordImport.Text" = "Per favore ripristina l’accesso al tuo portafoglio inserendo le 24 parole segrete che hai salvato quando hai creato il portafoglio.";
+"Wallet.WordImport.Text" = "Per favore ripristina l’accesso al tuo portafoglio inserendo\nle 24 parole segrete che hai salvato quando hai creato il portafoglio.";
 "Wallet.WordImport.Continue" = "Continua";
 "Wallet.WordImport.CanNotRemember" = "Non li ho";
 "Wallet.WordImport.IncorrectTitle" = "Parole errate";
-"Wallet.WordImport.IncorrectText" = "Hai inserito parole errate.\nPer favore controlla e riprova.";
+"Wallet.WordImport.IncorrectText" = "Hai inserito delle parole segrete errate. Per favore ricontrolla e riprova.";
 "Wallet.Words.Title" = "24 parole segrete";
 "Wallet.Words.Text" = "Scrivi queste 24 parole segrete e salvale in un posto sicuro e segreto.\n\nUsa queste parole segrete per recuperare l’accesso del tuo portafoglio in caso tu perda il telefono o il codice sblocco.";
 "Wallet.Words.Done" = "Fatto";
