@@ -19,7 +19,7 @@
 "Wallet.Info.Address" = "Adres Twojego portfela";
 "Wallet.Info.YourBalance" = "Twoje saldo";
 "Wallet.Info.Receive" = "Odbierz";
-"Wallet.Info.ReceiveGrams" = "Odbierz Gramy";
+"Wallet.Info.ReceiveGrams" = "Odbierz Grams";
 "Wallet.Info.Send" = "Wyślij";
 "Wallet.Info.RefreshErrorTitle" = "Brak sieci";
 "Wallet.Info.RefreshErrorText" = "Nie można odświeżyć salda. Upewnij się, że Twoje połączenie internetowe działa i spróbuj ponownie.";
@@ -31,7 +31,7 @@
 "Wallet.Info.TransactionPendingHeader" = "Oczekujące";
 "Wallet.Qr.ScanCode" = "Skanuj kod QR";
 "Wallet.Qr.Title" = "Kod QR";
-"Wallet.Receive.Title" = "Odbierz Gramy";
+"Wallet.Receive.Title" = "Odbierz Grams";
 "Wallet.Receive.AddressHeader" = "ADRES TWOJEGO PORTFELA";
 "Wallet.Receive.InvoiceUrlHeader" = "ADRES URL FAKTURY";
 "Wallet.Receive.CopyAddress" = "Kopiuj adres portfela";
