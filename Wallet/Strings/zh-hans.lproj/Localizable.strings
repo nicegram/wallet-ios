@@ -54,7 +54,7 @@
 "Wallet.Send.Balance" = "余额：%@";
 "Wallet.Send.AmountText" = "待支付的 Grams";
 "Wallet.Send.Confirmation" = "确认";
-"Wallet.Send.ConfirmationText" = "您是想付出 **%1$@** Grams 给 \n\n%2$@ 吗？\n\n区块链手续费：约需 %3$@ Grams";
+"Wallet.Send.ConfirmationText" = "您确定要支付 **%1$@** Grams 给 \n\n%2$@ 吗？\n\n区块链手续费：约 %3$@ Grams";
 "Wallet.Send.ConfirmationConfirm" = "确认";
 "Wallet.Send.Send" = "付款";
 "Wallet.Send.OwnAddressAlertTitle" = "警告";
