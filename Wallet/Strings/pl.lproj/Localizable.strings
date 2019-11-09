@@ -52,7 +52,7 @@
 "Wallet.WordImport.Title" = "24 tajne słowa";
 "Wallet.WordImport.Continue" = "Kontynuuj";
 "Wallet.WordImport.IncorrectTitle" = "Nieprawidłowe słowa";
-"Wallet.Words.Title" = "24 tajne słowa";
+"Wallet.Words.Title" = "24 Secret Words";
 "Wallet.Send.NetworkErrorTitle" = "Brak sieci";
 "Wallet.Configuration.Title" = "Ustawienia serwera";
 "Wallet.Configuration.Apply" = "Zapisz";
