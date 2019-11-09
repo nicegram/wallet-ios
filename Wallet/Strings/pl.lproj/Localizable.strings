@@ -11,11 +11,15 @@
 "Wallet.Updated.HoursAgo_3_10" = "%@ godziny temu";
 "Wallet.Updated.HoursAgo_any" = "%@ godziny temu";
 "Wallet.Updated.HoursAgo_many" = "%@ godzin temu";
+"Wallet.Updated.HoursAgo_0" = "%@ godzin(y) temu";
 "Wallet.Updated.YesterdayAt" = "wczoraj o %@";
+"Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "dzisiaj o %@";
+"Wallet.Info.WalletCreated" = "Portfel został utworzony";
 "Wallet.Info.Address" = "Adres twojego portfela";
 "Wallet.Info.YourBalance" = "twoje saldo";
 "Wallet.Info.Receive" = "Odbierz";
+"Wallet.Info.ReceiveGrams" = "Odbierz Gramy";
 "Wallet.Info.Send" = "Wyślij";
 "Wallet.Info.RefreshErrorTitle" = "Brak sieci";
 "Wallet.Info.TransactionTo" = "do";
