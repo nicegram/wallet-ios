@@ -27,7 +27,7 @@
 "Wallet.Receive.AmountHeader" = "ILOŚĆ";
 "Wallet.Receive.CommentHeader" = "KOMENTARZ (OPCJONALNY)";
 "Wallet.Receive.AddressCopied" = "Skopiowano adres do schowka.";
-"Wallet.Send.Title" = "Wyślij Gramy";
+"Wallet.Send.Title" = "Wyślij Grams";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.Balance" = "Saldo: %@";
 "Wallet.Send.Send" = "Wyślij";
@@ -37,7 +37,7 @@
 "Wallet.Settings.DeleteWallet" = "Usuń portfel";
 "Wallet.Intro.NotNow" = "Nie teraz";
 "Wallet.Intro.ImportExisting" = "Importuj istniejący portfel";
-"Wallet.Intro.Title" = "Portfel Gram";
+"Wallet.Intro.Title" = "Portfel NiceGram";
 "Wallet.Intro.CreateWallet" = "Utwórz mój portfel";
 "Wallet.Created.Title" = "Gratulacje";
 "Wallet.Created.ExportErrorTitle" = "Błąd";
