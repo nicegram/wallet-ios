@@ -18,9 +18,9 @@
 "Wallet.Info.WalletCreated" = "錢包已建立";
 "Wallet.Info.Address" = "您的錢包地址";
 "Wallet.Info.YourBalance" = "您的餘額";
-"Wallet.Info.Receive" = "接收";
+"Wallet.Info.Receive" = "收款";
 "Wallet.Info.ReceiveGrams" = "接收 Grams";
-"Wallet.Info.Send" = "傳送";
+"Wallet.Info.Send" = "付款";
 "Wallet.Info.RefreshErrorTitle" = "沒有網路";
 "Wallet.Info.RefreshErrorText" = "無法更新餘額，請確認您的網路連線正常再重試。";
 "Wallet.Info.RefreshErrorNetworkText" = "目前無法擷取錢包狀態。\n請稍後再試。";
@@ -56,7 +56,7 @@
 "Wallet.Send.Confirmation" = "確認";
 "Wallet.Send.ConfirmationText" = "您是否要傳送 **%1$@** Grams 至\n\n%2$@?\n\n手續費：~%3$@ Grams ";
 "Wallet.Send.ConfirmationConfirm" = "確認";
-"Wallet.Send.Send" = "傳送";
+"Wallet.Send.Send" = "付款";
 "Wallet.Send.OwnAddressAlertTitle" = "警告";
 "Wallet.Send.OwnAddressAlertText" = "將 Grams 傳送到同一個錢包沒有意義，您只會浪費手續費。";
 "Wallet.Send.OwnAddressAlertProceed" = "繼續";
