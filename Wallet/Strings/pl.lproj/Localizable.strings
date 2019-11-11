@@ -84,7 +84,7 @@
 "Wallet.Configuration.Title" = "Ustawienia serwera";
 "Wallet.Configuration.Apply" = "Zapisz";
 "Wallet.Configuration.SourceHeader" = "ŹRÓDŁO";
-"Wallet.Configuration.SourceURL" = "Adres URL";
+"Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.BlockchainIdHeader" = "IDENTYFIKATOR BLOCKCHAIN";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Identyfikator blockchain";
