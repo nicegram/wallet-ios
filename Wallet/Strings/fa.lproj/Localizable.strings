@@ -1,3 +1,4 @@
+"Wallet.Updated.JustNow" = "همین حالا بروز رسانی کنید";
 "Wallet.Updated.MinutesAgo_0" = "%@ دقیقه قبل"; // three to ten
 "Wallet.Updated.MinutesAgo_1" = "یک دقیقه قبل"; // one
 "Wallet.Updated.MinutesAgo_2" = "دو دقیقه قبل"; // two
@@ -10,7 +11,9 @@
 "Wallet.Updated.HoursAgo_3_10" = "%@ ساعت قبل";
 "Wallet.Updated.HoursAgo_any" = "%@ ساعت قبل";
 "Wallet.Updated.HoursAgo_many" = "%@ ساعت قبل";
+"Wallet.Updated.HoursAgo_0" = "%@ ساعت قبل";
 "Wallet.Updated.YesterdayAt" = "دیروز %@";
+"Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "امروز %@";
 "Wallet.Info.WalletCreated" = "حساب(کیف پول) شما ساخته شد";
 "Wallet.Info.Address" = "آدرس حساب(کیف پول) شما";
@@ -18,6 +21,7 @@
 "Wallet.Info.Receive" = "دریافت";
 "Wallet.Info.ReceiveGrams" = "دریافت گرام";
 "Wallet.Info.Send" = "ارسال";
+"Wallet.Info.RefreshErrorTitle" = "فاقد شبکه";
 "Wallet.Info.TransactionTo" = "به";
 "Wallet.Info.TransactionFrom" = "از";
 "Wallet.Info.Updating" = "درحال بروزرسانی";
