@@ -40,7 +40,6 @@
 "Wallet.Receive.ShareInvoiceUrl" = "Udostępnij adres URL faktury";
 "Wallet.Receive.ShareUrlInfo" = "Udostępnij to łącze innym właścicielom portfela Gram, aby otrzymać od nich Gramy.";
 "Wallet.Receive.AmountHeader" = "ILOŚĆ";
-"Wallet.Receive.AmountText" = "Gramy do odebrania";
 "Wallet.Receive.CommentHeader" = "KOMENTARZ (OPCJONALNY)";
 "Wallet.Receive.AddressCopied" = "Skopiowano adres do schowka.";
 "Wallet.Send.Title" = "Wyślij Grams";
@@ -62,7 +61,7 @@
 "Wallet.Sent.ViewWallet" = "Pokaż mój portfel";
 "Wallet.SecureStorageChanged.ImportWallet" = "Zaimportuj istniejący portfel";
 "Wallet.SecureStorageChanged.CreateWallet" = "Utwórz nowy portfel";
-"Wallet.TransactionInfo.AddressCopied" = "Skopiowano adres do schowka.";
+"Wallet.TransactionInfo.AddressCopied" = "Adres skopiowany do schowka.";
 "Wallet.TransactionInfo.CommentHeader" = "KOMENTARZ";
 "Wallet.WordCheck.Continue" = "Kontynuuj";
 "Wallet.WordImport.Title" = "24 tajne słowa";
