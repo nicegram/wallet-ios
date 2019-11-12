@@ -22,6 +22,7 @@
 "Wallet.Info.ReceiveGrams" = "دریافت گرام";
 "Wallet.Info.Send" = "ارسال";
 "Wallet.Info.RefreshErrorTitle" = "فاقد شبکه";
+"Wallet.Info.RefreshErrorText" = "بازخوانی موجودی مقدور نمی باشد لطفا اتصال به شبکه اینترنت را بررسی و دوباره تلاش نمایید.";
 "Wallet.Info.TransactionTo" = "به";
 "Wallet.Info.TransactionFrom" = "از";
 "Wallet.Info.Updating" = "درحال بروزرسانی";
