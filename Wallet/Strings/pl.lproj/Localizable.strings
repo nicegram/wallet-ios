@@ -28,7 +28,7 @@
 "Wallet.Info.TransactionTo" = "do";
 "Wallet.Info.TransactionFrom" = "od";
 "Wallet.Info.Updating" = "aktualizowanie";
-"Wallet.Info.TransactionBlockchainFee" = "%@ opłaty za łańcuch bloków";
+"Wallet.Info.TransactionBlockchainFee" = "%@ opłaty blockchain";
 "Wallet.Info.TransactionPendingHeader" = "Oczekujące";
 "Wallet.Qr.ScanCode" = "Skanuj kod QR";
 "Wallet.Qr.Title" = "Kod QR";
@@ -46,7 +46,7 @@
 "Wallet.Receive.CommentHeader" = "KOMENTARZ (OPCJONALNY)";
 "Wallet.Receive.CommentInfo" = "Opis płatności";
 "Wallet.Receive.AddressCopied" = "Skopiowano adres do schowka.";
-"Wallet.Receive.InvoiceUrlCopied" = "Skopiowano adres URL faktury do schowka.";
+"Wallet.Receive.InvoiceUrlCopied" = "Adres URL faktury został skopiowany do schowka.";
 "Wallet.Send.Title" = "Wyślij Grams";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.AddressText" = "Wprowadź adres portfela...";
@@ -54,13 +54,13 @@
 "Wallet.Send.Balance" = "Saldo: %@";
 "Wallet.Send.AmountText" = "Grams do wysłania";
 "Wallet.Send.Confirmation" = "Potwierdzenie";
-"Wallet.Send.ConfirmationText" = "Czy chcesz wysłać **%1$@** Grams do\n\n%2$@?\n\nOpłaty łańcucha bloków: ~%3$@ grams";
+"Wallet.Send.ConfirmationText" = "Czy chcesz wysłać **%1$@** Grams do\n\n%2$@?\n\nOpłaty blockchain: ~%3$@ grams";
 "Wallet.Send.ConfirmationConfirm" = "Potwierdź";
 "Wallet.Send.Send" = "Wyślij";
 "Wallet.Send.OwnAddressAlertTitle" = "Ostrzeżenie";
 "Wallet.Send.OwnAddressAlertText" = "Wysyłanie Grams do tego samego portfela nie ma sensu, ponieważ zmarnujesz część wartości na opłaty blockchain.";
 "Wallet.Send.OwnAddressAlertProceed" = "Kontynuuj";
-"Wallet.Send.TransactionInProgress" = "Zaczekaj aż bieżąca transakcja zostanie zakończona.";
+"Wallet.Send.TransactionInProgress" = "Zaczekaj, aż bieżąca transakcja zostanie zakończona.";
 "Wallet.Send.SyncInProgress" = "Proszę czekać, gdy portfel kończy synchronizację z TON Blockchain.";
 "Wallet.Settings.Title" = "Ustawienia";
 "Wallet.Settings.Configuration" = "Ustawienia serwera";
