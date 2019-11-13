@@ -77,8 +77,10 @@
 "Wallet.Intro.CreateWallet" = "Utwórz mój portfel";
 "Wallet.Intro.Terms" = "Tworząc portfel, wyrażasz zgodę na\n[Warunki]().";
 "Wallet.Created.Title" = "Gratulacje";
+"Wallet.Created.Text" = "Twój portfel Gram został właśnie utworzony. Tylko ty go kontrolujesz.\n\nAby mieć zawsze do niego dostęp, zapisz swoje tajne słowa i\nustaw bezpieczny kod dostępu.";
 "Wallet.Created.Proceed" = "Kontynuuj";
 "Wallet.Created.ExportErrorTitle" = "Błąd";
+"Wallet.Created.ExportErrorText" = "Błąd szyfrowania. Upewnij się, że włączono kod dostępu w ustawieniach iOS i spróbuj ponownie.";
 "Wallet.Completed.Title" = "Gotowe!";
 "Wallet.Completed.ViewWallet" = "Pokaż mój portfel";
 "Wallet.RestoreFailed.CreateWallet" = "Utwórz nowy portfel";
