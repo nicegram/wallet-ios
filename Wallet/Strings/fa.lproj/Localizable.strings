@@ -48,8 +48,12 @@
 "Wallet.Receive.AddressCopied" = "آدرس در حافظه موقت کپی شد.";
 "Wallet.Receive.InvoiceUrlCopied" = "آدرس صورت حساب در حافظه موقت ذخیره شد.";
 "Wallet.Send.Title" = "ارسال گرام";
+"Wallet.Send.AddressHeader" = "نشانی کیف پول گیرنده";
 "Wallet.Send.AddressText" = "آدرس حساب را وارد کنید...";
+"Wallet.Send.AddressInfo" = "نشانی ۴۸حرفی گیرنده را اینجا بنویسید و یا از ایشان بخواهید تا لینک خود را به فرم //：ton برای شما ارسال نماید.";
 "Wallet.Send.Balance" = "مانده حساب: %@";
+"Wallet.Send.AmountText" = "گرام های ارسالی";
+"Wallet.Send.Confirmation" = "تاییدیه";
 "Wallet.Send.ConfirmationConfirm" = "تایید";
 "Wallet.Send.Send" = "ارسال";
 "Wallet.Send.OwnAddressAlertTitle" = "هشدار";
