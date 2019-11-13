@@ -23,6 +23,8 @@
 "Wallet.Info.Send" = "ارسال";
 "Wallet.Info.RefreshErrorTitle" = "فاقد شبکه";
 "Wallet.Info.RefreshErrorText" = "بازخوانی موجودی مقدور نمی باشد لطفا اتصال به شبکه اینترنت را بررسی و دوباره تلاش نمایید.";
+"Wallet.Info.RefreshErrorNetworkText" = "وضعیت کیف پول شما در حال حاضر قابل بازیابی نمی باشد لطفا بعدا مراجعه نمایید.";
+"Wallet.Info.UnknownTransaction" = "تراکنش تهی";
 "Wallet.Info.TransactionTo" = "به";
 "Wallet.Info.TransactionFrom" = "از";
 "Wallet.Info.Updating" = "درحال بروزرسانی";
