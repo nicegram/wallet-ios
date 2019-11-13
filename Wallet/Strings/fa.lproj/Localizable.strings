@@ -54,10 +54,13 @@
 "Wallet.Send.Balance" = "مانده حساب: %@";
 "Wallet.Send.AmountText" = "گرام های ارسالی";
 "Wallet.Send.Confirmation" = "تاییدیه";
+"Wallet.Send.ConfirmationText" = "آیا تمایل به ارسال **%1$@** گرام به %2$@ دارید؟\nهزینه بلاکچین：%3$@ گرام";
 "Wallet.Send.ConfirmationConfirm" = "تایید";
 "Wallet.Send.Send" = "ارسال";
 "Wallet.Send.OwnAddressAlertTitle" = "هشدار";
+"Wallet.Send.OwnAddressAlertText" = "ارسال گرام در کیف پول های مشابه کارمزد ندارد, بخشی از مبلغ صرف هزینه های بلاکچین خواهد شد.";
 "Wallet.Send.OwnAddressAlertProceed" = "ادامه";
+"Wallet.Send.TransactionInProgress" = "لطفا تا پایان تراکنش فعلی منتظر بمانید.";
 "Wallet.Settings.Title" = "تنظیمات";
 "Wallet.Settings.Configuration" = "تنظیمات سرور";
 "Wallet.Settings.ConfigurationInfo" = "تنظیمات پیشرفته";
