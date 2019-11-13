@@ -50,7 +50,7 @@
 "Wallet.Send.Title" = "Wyślij Grams";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.AddressText" = "Wprowadź adres portfela...";
-"Wallet.Send.AddressInfo" = "Wklej tutaj 48-literowy adres odbiorcy lub poproś o wysłanie do Ciebie łącza ton://.";
+"Wallet.Send.AddressInfo" = "Wklej tutaj 48-znakowy adres odbiorcy lub poproś o wysłanie do Ciebie łącza ton://.";
 "Wallet.Send.Balance" = "Saldo: %@";
 "Wallet.Send.AmountText" = "Grams do wysłania";
 "Wallet.Send.Confirmation" = "Potwierdzenie";
@@ -67,12 +67,15 @@
 "Wallet.Settings.ConfigurationInfo" = "Ustawienia zaawansowane";
 "Wallet.Settings.BackupWallet" = "Utwórz kopię zapasową portfela";
 "Wallet.Settings.DeleteWallet" = "Usuń portfel";
+"Wallet.Settings.DeleteWalletInfo" = "Spowoduje to odłączenie portfela od tej aplikacji. Będzie można przywrócić Twój portfel za pomocą 24 tajnych słów – lub zaimportować inny portfel.\n\nPortfele Gram zlokalizowane są w zdecentralizowanym TON Blockchain. Jeśli chcesz usunąć swój portfel, przenieś z niego wszystkie grams i pozostaw go jako pusty.";
 "Wallet.Intro.NotNow" = "Nie teraz";
 "Wallet.Intro.ImportExisting" = "Importuj istniejący portfel";
 "Wallet.Intro.CreateErrorTitle" = "Wystąpił błąd";
 "Wallet.Intro.CreateErrorText" = "Przepraszamy. Spróbuj ponownie.";
 "Wallet.Intro.Title" = "Portfel NiceGram";
+"Wallet.Intro.Text" = "Portfel NiceGram umożliwia szybkie i bezpieczne płatności oparte na blockchain bez żadnych pośredników.";
 "Wallet.Intro.CreateWallet" = "Utwórz mój portfel";
+"Wallet.Intro.Terms" = "Tworząc portfel, wyrażasz zgodę na\n[Warunki]().";
 "Wallet.Created.Title" = "Gratulacje";
 "Wallet.Created.Proceed" = "Kontynuuj";
 "Wallet.Created.ExportErrorTitle" = "Błąd";
@@ -102,7 +105,9 @@
 "Wallet.TransactionInfo.StorageFeeHeader" = "OPŁATA ZA PRZECHOWANIE";
 "Wallet.TransactionInfo.OtherFeeHeader" = "OPŁATA ZA TRANSAKCJĘ";
 "Wallet.WordCheck.Continue" = "Kontynuuj";
+"Wallet.WordCheck.IncorrectHeader" = "Nieprawidłowe słowa!";
 "Wallet.WordCheck.TryAgain" = "Spróbuj ponownie";
+"Wallet.WordCheck.ViewWords" = "Wyświetl słowa";
 "Wallet.WordImport.Title" = "24 tajne słowa";
 "Wallet.WordImport.Continue" = "Kontynuuj";
 "Wallet.WordImport.CanNotRemember" = "Nie mam ich";
