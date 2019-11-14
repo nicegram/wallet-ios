@@ -82,6 +82,7 @@
 "Wallet.Created.ExportErrorTitle" = "Błąd";
 "Wallet.Created.ExportErrorText" = "Błąd szyfrowania. Upewnij się, że włączono kod dostępu w ustawieniach iOS i spróbuj ponownie.";
 "Wallet.Completed.Title" = "Gotowe!";
+"Wallet.Completed.Text" = "Wszystko gotowe. Teraz posiadasz portfel, który kontrolujesz tylko ty - bez pośredników czy bankierów.";
 "Wallet.Completed.ViewWallet" = "Pokaż mój portfel";
 "Wallet.RestoreFailed.CreateWallet" = "Utwórz nowy portfel";
 "Wallet.RestoreFailed.EnterWords" = "Wprowadź 24 słowa";
