@@ -84,6 +84,7 @@
 "Wallet.Completed.Title" = "Gotowe!";
 "Wallet.Completed.Text" = "Wszystko gotowe. Teraz posiadasz portfel, który kontrolujesz tylko ty - bez pośredników czy bankierów.";
 "Wallet.Completed.ViewWallet" = "Pokaż mój portfel";
+"Wallet.RestoreFailed.Title" = "Niestety";
 "Wallet.RestoreFailed.Text" = "Bez tajnych słów, nie możesz\nprzywrócić dostępu do swojego portfela.";
 "Wallet.RestoreFailed.CreateWallet" = "Utwórz nowy portfel";
 "Wallet.RestoreFailed.EnterWords" = "Wprowadź 24 słowa";
