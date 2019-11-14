@@ -84,6 +84,7 @@
 "Wallet.Completed.Title" = "Gotowe!";
 "Wallet.Completed.Text" = "Wszystko gotowe. Teraz posiadasz portfel, który kontrolujesz tylko ty - bez pośredników czy bankierów.";
 "Wallet.Completed.ViewWallet" = "Pokaż mój portfel";
+"Wallet.RestoreFailed.Text" = "Bez tajnych słów, nie możesz\nprzywrócić dostępu do swojego portfela.";
 "Wallet.RestoreFailed.CreateWallet" = "Utwórz nowy portfel";
 "Wallet.RestoreFailed.EnterWords" = "Wprowadź 24 słowa";
 "Wallet.Sending.Title" = "Wysyłanie Grams";
@@ -93,8 +94,14 @@
 "Wallet.Sent.Text" = "Wysłano **%@ Grams**.";
 "Wallet.Sent.ViewWallet" = "Pokaż mój portfel";
 "Wallet.SecureStorageNotAvailable.Title" = "Ustaw kod dostępu";
+"Wallet.SecureStorageNotAvailable.Text" = "Ustaw kod dostępu na swoim urządzeniu, aby umożliwić bezpieczne płatności przy użyciu Twojego portfela Gram.";
+"Wallet.SecureStorageReset.Title" = "Ustawienia zabezpieczeń zostały zmienione";
 "Wallet.SecureStorageReset.BiometryTouchId" = "Touch ID";
 "Wallet.SecureStorageReset.BiometryFaceId" = "Face ID";
+"Wallet.SecureStorageReset.BiometryText" = "Niestety, Twój portfel nie jest już dostępny, ponieważ Twój kod dostępu do systemu lub %@ zostały wyłączone. Włącz je, przed kontynuowaniem.";
+"Wallet.SecureStorageReset.PasscodeText" = "Niestety, Twój portfel nie jest już dostępny, ponieważ Twój kod dostępu do systemu został wyłączony. Włącz go, przed kontynuowaniem.";
+"Wallet.SecureStorageChanged.BiometryText" = "Niestety, Twój portfel nie jest już dostępny z powodu zmian w ustawieniach zabezpieczeń systemu (kod dostępu/%@). Aby przywrócić swój portfel, wybierz \"Importuj istniejący portfel\".";
+"Wallet.SecureStorageChanged.PasscodeText" = "Niestety, Twój portfel nie jest już dostępny z powodu zmian w ustawieniach zabezpieczeń systemu (kod dostępu). Aby przywrócić swój portfel, wybierz \"Importuj istniejący portfel\".";
 "Wallet.SecureStorageChanged.ImportWallet" = "Zaimportuj istniejący portfel";
 "Wallet.SecureStorageChanged.CreateWallet" = "Utwórz nowy portfel";
 "Wallet.TransactionInfo.Title" = "Transakcja";
@@ -109,6 +116,7 @@
 "Wallet.TransactionInfo.OtherFeeHeader" = "OPŁATA ZA TRANSAKCJĘ";
 "Wallet.WordCheck.Continue" = "Kontynuuj";
 "Wallet.WordCheck.IncorrectHeader" = "Nieprawidłowe słowa!";
+"Wallet.WordCheck.IncorrectText" = "Wprowadzone przez Ciebie tajne słowa nie pasują do znajdujących się na liście.";
 "Wallet.WordCheck.TryAgain" = "Spróbuj ponownie";
 "Wallet.WordCheck.ViewWords" = "Wyświetl słowa";
 "Wallet.WordImport.Title" = "24 tajne słowa";
