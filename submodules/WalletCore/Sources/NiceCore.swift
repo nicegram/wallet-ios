@@ -11,11 +11,11 @@ import Foundation
 public var isTestnet = false
 
 public func checkIsTestnetId(_ blockchainId: String) -> Void {
-    if blockchainId.lowercased() == "testnet" {
+    if blockchainId.lowercased() == "testnet" || blockchainId.lowercased() == "testnet2" {
         isTestnet = true
         return
     }
-    if blockchainId.lowercased().starts(with: "test") {
+    if blockchainId.lowercased().starts(with: "test") || blockchainId.lowercased().starts(with: "testnet") {
         isTestnet = true
         return
     }

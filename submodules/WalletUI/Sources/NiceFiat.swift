@@ -24,7 +24,7 @@ public func getCurrencyData() -> [String:Any]? {
 }
 
 let CURRENCIES = getCurrencyData()
-let TOKENPRICE: Double = 4.5 // $4.5 for 1 GRAM
+let TOKENPRICE: Double = 3.5 // $3.5 for 1 GRAM
 
 
 public func getLocaleAndPrice() -> (Locale, Double) {
@@ -86,7 +86,11 @@ public func gramToFiatStr(_ gram: Int64?, _ approx: Bool = true, _ bagSpace: Str
                 result = "💰\(bagSpace)\(formattedAmount)"
             }
             if !result.isEmpty && isTestnet {
-                result = "\(result) " + "| ⚠️ Testnet (FAKE)"
+                var zeroAmountStr = ""
+                if let zeroAmount = formatter.string(from: 0 as NSNumber) {
+                    zeroAmountStr = " (\(zeroAmount))"
+                }
+                result = "\(result) " + "| ⚠️ Testnet" + zeroAmountStr
             }
             return result
         }
