@@ -411,10 +411,20 @@ private final class WalletContextImpl: NSObject, WalletContext, UIImagePickerCon
     }
     
     func authorizeAccessToCamera(completion: @escaping () -> Void) {
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { [weak self] response in
             Queue.mainQueue().async {
+                guard let strongSelf = self else {
+                    return
+                }
+                
                 if response {
                     completion()
+                } else {
+                    let presentationData = strongSelf.presentationData
+                    let controller = standardTextAlertController(theme: presentationData.theme.alert, title: presentationData.strings.Wallet_AccessDenied_Title, text: presentationData.strings.Wallet_AccessDenied_Camera, actions: [TextAlertAction(type: .defaultAction, title: presentationData.strings.Wallet_Intro_NotNow, action: {}), TextAlertAction(type: .genericAction, title: presentationData.strings.Wallet_AccessDenied_Settings, action: {
+                        strongSelf.openPlatformSettings()
+                    })])
+                    strongSelf.window.present(controller, on: .root)
                 }
             }
         }
@@ -569,7 +579,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         let presentationData = WalletPresentationData(
             theme: WalletTheme(
                 info: WalletInfoTheme(
-                    buttonBackgroundColor: accentColor,
+                    buttonBackgroundColor: UIColor(rgb: 0x32aafe),
                     buttonTextColor: .white,
                     incomingFundsTitleColor: UIColor(rgb: 0x00b12c),
                     outgoingFundsTitleColor: UIColor(rgb: 0xff3b30)
@@ -670,7 +680,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         print("Starting with \(documentsPath)")
         #endif
         
-        let storage = WalletStorageInterfaceImpl(path: documentsPath + "/data", configurationPath: documentsPath + "/configuration")
+        let storage = WalletStorageInterfaceImpl(path: documentsPath + "/data", configurationPath: documentsPath + "/configuration_v2")
         
         let initialConfigValue = storage.mergedLocalWalletConfiguration()
         |> take(1)
@@ -724,45 +734,58 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             let walletContext = WalletContextImpl(basePath: documentsPath, storage: storage, config: initialResolvedConfig.value, blockchainName: initialConfigBlockchainName, presentationData: presentationData, navigationBarTheme: navigationBarTheme, window: mainWindow)
             self.walletContext = walletContext
             
-            let beginWithController: (ViewController, ParsedWalletUrl?, WalletInfo?) -> Void = { controller, parsedUrl, walletInfo in
-                navigationController.setViewControllers([controller], animated: false)
-                
-                if let parsedUrl = parsedUrl, let walletInfo = walletInfo {
-                    var randomId: Int64 = 0
-                    arc4random_buf(&randomId, 8)
+            let beginWithController: (ViewController) -> Void = { controller in
+                let begin: (Bool) -> Void = { animated in
+                    navigationController.setViewControllers([controller], animated: false)
+                    if animated {
+                        navigationController.viewControllers.last?.view.layer.animateAlpha(from: 0.0, to: 1.0, duration: 0.3)
+                    }
                     
-                    let address = parsedUrl.address
-                    let amount = parsedUrl.amount
-                    let comment = parsedUrl.comment
+                    if let parsedUrl = parsedUrl, let walletInfo = walletInfo {
+                        var randomId: Int64 = 0
+                        arc4random_buf(&randomId, 8)
+                        
+                        let address = parsedUrl.address
+                        let amount = parsedUrl.amount
+                        let comment = parsedUrl.comment
+                        
+                        controller.push(walletSendScreen(context: walletContext, randomId: randomId, walletInfo: walletInfo, address: address, amount: amount, comment: comment))
+                    }   
+
+                    var previousBlockchainName = initialConfigBlockchainName
                     
-                    controller.push(walletSendScreen(context: walletContext, randomId: randomId, walletInfo: walletInfo, address: address, amount: amount, comment: comment))
+                    let _ = (updatedConfigValue
+                    |> deliverOnMainQueue).start(next: { resolved, blockchainName in
+                        let _ = walletContext.tonInstance.validateConfig(config: resolved.value, blockchainName: blockchainName).start(error: { _ in
+                        }, completed: {
+                            let _ = walletContext.tonInstance.updateConfig(config: resolved.value, blockchainName: blockchainName).start()
+                            
+                            if previousBlockchainName != blockchainName {
+                                previousBlockchainName = blockchainName
+                                
+                                let overlayController = OverlayStatusController(theme: presentationData.theme, type: .loading(cancelled: nil))
+                                mainWindow.present(overlayController, on: .root)
+                                
+                                let _ = (deleteAllLocalWalletsData(storage: walletContext.storage, tonInstance: walletContext.tonInstance)
+                                |> deliverOnMainQueue).start(error: { [weak overlayController] _ in
+                                    overlayController?.dismiss()
+                                }, completed: { [weak overlayController] in
+                                    overlayController?.dismiss()
+                                    
+                                    navigationController.setViewControllers([WalletSplashScreen(context: walletContext, mode: .intro, walletCreatedPreloadState: nil)], animated: true)
+                                })
+                            }
+                        })
+                    })
                 }
                 
-                var previousBlockchainName = initialConfigBlockchainName
-                
-                let _ = (updatedConfigValue
-                |> deliverOnMainQueue).start(next: { resolved, blockchainName in
-                    let _ = walletContext.tonInstance.validateConfig(config: resolved.value, blockchainName: blockchainName).start(error: { _ in
-                    }, completed: {
-                        let _ = walletContext.tonInstance.updateConfig(config: resolved.value, blockchainName: blockchainName).start()
-                        
-                        if previousBlockchainName != blockchainName {
-                            previousBlockchainName = blockchainName
-                            
-                            let overlayController = OverlayStatusController(theme: presentationData.theme, type: .loading(cancelled: nil))
-                            mainWindow.present(overlayController, on: .root)
-                            
-                            let _ = (deleteAllLocalWalletsData(storage: walletContext.storage, tonInstance: walletContext.tonInstance)
-                            |> deliverOnMainQueue).start(error: { [weak overlayController] _ in
-                                overlayController?.dismiss()
-                            }, completed: { [weak overlayController] in
-                                overlayController?.dismiss()
-                                
-                                navigationController.setViewControllers([WalletSplashScreen(context: walletContext, mode: .intro, walletCreatedPreloadState: nil)], animated: true)
-                            })
-                        }
+                if let splashScreen = navigationController.viewControllers.first as? WalletApplicationSplashScreen, let _ = controller as? WalletSplashScreen {
+                    splashScreen.animateOut(completion: {
+                        begin(true)
                     })
-                })
+                } else {
+                    begin(false)
+                }
             }
             
             let _ = (combineLatest(queue: .mainQueue(),
@@ -845,6 +868,6 @@ struct MergedLocalWalletConfiguration: Codable, Equatable {
 
 private extension MergedLocalWalletConfiguration {
     static var `default`: MergedLocalWalletConfiguration {
-        return MergedLocalWalletConfiguration(configuration: LocalWalletConfiguration(source: .url("https://test.ton.org/config.json"), blockchainName: "testnet"), resolved: nil)
+        return MergedLocalWalletConfiguration(configuration: LocalWalletConfiguration(source: .url("https://test.ton.org/config.json"), blockchainName: "testnet2"), resolved: nil)
     }
 }

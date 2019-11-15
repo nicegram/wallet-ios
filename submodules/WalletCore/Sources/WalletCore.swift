@@ -1,11 +1,7 @@
 import Foundation
-#if os(macOS)
-import SwiftSignalKitMac
-import MtProtoKitMac
-#else
 import SwiftSignalKit
 import TonBinding
-#endif
+
 
 public struct TonKeychainEncryptedData: Codable, Equatable {
     public let publicKey: Data

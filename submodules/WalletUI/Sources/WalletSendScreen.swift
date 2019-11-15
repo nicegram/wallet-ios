@@ -16,17 +16,17 @@ private final class WalletSendScreenArguments {
     let context: WalletContext
     let updateState: ((WalletSendScreenState) -> WalletSendScreenState) -> Void
     let updateText: (WalletSendScreenEntryTag, String) -> Void
-    let selectNextInputItem: (WalletSendScreenEntryTag) -> Void
+    let selectInputItem: (WalletSendScreenEntryTag) -> Void
     let scrollToBottom: () -> Void
     let dismissInput: () -> Void
     let openQrScanner: () -> Void
     let proceed: () -> Void
     
-    init(context: WalletContext, updateState: @escaping ((WalletSendScreenState) -> WalletSendScreenState) -> Void, updateText: @escaping (WalletSendScreenEntryTag, String) -> Void, selectNextInputItem: @escaping (WalletSendScreenEntryTag) -> Void, scrollToBottom: @escaping () -> Void, dismissInput: @escaping () -> Void, openQrScanner: @escaping () -> Void, proceed: @escaping () -> Void) {
+    init(context: WalletContext, updateState: @escaping ((WalletSendScreenState) -> WalletSendScreenState) -> Void, updateText: @escaping (WalletSendScreenEntryTag, String) -> Void, selectInputItem: @escaping (WalletSendScreenEntryTag) -> Void, scrollToBottom: @escaping () -> Void, dismissInput: @escaping () -> Void, openQrScanner: @escaping () -> Void, proceed: @escaping () -> Void) {
         self.context = context
         self.updateState = updateState
         self.updateText = updateText
-        self.selectNextInputItem = selectNextInputItem
+        self.selectInputItem = selectInputItem
         self.scrollToBottom = scrollToBottom
         self.dismissInput = dismissInput
         self.openQrScanner = openQrScanner
@@ -62,7 +62,7 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
     case address(WalletTheme, String, String)
     case addressInfo(WalletTheme, String)
     case commentHeader(WalletTheme, String)
-    case comment(WalletTheme, String, String)
+    case comment(WalletTheme, String, String, Bool)
     
     var section: ItemListSectionId {
         switch self {
@@ -140,8 +140,8 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             } else {
                 return false
             }
-        case let .comment(lhsTheme, lhsPlaceholder, lhsText):
-            if case let .comment(rhsTheme, rhsPlaceholder, rhsText) = rhs, lhsTheme === rhsTheme, lhsPlaceholder == rhsPlaceholder, lhsText == rhsText {
+        case let .comment(lhsTheme, lhsPlaceholder, lhsText, lhsSendEnabled):
+            if case let .comment(rhsTheme, rhsPlaceholder, rhsText, rhsSendEnabled) = rhs, lhsTheme === rhsTheme, lhsPlaceholder == rhsPlaceholder, lhsText == rhsText, lhsSendEnabled == rhsSendEnabled {
                 return true
             } else {
                 return false
@@ -201,28 +201,54 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
                         if let amount = parsedUrl.amount {
                             state.amount = formatBalanceText(amount, decimalSeparator: arguments.context.presentationData.dateTimeFormat.decimalSeparator)
                         } else if state.amount.isEmpty {
-                            focusItemTag = WalletSendScreenEntryTag.address
+                            focusItemTag = WalletSendScreenEntryTag.amount
                         }
                         if let comment = parsedUrl.comment {
                             state.comment = comment
                         } else if state.comment.isEmpty && focusItemTag == nil {
-                            focusItemTag = WalletSendScreenEntryTag.amount
+                            focusItemTag = WalletSendScreenEntryTag.comment
                         }
                         return state
                     }
                     if let focusItemTag = focusItemTag {
-                        arguments.selectNextInputItem(focusItemTag)
+                        arguments.selectInputItem(focusItemTag)
                     } else {
                         arguments.dismissInput()
                     }
                 } else if isValidAddress(text) {
                     arguments.updateText(WalletSendScreenEntryTag.address, text)
                     if isValidAddress(text, exactLength: true) {
-                        arguments.selectNextInputItem(WalletSendScreenEntryTag.address)
+                        var focusItemTag: WalletSendScreenEntryTag? = .comment
+                        arguments.updateState { state in
+                            if state.amount.isEmpty {
+                                focusItemTag = .amount
+                            } else if state.comment.isEmpty  {
+                                focusItemTag = .comment
+                            }
+                            return state
+                        }
+                        if let focusItemTag = focusItemTag {
+                            arguments.selectInputItem(focusItemTag)
+                        } else {
+                            arguments.dismissInput()
+                        }
                     }
                 }
             }, tag: WalletSendScreenEntryTag.address, action: {
-                arguments.selectNextInputItem(WalletSendScreenEntryTag.address)
+                var focusItemTag: WalletSendScreenEntryTag?
+                arguments.updateState { state in
+                    if state.amount.isEmpty {
+                        focusItemTag = .amount
+                    } else if state.comment.isEmpty {
+                        focusItemTag = .comment
+                    }
+                    return state
+                }
+                if let focusItemTag = focusItemTag {
+                    arguments.selectInputItem(focusItemTag)
+                } else {
+                    arguments.dismissInput()
+                }
             }, inlineAction: ItemListMultilineInputInlineAction(icon: UIImage(bundleImageName: "Wallet/QrIcon")!, action: {
                 arguments.openQrScanner()
             }))
@@ -230,16 +256,17 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             return ItemListTextItem(theme: theme, text: .markdown(text), sectionId: self.section)
         case let .commentHeader(theme, text):
             return ItemListSectionHeaderItem(theme: theme, text: text, sectionId: self.section)
-        case let .comment(theme, placeholder, value):
-            return ItemListMultilineInputItem(theme: theme, text: value, placeholder: placeholder, maxLength: ItemListMultilineInputItemTextLimit(value: walletTextLimit - getWarningTextCount(), display: true, mode: .bytes), sectionId: self.section, style: .blocks, returnKeyType: .send, textUpdated: { text in
+        case let .comment(theme, placeholder, value, sendEnabled):
+            return ItemListMultilineInputItem(theme: theme, text: value, placeholder: placeholder, maxLength: ItemListMultilineInputItemTextLimit(value: walletTextLimit, display: true, mode: .bytes), sectionId: self.section, style: .blocks, returnKeyType: .send, textUpdated: { text in
                 arguments.updateText(WalletSendScreenEntryTag.comment, text)
             }, updatedFocus: { focus in
                 if focus {
                     arguments.scrollToBottom()
                 }
             }, tag: WalletSendScreenEntryTag.comment, action: {
-                print("SENDING")
-                arguments.proceed()
+                if sendEnabled {
+                    arguments.proceed()
+                }
             })
         }
     }
@@ -251,7 +278,7 @@ private struct WalletSendScreenState: Equatable {
     var comment: String
 }
 
-private func walletSendScreenEntries(presentationData: WalletPresentationData, balance: Int64?, state: WalletSendScreenState) -> [WalletSendScreenEntry] {
+private func walletSendScreenEntries(presentationData: WalletPresentationData, balance: Int64?, state: WalletSendScreenState, sendEnabled: Bool) -> [WalletSendScreenEntry] {
     if balance == nil {
         return []
     }
@@ -267,7 +294,7 @@ private func walletSendScreenEntries(presentationData: WalletPresentationData, b
     entries.append(.addressInfo(presentationData.theme, presentationData.strings.Wallet_Send_AddressInfo))
         
     entries.append(.commentHeader(presentationData.theme, presentationData.strings.Wallet_Receive_CommentHeader))
-    entries.append(.comment(presentationData.theme, presentationData.strings.Wallet_Receive_CommentInfo, state.comment))
+    entries.append(.comment(presentationData.theme, presentationData.strings.Wallet_Receive_CommentInfo, state.comment, sendEnabled))
     return entries
 }
 
@@ -302,7 +329,7 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
     var popImpl: (() -> Void)?
     var dismissImpl: (() -> Void)?
     var dismissInputImpl: (() -> Void)?
-    var selectNextInputItemImpl: ((WalletSendScreenEntryTag) -> Void)?
+    var selectInputItemImpl: ((WalletSendScreenEntryTag) -> Void)?
     var ensureItemVisibleImpl: ((WalletSendScreenEntryTag, Bool) -> Void)?
     
     let arguments = WalletSendScreenArguments(context: context, updateState: { f in
@@ -321,8 +348,8 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
             return state
         }
         ensureItemVisibleImpl?(tag, false)
-    }, selectNextInputItem: { tag in
-        selectNextInputItemImpl?(tag)
+    }, selectInputItem: { tag in
+        selectInputItemImpl?(tag)
     }, scrollToBottom: {
         ensureItemVisibleImpl?(WalletSendScreenEntryTag.comment, true)
     }, dismissInput: {
@@ -348,9 +375,9 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
                 popImpl?()
                 if let updatedState = updatedState {
                     if updatedState.amount.isEmpty {
-                        selectNextInputItemImpl?(WalletSendScreenEntryTag.amount)
+                        selectInputItemImpl?(WalletSendScreenEntryTag.amount)
                     } else if updatedState.comment.isEmpty {
-                        selectNextInputItemImpl?(WalletSendScreenEntryTag.comment)
+                        selectInputItemImpl?(WalletSendScreenEntryTag.comment)
                     }
                 }
             }))
@@ -360,7 +387,11 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
             let presentationData = context.presentationData
             let state = stateValue.with { $0 }
             let amount = amountValue(state.amount)
-            let commentData = checkTestComment(state.comment).data(using: .utf8)
+            guard amount > 0 else {
+                return
+            }
+            
+            let commentData = state.comment.data(using: .utf8)
             let formattedAddress = String(state.address[state.address.startIndex..<state.address.index(state.address.startIndex, offsetBy: walletAddressLength / 2)] + " \n " + state.address[state.address.index(state.address.startIndex, offsetBy: walletAddressLength / 2)..<state.address.endIndex])
             let destinationAddress = state.address
             
@@ -557,7 +588,7 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
         }
 
         let controllerState = ItemListControllerState(theme: presentationData.theme, title: .text(presentationData.strings.Wallet_Send_Title), leftNavigationButton: leftNavigationButton, rightNavigationButton: rightNavigationButton, backNavigationButton: ItemListBackButton(title: presentationData.strings.Wallet_Navigation_Back), animateChanges: false)
-        let listState = ItemListNodeState(entries: walletSendScreenEntries(presentationData: presentationData, balance: walletState?.balance, state: state), style: .blocks, focusItemTag: focusItemTag, emptyStateItem: emptyItem, animateChanges: false)
+        let listState = ItemListNodeState(entries: walletSendScreenEntries(presentationData: presentationData, balance: walletState?.balance, state: state, sendEnabled: sendEnabled), style: .blocks, focusItemTag: focusItemTag, emptyStateItem: emptyItem, animateChanges: false)
         
         return (controllerState, (listState, arguments))
     }
@@ -584,19 +615,16 @@ public func walletSendScreen(context: WalletContext, randomId: Int64, walletInfo
     dismissInputImpl = { [weak controller] in
         controller?.view.endEditing(true)
     }
-    selectNextInputItemImpl = { [weak controller] currentTag in
+    selectInputItemImpl = { [weak controller] nextTag in
         guard let controller = controller else {
             return
         }
         var resultItemNode: ItemListItemFocusableNode?
-        var focusOnNext = false
         let _ = controller.frameForItemNode({ itemNode in
             if let itemNode = itemNode as? ItemListItemNode, let tag = itemNode.tag, let focusableItemNode = itemNode as? ItemListItemFocusableNode {
-                if focusOnNext && resultItemNode == nil {
+                if nextTag.isEqual(to: tag) {
                     resultItemNode = focusableItemNode
                     return true
-                } else if currentTag.isEqual(to: tag) {
-                    focusOnNext = true
                 }
             }
             return false
