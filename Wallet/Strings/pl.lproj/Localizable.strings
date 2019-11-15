@@ -144,6 +144,7 @@
 "Wallet.Configuration.SourceHeader" = "ŹRÓDŁO";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
+"Wallet.Configuration.SourceInfo" = "Użycie innej konfiguracji pozwala na zmianę adresów serwera Lite.";
 "Wallet.Configuration.BlockchainIdHeader" = "IDENTYFIKATOR BLOCKCHAIN";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Identyfikator blockchain";
 "Wallet.Configuration.BlockchainIdInfo" = "To ustawienie jest dla programistów. Zmień je tylko wtedy, gdy pracujesz nad stworzeniem własnej sieci TON.";
