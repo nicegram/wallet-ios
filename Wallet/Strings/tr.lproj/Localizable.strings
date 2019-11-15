@@ -39,7 +39,6 @@
 "Wallet.Receive.CopyInvoiceUrl" = "İstek Bağlantısını Kopyala";
 "Wallet.Receive.ShareAddress" = "Cüzdan Adresini Paylaş";
 "Wallet.Receive.ShareInvoiceUrl" = "İstek Bağlantısını Paylaş";
-"Wallet.Receive.ShareUrlInfo" = "Diğer Gram cüzdan sahiplerinden Gram almak için bu bağlantıyı paylaşın.";
 "Wallet.Receive.AmountHeader" = "MİKTAR";
 "Wallet.Receive.AmountText" = "Almak istediğiniz Gram miktarı";
 "Wallet.Receive.AmountInfo" = "Gönderene zaman kazandırmak için ödeme miktarı ve amacı belirleyebilirsiniz.";
