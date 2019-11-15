@@ -39,7 +39,6 @@
 "Wallet.Receive.CopyInvoiceUrl" = "Copia URL della fattura";
 "Wallet.Receive.ShareAddress" = "Condividi indirizzo del portafoglio";
 "Wallet.Receive.ShareInvoiceUrl" = "Condividi URL della fattura";
-"Wallet.Receive.ShareUrlInfo" = "Condividi questo link con gli altri utenti per ricevere Grams.";
 "Wallet.Receive.AmountHeader" = "IMPORTO";
 "Wallet.Receive.AmountText" = "Grams da ricevere";
 "Wallet.Receive.AmountInfo" = "È possibile specificare l'importo e lo scopo del pagamento per salvare al mittente un po' di tempo.";
