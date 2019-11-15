@@ -734,7 +734,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
             let walletContext = WalletContextImpl(basePath: documentsPath, storage: storage, config: initialResolvedConfig.value, blockchainName: initialConfigBlockchainName, presentationData: presentationData, navigationBarTheme: navigationBarTheme, window: mainWindow)
             self.walletContext = walletContext
             
-            let beginWithController: (ViewController) -> Void = { controller in
+            let beginWithController: (ViewController, ParsedWalletUrl?, WalletInfo?) -> Void = { controller, parsedUrl, walletInfo in
                 let begin: (Bool) -> Void = { animated in
                     navigationController.setViewControllers([controller], animated: false)
                     if animated {
