@@ -146,6 +146,7 @@
 "Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.BlockchainIdHeader" = "IDENTYFIKATOR BLOCKCHAIN";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Identyfikator blockchain";
+"Wallet.Configuration.BlockchainIdInfo" = "To ustawienie jest dla programistów. Zmień je tylko wtedy, gdy pracujesz nad stworzeniem własnej sieci TON.";
 "Wallet.Configuration.ApplyErrorTitle" = "Błąd";
 "Wallet.Configuration.BlockchainNameChangedTitle" = "Ostrzeżenie";
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Kontynuuj";
