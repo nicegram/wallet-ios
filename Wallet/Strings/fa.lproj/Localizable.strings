@@ -39,7 +39,6 @@
 "Wallet.Receive.CopyInvoiceUrl" = "رونوشت آدرس صورت حساب";
 "Wallet.Receive.ShareAddress" = "به اشتراک گذاری آدرس حساب";
 "Wallet.Receive.ShareInvoiceUrl" = "اشتراک گذاری آدرس صورت حساب";
-"Wallet.Receive.ShareUrlInfo" = "برای دریافت گرام از سایر دارندگان کیف پول گرام, این لینک را به اشتراک بگذارید.";
 "Wallet.Receive.AmountHeader" = "مقدار";
 "Wallet.Receive.AmountText" = "گرام های قابل دریافت";
 "Wallet.Receive.AmountInfo" = "شما می توانید مقدار و مقصد پرداخت را مشخص و برای فرستنده خاص ذخیره نمایید.";
