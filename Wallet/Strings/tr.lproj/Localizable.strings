@@ -39,6 +39,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "İstek Bağlantısını Kopyala";
 "Wallet.Receive.ShareAddress" = "Cüzdan Adresini Paylaş";
 "Wallet.Receive.ShareInvoiceUrl" = "İstek Bağlantısını Paylaş";
+"Wallet.Receive.ShareUrlInfo" = "Gram almak için bu bağlantıyı diğer Gram cüzdan sahipleriyle paylaş. Not: bu bağlantı gerçek Gramlar için çalışmayacak.";
 "Wallet.Receive.AmountHeader" = "MİKTAR";
 "Wallet.Receive.AmountText" = "Almak istediğiniz Gram miktarı";
 "Wallet.Receive.AmountInfo" = "Gönderene zaman kazandırmak için ödeme miktarı ve amacı belirleyebilirsiniz.";
@@ -217,3 +218,4 @@
 "Wallet.Time.PreciseDate_m12" = "%1$@ Aralık %2$@, saat %3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "Metni temizle";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "Diğer Gram cüzdan sahiplerinden %@ Gram almak için bu bağlantıyı paylaşın.";
+"Wallet.AccessDenied.Title" = "Lütfen Erişime İzin Verin";
