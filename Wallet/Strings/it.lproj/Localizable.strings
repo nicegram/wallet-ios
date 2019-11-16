@@ -169,7 +169,7 @@
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Procedi";
 "Wallet.CreateInvoice.Title" = "Crea fattura";
 "Wallet.Navigation.Close" = "Chiudi";
-"Wallet.Navigation.Back" = "Torna indietro";
+"Wallet.Navigation.Back" = "Indietro";
 "Wallet.Navigation.Done" = "Fatto";
 "Wallet.Navigation.Cancel" = "Annulla";
 "Wallet.Alert.OK" = "OK";
