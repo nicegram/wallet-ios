@@ -50,7 +50,7 @@
 "Wallet.Send.Title" = "Wyślij Gramy";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.AddressText" = "Wprowadź adres portfela…";
-"Wallet.Send.AddressInfo" = "Wklej tutaj 48–znakowy adres odbiorcy lub poproś o wysłanie do ciebie łącza ton://.";
+"Wallet.Send.AddressInfo" = "Wklej tutaj 48–znakowy adres odbiorcy lub poproś o wysłanie do ciebie linka ton://.";
 "Wallet.Send.Balance" = "Saldo: %@";
 "Wallet.Send.AmountText" = "Gramy do wysłania";
 "Wallet.Send.Confirmation" = "Potwierdzenie";
@@ -150,6 +150,9 @@
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Identyfikator blockchain";
 "Wallet.Configuration.BlockchainIdInfo" = "To ustawienie jest dla programistów. Zmień je tylko wtedy, gdy pracujesz nad stworzeniem własnej sieci TON.";
 "Wallet.Configuration.ApplyErrorTitle" = "Błąd";
+"Wallet.Configuration.ApplyErrorTextURLUnreachable" = "Wystąpił błąd podczas pobierania konfiguracji z %@\nSpróbuj ponownie.";
+"Wallet.Configuration.ApplyErrorTextURLInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
+"Wallet.Configuration.ApplyErrorTextJSONInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
 "Wallet.Configuration.BlockchainNameChangedTitle" = "Ostrzeżenie";
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Kontynuuj";
 "Wallet.CreateInvoice.Title" = "Utwórz fakturę";
