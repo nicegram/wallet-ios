@@ -217,3 +217,5 @@
 "Wallet.Time.PreciseDate_m12" = "Дек %1$@, %2$@ в %3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "Очистить текст";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "Поделитесь ссылкой на ваш кошелек для получения %@ Gram.";
+"Wallet.AccessDenied.Title" = "Пожалуйста, разрешите доступ";
+"Wallet.AccessDenied.Settings" = "Настройки";
