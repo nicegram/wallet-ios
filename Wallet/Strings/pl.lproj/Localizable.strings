@@ -156,6 +156,7 @@
 "Wallet.Configuration.BlockchainIdPlaceholder" = "Identyfikator blockchain";
 "Wallet.Configuration.BlockchainIdInfo" = "To ustawienie jest dla programistów. Zmień je tylko wtedy, gdy pracujesz nad stworzeniem własnej sieci TON.";
 "Wallet.Configuration.ApplyErrorTitle" = "Błąd";
+"Wallet.Configuration.ApplyErrorTextURLInvalid" = "Wprowadzony adres URL jest nieprawidłowy. Spróbuj ponownie.";
 "Wallet.Configuration.ApplyErrorTextURLUnreachable" = "Wystąpił błąd podczas pobierania konfiguracji z %@\nSpróbuj ponownie.";
 "Wallet.Configuration.ApplyErrorTextURLInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
 "Wallet.Configuration.ApplyErrorTextJSONInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
@@ -214,4 +215,5 @@
 "Wallet.VoiceOver.Editing.ClearText" = "Usuń tekst";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "Udostępnij ten link innym właścicielom portfela Gram, aby otrzymać od nich %@ Gramy.";
 "Wallet.AccessDenied.Title" = "Zezwól na dostęp";
+"Wallet.AccessDenied.Camera" = "Aby móc robić zdjęcia i nagrywać filmy, NG Wallet musi mieć dostęp do aparatu, .\n\nPrzejdź do Ustawienia » Prywatność » Aparat i włącz dostęp dla NG Wallet.";
 "Wallet.AccessDenied.Settings" = "Ustawienia";
