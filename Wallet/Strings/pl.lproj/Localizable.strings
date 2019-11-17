@@ -140,9 +140,12 @@
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "Niewystarczająca ilość Gramów";
 "Wallet.Send.ErrorNotEnoughFundsText" = "Niestety nie można ukończyć transferu. Nie masz wystarczającej ilości gramów.";
 "Wallet.Send.ErrorInvalidAddress" = "Nieprawidłowy adres portfela. Popraw i spróbuj ponownie.";
+"Wallet.Send.ErrorDecryptionFailed" = "Upewnij się, że Twoje urządzenie ma ustawiony kod dostępu w ustawieniach iOS i spróbuj ponownie.";
 "Wallet.Send.UninitializedTitle" = "Ostrzeżenie";
+"Wallet.Send.UninitializedText" = "Ten adres należy do pustego portfela. Czy na pewno chcesz przenieść do niego gramy?";
 "Wallet.Send.SendAnyway" = "Wyślij mimo to";
 "Wallet.Receive.CreateInvoice" = "Utwórz fakturę";
+"Wallet.Receive.CreateInvoiceInfo" = "Aby zaoszczędzić wysyłającemu trochę czasu możesz określić kwotę oraz cel płatności.";
 "Wallet.Configuration.Title" = "Ustawienia serwera";
 "Wallet.Configuration.Apply" = "Zapisz";
 "Wallet.Configuration.SourceHeader" = "ŹRÓDŁO";
@@ -157,6 +160,7 @@
 "Wallet.Configuration.ApplyErrorTextURLInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
 "Wallet.Configuration.ApplyErrorTextJSONInvalidData" = "Ta konfiguracja łańcucha blockchain jest nieprawidłowa. Spróbuj ponownie.";
 "Wallet.Configuration.BlockchainNameChangedTitle" = "Ostrzeżenie";
+"Wallet.Configuration.BlockchainNameChangedText" = "Czy na pewno chcesz zmienić identyfikator blockchain? Nie potrzebujesz tego, chyba że testujesz własną sieć TON.\n\nJeśli kontynuujesz, będziesz musiał ponownie połączyć swój portfel, używając 24 tajnych słów.";
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Kontynuuj";
 "Wallet.CreateInvoice.Title" = "Utwórz fakturę";
 "Wallet.Navigation.Close" = "Zamknij";
