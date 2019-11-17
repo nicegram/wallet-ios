@@ -39,7 +39,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "复制发票链接";
 "Wallet.Receive.ShareAddress" = "分享钱包地址";
 "Wallet.Receive.ShareInvoiceUrl" = "分享发票链接";
-"Wallet.Receive.ShareUrlInfo" = "将此链接分享给其他的 Gram Wallet 拥有者，即可向他们收取 Grams。\n注意：此链接无法用于真实的 Grams。";
+"Wallet.Receive.ShareUrlInfo" = "将此链接分享给其他的 Gram Wallet 拥有者，即可向他们收取 Grams。\n注意：测试版中，此链接无法用于交易真实的 Grams。";
 "Wallet.Receive.AmountHeader" = "金额";
 "Wallet.Receive.AmountText" = "待收取的 Grams";
 "Wallet.Receive.AmountInfo" = "您可以指定付款金额和目的，以节省付款人的时间。";
