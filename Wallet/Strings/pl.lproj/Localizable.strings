@@ -136,7 +136,10 @@
 "Wallet.Words.NotDoneOk" = "OK, przepraszam";
 "Wallet.Words.NotDoneResponse" = "Przeprosiny przyjęte";
 "Wallet.Send.NetworkErrorTitle" = "Brak sieci";
+"Wallet.Send.NetworkErrorText" = "Nie można wysłać gramów. Upewnij się, że połączenie internetowe działa i spróbuj ponownie.";
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "Niewystarczająca ilość Gramów";
+"Wallet.Send.ErrorNotEnoughFundsText" = "Niestety nie można ukończyć transferu. Nie masz wystarczającej ilości gramów.";
+"Wallet.Send.ErrorInvalidAddress" = "Nieprawidłowy adres portfela. Popraw i spróbuj ponownie.";
 "Wallet.Send.UninitializedTitle" = "Ostrzeżenie";
 "Wallet.Send.SendAnyway" = "Wyślij mimo to";
 "Wallet.Receive.CreateInvoice" = "Utwórz fakturę";
