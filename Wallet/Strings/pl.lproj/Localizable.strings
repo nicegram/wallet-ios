@@ -115,8 +115,10 @@
 "Wallet.TransactionInfo.CommentHeader" = "KOMENTARZ";
 "Wallet.TransactionInfo.StorageFeeHeader" = "OPŁATA ZA PRZECHOWANIE";
 "Wallet.TransactionInfo.OtherFeeHeader" = "OPŁATA ZA TRANSAKCJĘ";
+"Wallet.TransactionInfo.StorageFeeInfo" = "Walidatorzy Blockchain pobierają niewielką opłatę za przechowywanie informacji o twoim zdecentralizowanym portfelu i przetwarzanie twoich transakcji.";
+"Wallet.TransactionInfo.StorageFeeInfoUrl" = "Walidatorzy Blockchain pobierają niewielką opłatę za przechowywanie informacji o twoim zdecentralizowanym portfelu i przetwarzanie twoich transakcji. [Więcej informacji]()";
 "Wallet.TransactionInfo.OtherFeeInfo" = "Walidatorzy Blockchain pobierają niewielką opłatę za przetwarzanie twoich zdecentralizowanych transakcji.";
-"Wallet.TransactionInfo.OtherFeeInfoUrl" = "Walidatorzy Blockchain pobierają niewielką opłatę za przetwarzanie twoich zdecentralizowanych transakcji.\n[Więcej informacji]()";
+"Wallet.TransactionInfo.OtherFeeInfoUrl" = "Walidatorzy Blockchain pobierają niewielką opłatę za przetwarzanie twoich zdecentralizowanych transakcji. [Więcej informacji]()";
 "Wallet.WordCheck.Title" = "Czas na test!";
 "Wallet.WordCheck.Text" = "Sprawdźmy, czy zapisano je poprawnie. Wprowadź słowa\n**%1$@**, **%2$@** i **%3$@**";
 "Wallet.WordCheck.Continue" = "Kontynuuj";
