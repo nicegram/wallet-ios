@@ -219,3 +219,5 @@
 "Wallet.VoiceOver.Editing.ClearText" = "پاکسازی متن";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "برای دریافت%@ گرام از سایر دارندگان کیف پول گرام, این لینک را به اشتراک بگذارید.";
 "Wallet.AccessDenied.Title" = "لطفا اجازه دسترسی بدهید";
+"Wallet.AccessDenied.Camera" = "کیف پول نایس گرام برای عکسبرداری و فیلمبرداری نیاز به مجوز دسترسی دوربین دارد\nلطفا در قسمت تنظیمات منوی حریم خصوصی گزینه دوربین نایس گرام را روشن نمایید.";
+"Wallet.AccessDenied.Settings" = "تنظیمات";
