@@ -142,11 +142,17 @@
 "Wallet.Send.NetworkErrorTitle" = "فقدان شبکه";
 "Wallet.Send.NetworkErrorText" = "عدم ارسال گرام ها ، لطفا از صحت کارکرد و اتصال شبکه بازدید و دوباره تلاش نمایید.";
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "گرام ناکافی";
+"Wallet.Send.ErrorNotEnoughFundsText" = "متاسفانه عملیات انتقال به علت گرام ناکافی کامل نشد.";
+"Wallet.Send.ErrorInvalidAddress" = "اشتباه در آدرس کیف پول لطفا آن را اصلاح و مجددا تلاش کنید.";
+"Wallet.Send.ErrorDecryptionFailed" = "لطفا از وجود کلمه عبور در تنظیمات سیستم ios اطمینان حاصل کرده و مجددا تلاش نمایید.";
 "Wallet.Send.UninitializedTitle" = "هشدار";
+"Wallet.Send.UninitializedText" = "این آدرس متعلق به یک کیف پول خالی است آیا از انتقال گرام ها به داخل آن اطمینان دارید؟";
 "Wallet.Send.SendAnyway" = "مشکلی نیست، ارسال کن";
 "Wallet.Receive.CreateInvoice" = "ایجاد صورتحساب";
+"Wallet.Receive.CreateInvoiceInfo" = "برای صرفه جویی در زمان شما می توانید مقدار و مقصد پرداخت را مشخص و براساس فرستنده ذخیره نمایید.";
 "Wallet.Configuration.Title" = "تنظیمات سرور";
 "Wallet.Configuration.Apply" = "ذخیره";
+"Wallet.Configuration.SourceHeader" = "منبع";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
 "Wallet.Configuration.ApplyErrorTitle" = "خطا";
