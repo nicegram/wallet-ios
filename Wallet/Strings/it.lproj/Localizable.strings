@@ -39,7 +39,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "Copia URL della fattura";
 "Wallet.Receive.ShareAddress" = "Condividi indirizzo del portafoglio";
 "Wallet.Receive.ShareInvoiceUrl" = "Condividi URL della fattura";
-"Wallet.Receive.ShareUrlInfo" = "Condividi questo link con gli altri utenti per ricevere Grams.";
+"Wallet.Receive.ShareUrlInfo" = "Invia questo link con altri utenti che hanno il portafoglio Gram. Nota: il link non funzionerà con Grans reali.";
 "Wallet.Receive.AmountHeader" = "IMPORTO";
 "Wallet.Receive.AmountText" = "Grams da ricevere";
 "Wallet.Receive.AmountInfo" = "È possibile specificare l'importo e lo scopo del pagamento per salvare al mittente un po' di tempo.";
@@ -169,7 +169,7 @@
 "Wallet.Configuration.BlockchainNameChangedProceed" = "Procedi";
 "Wallet.CreateInvoice.Title" = "Crea fattura";
 "Wallet.Navigation.Close" = "Chiudi";
-"Wallet.Navigation.Back" = "Torna indietro";
+"Wallet.Navigation.Back" = "Indietro";
 "Wallet.Navigation.Done" = "Fatto";
 "Wallet.Navigation.Cancel" = "Annulla";
 "Wallet.Alert.OK" = "OK";
@@ -218,3 +218,6 @@
 "Wallet.Time.PreciseDate_m12" = "%1$@ Dicembre %2$@ alle %3$@";
 "Wallet.VoiceOver.Editing.ClearText" = "Cancella il testo";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "Condividi questo link con altri utenti per ottenere %@ Grams da loro.";
+"Wallet.AccessDenied.Title" = "Per favore, consenti l’accesso";
+"Wallet.AccessDenied.Camera" = "NG Wallet ha bisogno dell’accesso alla fotocamera per scattare foto e video.\nPer favore vai in Impostazioni > Privacy > Fotocamera e imposta ON su NG Wallet.";
+"Wallet.AccessDenied.Settings" = "Impostazioni";
