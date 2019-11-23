@@ -114,6 +114,12 @@
 "Wallet.TransactionInfo.SendGrams" = "گرام ها را به این آدرس ارسال کنید";
 "Wallet.TransactionInfo.CommentHeader" = "توضیحات";
 "Wallet.TransactionInfo.StorageFeeHeader" = "هزینه نگهداری";
+"Wallet.TransactionInfo.OtherFeeHeader" = "کارمزد معامله";
+"Wallet.TransactionInfo.StorageFeeInfo" = "تامیین اعتبار بلاکچین هزینه مختصری را برای جمع آوری و نگهداری اطلاعات حساب های غیرمتمرکز و انجام معاملات شما در نظر گرفته است.";
+"Wallet.TransactionInfo.StorageFeeInfoUrl" = "تامیین اعتبار بلاکچین هزینه مختصری را برای جمع آوری و نگهداری اطلاعات حساب های غیرمتمرکز و انجام معاملات شما در نظر گرفته است[اطلاعات بیشتر]";
+"Wallet.TransactionInfo.OtherFeeInfo" = "تامین اعتبار بلاکچین مبلغ مختصری برای انجام معاملات غیر متمرکز دریافت میکند.";
+"Wallet.TransactionInfo.OtherFeeInfoUrl" = "تامین اعتبار بلاکچین مبلغ مختصری برای انجام معاملات غیر متمرکز دریافت میکند[اطلاعات بیشتر]";
+"Wallet.WordCheck.Title" = "زمان امتحان!";
 "Wallet.WordCheck.Continue" = "ادامه";
 "Wallet.WordCheck.TryAgain" = "دوباره تلاش کنید";
 "Wallet.WordCheck.ViewWords" = "مشاهده واژه ها";
