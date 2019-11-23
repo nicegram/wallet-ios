@@ -155,6 +155,9 @@
 "Wallet.Configuration.SourceHeader" = "منبع";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
+"Wallet.Configuration.SourceInfo" = "استفاده از پیکربندی های متفاوت به شما امکان تغییر آدرس های سرور لایت را فراهم می نماید.";
+"Wallet.Configuration.BlockchainIdHeader" = "آیدی بلاکچین";
+"Wallet.Configuration.BlockchainIdPlaceholder" = "آیدی بلاکچین";
 "Wallet.Configuration.ApplyErrorTitle" = "خطا";
 "Wallet.Configuration.BlockchainNameChangedTitle" = "هشدار";
 "Wallet.Configuration.BlockchainNameChangedProceed" = "ادامه";
