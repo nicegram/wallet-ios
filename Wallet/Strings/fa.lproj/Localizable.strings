@@ -77,8 +77,11 @@
 "Wallet.Intro.CreateWallet" = "ساخت کیف پول من";
 "Wallet.Intro.Terms" = "ضمن ایجاد کیف پول شما شرایط قرارداد را نیز می پذیرید.";
 "Wallet.Created.Title" = "تبریک می گویم";
+"Wallet.Created.Text" = "کیف پول گرام ساخته شد فقط شما می تواند آن را کنترل کنید \nبرای دسترسی همیشگی به این کیف پول لطفاً کلمات رمز خود را آن پایین نوشته و یک کد عبور ایمن انتخاب نمایید.";
 "Wallet.Created.Proceed" = "ادامه";
 "Wallet.Created.ExportErrorTitle" = "خطا";
+"Wallet.Created.ExportErrorText" = "خطای رمزنگاری. لطفاً ازفعال شدن تنظیمات کدعبور در سیستم ios اطمینان حاصل نموده و دوباره تلاش نمایید.";
+"Wallet.Completed.Title" = "گوش به زنگ!";
 "Wallet.Completed.ViewWallet" = "مشاهده کیف پول من";
 "Wallet.RestoreFailed.CreateWallet" = "ساخت کیف پول جدید";
 "Wallet.Sending.Text" = "لطفا چند لحظه صبر کنید تا تراکنش با انجام شود...";
