@@ -15,8 +15,6 @@
 "Wallet.Updated.YesterdayAt" = "دیروز %@";
 "Wallet.Updated.AtDate" = "%@";
 "Wallet.Updated.TodayAt" = "امروز %@";
-"Wallet.Info.WalletCreated" = "حساب(کیف پول) شما ساخته شد";
-"Wallet.Info.Address" = "آدرس حساب(کیف پول) شما";
 "Wallet.Info.YourBalance" = "موجودی شما";
 "Wallet.Info.Receive" = "دریافت";
 "Wallet.Info.ReceiveGrams" = "دریافت گرام";
@@ -75,7 +73,6 @@
 "Wallet.Intro.Title" = "کیف پول نایس گرام";
 "Wallet.Intro.Text" = "کیف پول نایس گرام امکان ارسال سریع و مطمین برپایه پرداخت بلاکچین و بدون واسطه را فراهم میسازد.";
 "Wallet.Intro.CreateWallet" = "ساخت کیف پول من";
-"Wallet.Intro.Terms" = "ضمن ایجاد کیف پول شما شرایط قرارداد را نیز می پذیرید.";
 "Wallet.Created.Title" = "تبریک می گویم";
 "Wallet.Created.Text" = "کیف پول گرام ساخته شد فقط شما می تواند آن را کنترل کنید \nبرای دسترسی همیشگی به این کیف پول لطفاً کلمات رمز خود را آن پایین نوشته و یک کد عبور ایمن انتخاب نمایید.";
 "Wallet.Created.Proceed" = "ادامه";
