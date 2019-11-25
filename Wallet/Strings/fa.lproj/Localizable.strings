@@ -32,7 +32,7 @@
 "Wallet.Qr.Title" = "بارکد";
 "Wallet.Receive.Title" = "دریافت گرام";
 "Wallet.Receive.AddressHeader" = "آدرس حساب شما";
-"Wallet.Receive.InvoiceUrlHeader" = "آدرس صورت حساب";
+"Wallet.Receive.InvoiceUrlHeader" = "آدرس فاکتور";
 "Wallet.Receive.CopyAddress" = "کپی‌کردن آدرس کیف";
 "Wallet.Receive.CopyInvoiceUrl" = "رونوشت آدرس صورت حساب";
 "Wallet.Receive.ShareAddress" = "به اشتراک گذاری آدرس حساب";
@@ -70,11 +70,8 @@
 "Wallet.Intro.ImportExisting" = "وارد کردن کیف پول موجود";
 "Wallet.Intro.CreateErrorTitle" = "خطای نامشخص";
 "Wallet.Intro.CreateErrorText" = "لطفا دوباره تلاش کنید";
-"Wallet.Intro.Title" = "کیف پول نایس گرام";
-"Wallet.Intro.Text" = "کیف پول نایس گرام امکان ارسال سریع و مطمین برپایه پرداخت بلاکچین و بدون واسطه را فراهم میسازد.";
 "Wallet.Intro.CreateWallet" = "ساخت کیف پول من";
 "Wallet.Created.Title" = "تبریک می گویم";
-"Wallet.Created.Text" = "کیف پول گرام ساخته شد فقط شما می تواند آن را کنترل کنید \nبرای دسترسی همیشگی به این کیف پول لطفاً کلمات رمز خود را آن پایین نوشته و یک کد عبور ایمن انتخاب نمایید.";
 "Wallet.Created.Proceed" = "ادامه";
 "Wallet.Created.ExportErrorTitle" = "خطا";
 "Wallet.Created.ExportErrorText" = "خطای رمزنگاری. لطفاً ازفعال شدن تنظیمات کدعبور در سیستم ios اطمینان حاصل نموده و دوباره تلاش نمایید.";
@@ -130,7 +127,6 @@
 "Wallet.WordImport.IncorrectTitle" = "کلمات اشتباهند";
 "Wallet.WordImport.IncorrectText" = "متاسفیم،شما واژه های کلیدی اشتباه را وارد کرده اید. لطفا دوباره بررسی کنید و مجددا تلاش کنید.";
 "Wallet.Words.Title" = "۲۴ کلمه کلیدی";
-"Wallet.Words.Text" = "لطفا این ۲۴ کلمه رمز را با رعایت ترتیب روی کاغذ نوشته و در جایی امن نگهداری کنید.";
 "Wallet.Words.Done" = "انجام شد";
 "Wallet.Words.NotDoneTitle" = "مطمینید؟";
 "Wallet.Words.NotDoneText" = "شما زمان کافی برای نوشتن همه واژه های زیر نداشتید.";
