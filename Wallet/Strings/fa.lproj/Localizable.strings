@@ -132,7 +132,6 @@
 "Wallet.Words.NotDoneText" = "شما زمان کافی برای نوشتن همه واژه های زیر نداشتید.";
 "Wallet.Words.NotDoneOk" = "باشه ، متاسفم";
 "Wallet.Words.NotDoneResponse" = "عذر شما پذیرفته شد";
-"Wallet.Send.NetworkErrorTitle" = "فقدان شبکه";
 "Wallet.Send.NetworkErrorText" = "عدم ارسال گرام ها ، لطفا از صحت کارکرد و اتصال شبکه بازدید و دوباره تلاش نمایید.";
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "گرام ناکافی";
 "Wallet.Send.ErrorNotEnoughFundsText" = "متاسفانه عملیات انتقال به علت گرام ناکافی کامل نشد.";
@@ -180,7 +179,6 @@
 "Wallet.Month.ShortFebruary" = "فوریه";
 "Wallet.Month.ShortMarch" = "مارس";
 "Wallet.Month.ShortApril" = "آوریل";
-"Wallet.Month.ShortMay" = "مِی";
 "Wallet.Month.ShortJune" = "ژوئن";
 "Wallet.Month.ShortJuly" = "جولای";
 "Wallet.Month.ShortAugust" = "آگوست";
