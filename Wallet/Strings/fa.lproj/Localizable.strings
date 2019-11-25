@@ -148,10 +148,8 @@
 "Wallet.Configuration.SourceHeader" = "منبع";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
-"Wallet.Configuration.SourceInfo" = "استفاده از پیکربندی های متفاوت به شما امکان تغییر آدرس های سرور لایت را فراهم می نماید.";
 "Wallet.Configuration.BlockchainIdHeader" = "آیدی بلاکچین";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "آیدی بلاکچین";
-"Wallet.Configuration.BlockchainIdInfo" = "تنظیمات مختص توسعه دهندگان برنامه است لطفا فقط هنگام کار برای ایجاد شبکه ton شخصی آن را تغییر دهید.";
 "Wallet.Configuration.ApplyErrorTitle" = "خطا";
 "Wallet.Configuration.ApplyErrorTextURLInvalid" = "آدرس ورودی نامعتبر ، لطفا مجددا تلاش نمایید.";
 "Wallet.Configuration.ApplyErrorTextURLUnreachable" = "خطایی حین دانلود پیکربندی از %@ روی داد لطفا مجددا تلاش نمایید.";
@@ -171,7 +169,6 @@
 "Wallet.Month.GenFebruary" = "فوریه";
 "Wallet.Month.GenMarch" = "مارس";
 "Wallet.Month.GenApril" = "آوریل";
-"Wallet.Month.GenMay" = "مِی";
 "Wallet.Month.GenJune" = "ژوئن";
 "Wallet.Month.GenJuly" = "جولای";
 "Wallet.Month.GenAugust" = "آگوست";
