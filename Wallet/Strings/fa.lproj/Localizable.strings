@@ -77,6 +77,7 @@
 "Wallet.Intro.CreateWallet" = "ساخت کیف پول من";
 "Wallet.Intro.Terms" = "ضمن ساخت کیف پول شما شرایط قرارداد را نیز می پذیرید.";
 "Wallet.Created.Title" = "تبریک می گویم";
+"Wallet.Created.Text" = "کیف پول گرام ساخته شده و تنها توسط شما قابل کنترل است \nبرای داشتن دسترسی همیشگی به آن لطفا کلمات رمز را در جایی نوشته و یک کد عبور ایمن برای آن تعیین نمایید.";
 "Wallet.Created.Proceed" = "ادامه";
 "Wallet.Created.ExportErrorTitle" = "خطا";
 "Wallet.Created.ExportErrorText" = "خطای رمزنگاری. لطفاً ازفعال شدن تنظیمات کدعبور در سیستم ios اطمینان حاصل نموده و دوباره تلاش نمایید.";
@@ -132,11 +133,13 @@
 "Wallet.WordImport.IncorrectTitle" = "کلمات اشتباهند";
 "Wallet.WordImport.IncorrectText" = "متاسفیم،شما واژه های کلیدی اشتباه را وارد کرده اید. لطفا دوباره بررسی کنید و مجددا تلاش کنید.";
 "Wallet.Words.Title" = "۲۴ کلمه کلیدی";
+"Wallet.Words.Text" = "لطفا این ۲۴ کلمه را به ترتیب و در جای صحیح نوشته و در جای امنی نگهداری کنید\nاین کلمات رمز برای بازیابی و امکان دسترسی مجدد به حسابتان در صورت مفقود شدن دستگاهتان و یا فراموش کردن کد عبور الزامیست.";
 "Wallet.Words.Done" = "انجام شد";
 "Wallet.Words.NotDoneTitle" = "مطمینید؟";
 "Wallet.Words.NotDoneText" = "شما زمان کافی برای نوشتن همه واژه های زیر نداشتید.";
 "Wallet.Words.NotDoneOk" = "باشه ، متاسفم";
 "Wallet.Words.NotDoneResponse" = "عذر شما پذیرفته شد";
+"Wallet.Send.NetworkErrorTitle" = "فاقد شبکه";
 "Wallet.Send.NetworkErrorText" = "عدم ارسال گرام ها ، لطفا از صحت کارکرد و اتصال شبکه بازدید و دوباره تلاش نمایید.";
 "Wallet.Send.ErrorNotEnoughFundsTitle" = "گرام ناکافی";
 "Wallet.Send.ErrorNotEnoughFundsText" = "متاسفانه عملیات انتقال به علت گرام ناکافی کامل نشد.";
@@ -152,8 +155,10 @@
 "Wallet.Configuration.SourceHeader" = "منبع";
 "Wallet.Configuration.SourceURL" = "URL";
 "Wallet.Configuration.SourceJSON" = "JSON";
+"Wallet.Configuration.SourceInfo" = "به کارگیری پیکربندی های متفاوت ، امکان تعویض نشانی های لایت سرور را فراهم میکند.";
 "Wallet.Configuration.BlockchainIdHeader" = "آیدی بلاکچین";
 "Wallet.Configuration.BlockchainIdPlaceholder" = "آیدی بلاکچین";
+"Wallet.Configuration.BlockchainIdInfo" = "تنظیمات زیر مربوط به توسعه دهندگان است بنابراین فقط در صورتی آنها را تغییر دهید که در شبکه ton شخصی که خودتان ساخته اید فعالیت می کنید.";
 "Wallet.Configuration.ApplyErrorTitle" = "خطا";
 "Wallet.Configuration.ApplyErrorTextURLInvalid" = "آدرس ورودی نامعتبر ، لطفا مجددا تلاش نمایید.";
 "Wallet.Configuration.ApplyErrorTextURLUnreachable" = "خطایی حین دانلود پیکربندی از %@ روی داد لطفا مجددا تلاش نمایید.";
@@ -173,6 +178,7 @@
 "Wallet.Month.GenFebruary" = "فوریه";
 "Wallet.Month.GenMarch" = "مارس";
 "Wallet.Month.GenApril" = "آوریل";
+"Wallet.Month.GenMay" = "مِی";
 "Wallet.Month.GenJune" = "ژوئن";
 "Wallet.Month.GenJuly" = "جولای";
 "Wallet.Month.GenAugust" = "آگوست";
@@ -184,6 +190,7 @@
 "Wallet.Month.ShortFebruary" = "فوریه";
 "Wallet.Month.ShortMarch" = "مارس";
 "Wallet.Month.ShortApril" = "آوریل";
+"Wallet.Month.ShortMay" = "مِی";
 "Wallet.Month.ShortJune" = "ژوئن";
 "Wallet.Month.ShortJuly" = "جولای";
 "Wallet.Month.ShortAugust" = "آگوست";
