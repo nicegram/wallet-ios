@@ -50,7 +50,7 @@
 "Wallet.Send.Title" = "Wyślij Gramy";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.AddressText" = "Wprowadź adres portfela…";
-"Wallet.Send.AddressInfo" = "Wklej tutaj 48–znakowy adres odbiorcy lub poproś o wysłanie do ciebie linka ton://.";
+"Wallet.Send.AddressInfo" = "Wklej tutaj 48-znakowy adres odbiorcy lub poproś o wysłanie do ciebie linka ton://.";
 "Wallet.Send.Balance" = "Saldo: %@";
 "Wallet.Send.AmountText" = "Gramy do wysłania";
 "Wallet.Send.Confirmation" = "Potwierdzenie";
