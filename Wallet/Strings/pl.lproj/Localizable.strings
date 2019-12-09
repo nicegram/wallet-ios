@@ -46,7 +46,7 @@
 "Wallet.Receive.CommentHeader" = "KOMENTARZ (OPCJONALNY)";
 "Wallet.Receive.CommentInfo" = "Opis płatności";
 "Wallet.Receive.AddressCopied" = "Skopiowano adres do schowka.";
-"Wallet.Receive.InvoiceUrlCopied" = "Adres URL faktury został skopiowany do schowka.";
+"Wallet.Receive.InvoiceUrlCopied" = "Skopiowano adres URL faktury do schowka.";
 "Wallet.Send.Title" = "Wyślij Gramy";
 "Wallet.Send.AddressHeader" = "ADRES PORTFELA ODBIORCY";
 "Wallet.Send.AddressText" = "Wprowadź adres portfela…";
@@ -82,7 +82,7 @@
 "Wallet.Created.ExportErrorTitle" = "Błąd";
 "Wallet.Created.ExportErrorText" = "Błąd szyfrowania. Upewnij się, że włączono kod dostępu w ustawieniach iOS i spróbuj ponownie.";
 "Wallet.Completed.Title" = "Gotowe!";
-"Wallet.Completed.Text" = "Wszystko gotowe. Teraz posiadasz portfel, który kontrolujesz tylko ty - bez pośredników czy bankierów.";
+"Wallet.Completed.Text" = "Wszystko gotowe. Teraz posiadasz portfel, który kontrolujesz tylko ty – bez pośredników czy bankierów.";
 "Wallet.Completed.ViewWallet" = "Pokaż mój portfel";
 "Wallet.RestoreFailed.Title" = "Niestety";
 "Wallet.RestoreFailed.Text" = "Bez tajnych słów, nie możesz\nprzywrócić dostępu do swojego portfela.";
@@ -110,7 +110,7 @@
 "Wallet.TransactionInfo.RecipientHeader" = "ODBIORCA";
 "Wallet.TransactionInfo.SenderHeader" = "NADAWCA";
 "Wallet.TransactionInfo.CopyAddress" = "Kopiuj adres portfela";
-"Wallet.TransactionInfo.AddressCopied" = "Adres skopiowany do schowka.";
+"Wallet.TransactionInfo.AddressCopied" = "Skopiowano adres do schowka.";
 "Wallet.TransactionInfo.SendGrams" = "Wyślij Gramy na ten adres";
 "Wallet.TransactionInfo.CommentHeader" = "KOMENTARZ";
 "Wallet.TransactionInfo.StorageFeeHeader" = "OPŁATA ZA PRZECHOWANIE";
@@ -127,7 +127,7 @@
 "Wallet.WordCheck.TryAgain" = "Spróbuj ponownie";
 "Wallet.WordCheck.ViewWords" = "Wyświetl słowa";
 "Wallet.WordImport.Title" = "24 tajne słowa";
-"Wallet.WordImport.Text" = "Przywróć dostęp do swojego portfela poprzez\nwprowadzenie 24 tajnych słów, które zapisano podczas tworzenia portfela.";
+"Wallet.WordImport.Text" = "Przywróć dostęp do swojego portfela poprzez wprowadzenie 24 tajnych słów, które zapisano podczas tworzenia portfela.";
 "Wallet.WordImport.Continue" = "Kontynuuj";
 "Wallet.WordImport.CanNotRemember" = "Nie mam ich";
 "Wallet.WordImport.IncorrectTitle" = "Nieprawidłowe słowa";
