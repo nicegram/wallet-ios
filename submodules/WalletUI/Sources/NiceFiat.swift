@@ -99,6 +99,7 @@ public func gramToFiatStr(_ gram: Int64?, _ approx: Bool = true, _ bagSpace: Str
 }
 
 public func getWarningText() -> String {
+    return ""
     if isTestnet {
         return "⚠️ Testnet GRAMS DOES NOT cost any real money!\n⚠️ Тестовые GRAM НЕ СТОЯТ реальных денег! @notoscam\n\n"
     } else {
