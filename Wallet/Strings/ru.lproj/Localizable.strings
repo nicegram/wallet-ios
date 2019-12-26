@@ -39,6 +39,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "Копировать ссылку на Чек";
 "Wallet.Receive.ShareAddress" = "Поделиться Адресом Кошелька";
 "Wallet.Receive.ShareInvoiceUrl" = "Поделиться ссылкой на Чек";
+"Wallet.Receive.ShareUrlInfo" = "Поделитесь этой ссылкой с другими обладателями Gram кошелька, что-бы получить Gram от них. Примечание: эта ссылка не работает с реальными Grams.";
 "Wallet.Receive.AmountHeader" = "СУММА";
 "Wallet.Receive.AmountText" = "Gram для получения";
 "Wallet.Receive.AmountInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
