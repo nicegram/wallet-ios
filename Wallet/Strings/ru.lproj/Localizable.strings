@@ -39,6 +39,7 @@
 "Wallet.Receive.CopyInvoiceUrl" = "Копировать ссылку на Чек";
 "Wallet.Receive.ShareAddress" = "Поделиться Адресом Кошелька";
 "Wallet.Receive.ShareInvoiceUrl" = "Поделиться ссылкой на Чек";
+"Wallet.Receive.ShareUrlInfo" = "Поделитесь этой ссылкой с другими обладателями Gram кошелька, что-бы получить Gram от них. Внимание: эта ссылка не будет работать с реальными Grams.";
 "Wallet.Receive.AmountHeader" = "СУММА";
 "Wallet.Receive.AmountText" = "Gram для получения";
 "Wallet.Receive.AmountInfo" = "Вы можете указать сумму и цель платежа, чтобы сэкономить отправителю некоторое время.";
@@ -218,4 +219,5 @@
 "Wallet.VoiceOver.Editing.ClearText" = "Очистить текст";
 "Wallet.Receive.ShareInvoiceUrlInfo" = "Поделитесь ссылкой на ваш кошелек для получения %@ Gram.";
 "Wallet.AccessDenied.Title" = "Пожалуйста, разрешите доступ";
+"Wallet.AccessDenied.Camera" = "NG Wallet необходим доступ к камере для съемки фотографий и видео.\n\nПерейдите в Настройки > Конфиденциальность > Камера и установите NG Wallet на ВКЛЮЧЕНИЕ.";
 "Wallet.AccessDenied.Settings" = "Настройки";
