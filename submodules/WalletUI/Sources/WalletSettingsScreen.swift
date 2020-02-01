@@ -158,6 +158,9 @@ public func walletSettingsController(context: WalletContext, walletInfo: WalletI
                 }, completed: { [weak controller] in
                     controller?.dismiss()
                     replaceAllWalletControllersImpl?(WalletSplashScreen(context: context, mode: .intro, walletCreatedPreloadState: nil))
+                    if let notificationToken = NiceSettings().notificationToken {
+                        updateNotificationTokensRegistration(notificationToken: notificationToken, address: nil)
+                    }
                 })
             })
         ]), ActionSheetItemGroup(items: [

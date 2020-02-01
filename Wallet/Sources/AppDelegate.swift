@@ -8,6 +8,8 @@ import WalletCore
 import AVFoundation
 import WalletUrl
 
+import UserNotifications
+
 private func encodeText(_ string: String, _ key: Int) -> String {
     var result = ""
     for c in string.unicodeScalars {
@@ -535,6 +537,19 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     private var mainWindow: Window1?
     private var walletContext: WalletContextImpl?
     
+    private var notificationToken: Data?
+    private var globalwalletAddress: String?
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        NiceSettings().notificationToken = deviceToken
+        print("PUSH TOKEN", hexString(NiceSettings().notificationToken!))
+        self.notificationToken = deviceToken
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        application.applicationIconBadgeNumber = 0
+    }
+    
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         self.application(application, didFinishLaunchingWithOptions: [.url: url])
         return true
@@ -729,6 +744,24 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         )
         |> take(1)
         
+        // iOS 10 support
+        if #available(iOS 10, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options:[.badge, .alert, .sound]){ (granted, error) in
+                if let notificationToken = self.notificationToken, let address = self.globalwalletAddress {
+                    updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
+                }
+            }
+            application.registerForRemoteNotifications()
+        }
+        // iOS 9 support
+        else if #available(iOS 9, *) {
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
+            UIApplication.shared.registerForRemoteNotifications()
+            if let notificationToken = self.notificationToken, let address = self.globalwalletAddress {
+                updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
+            }
+        }
+        
         let _ = (resolvedInitialConfig
         |> deliverOnMainQueue).start(next: { (initialResolvedConfig, initialConfigBlockchainName) in
             let walletContext = WalletContextImpl(basePath: documentsPath, storage: storage, config: initialResolvedConfig.value, blockchainName: initialConfigBlockchainName, presentationData: presentationData, navigationBarTheme: navigationBarTheme, window: mainWindow)
@@ -801,6 +834,10 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                                 |> deliverOnMainQueue).start(next: { address in
                                     let infoScreen = WalletInfoScreen(context: walletContext, walletInfo: record.info, address: address, enableDebugActions: false)
                                     beginWithController(infoScreen, launchParsedUrl, record.info)
+                                    self.globalwalletAddress = address
+                                    if let notificationToken = self.notificationToken {
+                                        updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
+                                    }
                                 })
                             } else {
                                 let createdScreen = WalletSplashScreen(context: walletContext, mode: .created(record.info, nil), walletCreatedPreloadState: nil)
