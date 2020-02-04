@@ -85,7 +85,7 @@
 "Wallet.Words.Title" = "24 cuvinte secrete";
 "Wallet.Words.Text" = "Notează aceste 24 de cuvinte în ordinea corectă și păstrează-le într-un loc secret.\n\nUtilizați aceste cuvinte secrete pentru a restabili accesul la portofel dacă pierdeți parola sau dispozitivul.";
 "Wallet.Words.Done" = "Terminat";
-"Wallet.Words.NotDoneTitle" = "Sigur este Terminat?";
+"Wallet.Words.NotDoneTitle" = "Sigur este Efectuat?";
 "Wallet.Words.NotDoneText" = "Nu ai avut suficient timp pentru a scrie aceste cuvinte.";
 "Wallet.Words.NotDoneOk" = "OK, Imi pare rău";
 "Wallet.Words.NotDoneResponse" = "Scuze Acceptate";
