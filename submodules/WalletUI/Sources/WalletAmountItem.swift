@@ -201,7 +201,6 @@ class WalletAmountItemNode: ListViewItemNode, UITextFieldDelegate, ItemListItemN
             }
             
             let leftInset: CGFloat = 16.0 + params.leftInset
-            var rightInset: CGFloat = 16.0 + params.rightInset
             
             let separatorHeight = UIScreenPixel
             

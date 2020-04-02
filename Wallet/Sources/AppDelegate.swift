@@ -639,7 +639,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                     secondaryColor: UIColor(rgb: 0x5e5e5e),
                     accentColor: accentColor,
                     destructiveColor: UIColor(rgb: 0xff3b30),
-                    disabledColor: UIColor(rgb: 0xd0d0d0)
+                    disabledColor: UIColor(rgb: 0xd0d0d0),
+                    baseFontSize: 17.0
                 ),
                 actionSheet: ActionSheetControllerTheme(
                     dimColor: UIColor(white: 0.0, alpha: 0.4),
@@ -655,7 +656,8 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                     controlColor: UIColor(rgb: 0x7e8791),
                     switchFrameColor: UIColor(rgb: 0xe0e0e0),
                     switchContentColor: UIColor(rgb: 0x77d572),
-                    switchHandleColor: UIColor(rgb: 0xffffff)
+                    switchHandleColor: UIColor(rgb: 0xffffff),
+                    baseFontSize: 17.0
                 )
             ), strings: WalletStrings(
                 primaryComponent: WalletStringsComponent(
@@ -840,7 +842,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                                     }
                                 })
                             } else {
-                                let createdScreen = WalletSplashScreen(context: walletContext, mode: .created(record.info, nil), walletCreatedPreloadState: nil)
+                                let createdScreen = WalletSplashScreen(context: walletContext, mode: .created(walletInfo: record.info, words: nil), walletCreatedPreloadState: nil)
                                 beginWithController(createdScreen, nil, nil)
                             }
                         } else {
