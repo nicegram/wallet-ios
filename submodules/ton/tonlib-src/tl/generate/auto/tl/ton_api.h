@@ -264,6 +264,8 @@ class engine_validator_keyHash;
 
 class engine_validator_oneStat;
 
+class engine_validator_proposalVote;
+
 class engine_validator_signature;
 
 class engine_validator_stats;
@@ -388,7 +390,7 @@ class validatorSession_candidate;
 
 class validatorSession_candidateId;
 
-class validatorSession_config;
+class validatorSession_Config;
 
 class validatorSession_Message;
 
@@ -4977,6 +4979,31 @@ class engine_validator_oneStat final : public Object {
   void store(td::TlStorerToString &s, const char *field_name) const final;
 };
 
+class engine_validator_proposalVote final : public Object {
+ public:
+  td::Bits256 perm_key_;
+  td::BufferSlice to_send_;
+
+  engine_validator_proposalVote();
+
+  engine_validator_proposalVote(td::Bits256 const &perm_key_, td::BufferSlice &&to_send_);
+
+  static const std::int32_t ID = 2137401069;
+  std::int32_t get_id() const final {
+    return ID;
+  }
+
+  static object_ptr<engine_validator_proposalVote> fetch(td::TlParser &p);
+
+  explicit engine_validator_proposalVote(td::TlParser &p);
+
+  void store(td::TlStorerCalcLength &s) const final;
+
+  void store(td::TlStorerUnsafe &s) const final;
+
+  void store(td::TlStorerToString &s, const char *field_name) const final;
+};
+
 class engine_validator_signature final : public Object {
  public:
   td::BufferSlice signature_;
@@ -7185,6 +7212,36 @@ class validator_groupEx final : public validator_Group {
   void store(td::TlStorerToString &s, const char *field_name) const final;
 };
 
+class validator_groupNew final : public validator_Group {
+ public:
+  std::int32_t workchain_;
+  std::int64_t shard_;
+  std::int32_t vertical_seqno_;
+  std::int32_t last_key_block_seqno_;
+  std::int32_t catchain_seqno_;
+  td::Bits256 config_hash_;
+  std::vector<object_ptr<validator_groupMember>> members_;
+
+  validator_groupNew();
+
+  validator_groupNew(std::int32_t workchain_, std::int64_t shard_, std::int32_t vertical_seqno_, std::int32_t last_key_block_seqno_, std::int32_t catchain_seqno_, td::Bits256 const &config_hash_, std::vector<object_ptr<validator_groupMember>> &&members_);
+
+  static const std::int32_t ID = -1740398259;
+  std::int32_t get_id() const final {
+    return ID;
+  }
+
+  static object_ptr<validator_Group> fetch(td::TlParser &p);
+
+  explicit validator_groupNew(td::TlParser &p);
+
+  void store(td::TlStorerCalcLength &s) const final;
+
+  void store(td::TlStorerUnsafe &s) const final;
+
+  void store(td::TlStorerToString &s, const char *field_name) const final;
+};
+
 class validator_config_global final : public Object {
  public:
   object_ptr<tonNode_blockIdExt> zero_state_;
@@ -7346,7 +7403,13 @@ class validatorSession_candidateId final : public Object {
   void store(td::TlStorerToString &s, const char *field_name) const final;
 };
 
-class validatorSession_config final : public Object {
+class validatorSession_Config: public Object {
+ public:
+
+  static object_ptr<validatorSession_Config> fetch(td::TlParser &p);
+};
+
+class validatorSession_config final : public validatorSession_Config {
  public:
   double catchain_idle_timeout_;
   std::int32_t catchain_max_deps_;
@@ -7366,9 +7429,41 @@ class validatorSession_config final : public Object {
     return ID;
   }
 
-  static object_ptr<validatorSession_config> fetch(td::TlParser &p);
+  static object_ptr<validatorSession_Config> fetch(td::TlParser &p);
 
   explicit validatorSession_config(td::TlParser &p);
+
+  void store(td::TlStorerCalcLength &s) const final;
+
+  void store(td::TlStorerUnsafe &s) const final;
+
+  void store(td::TlStorerToString &s, const char *field_name) const final;
+};
+
+class validatorSession_configNew final : public validatorSession_Config {
+ public:
+  double catchain_idle_timeout_;
+  std::int32_t catchain_max_deps_;
+  std::int32_t round_candidates_;
+  double next_candidate_delay_;
+  std::int32_t round_attempt_duration_;
+  std::int32_t max_round_attempts_;
+  std::int32_t max_block_size_;
+  std::int32_t max_collated_data_size_;
+  bool new_catchain_ids_;
+
+  validatorSession_configNew();
+
+  validatorSession_configNew(double catchain_idle_timeout_, std::int32_t catchain_max_deps_, std::int32_t round_candidates_, double next_candidate_delay_, std::int32_t round_attempt_duration_, std::int32_t max_round_attempts_, std::int32_t max_block_size_, std::int32_t max_collated_data_size_, bool new_catchain_ids_);
+
+  static const std::int32_t ID = -139482724;
+  std::int32_t get_id() const final {
+    return ID;
+  }
+
+  static object_ptr<validatorSession_Config> fetch(td::TlParser &p);
+
+  explicit validatorSession_configNew(td::TlParser &p);
 
   void store(td::TlStorerCalcLength &s) const final;
 
@@ -8429,6 +8524,34 @@ class engine_validator_createElectionBid final : public Function {
   static object_ptr<engine_validator_createElectionBid> fetch(td::TlParser &p);
 
   explicit engine_validator_createElectionBid(td::TlParser &p);
+
+  void store(td::TlStorerCalcLength &s) const final;
+
+  void store(td::TlStorerUnsafe &s) const final;
+
+  void store(td::TlStorerToString &s, const char *field_name) const final;
+
+  static ReturnType fetch_result(td::TlParser &p);
+};
+
+class engine_validator_createProposalVote final : public Function {
+ public:
+  td::BufferSlice vote_;
+
+  engine_validator_createProposalVote();
+
+  explicit engine_validator_createProposalVote(td::BufferSlice &&vote_);
+
+  static const std::int32_t ID = 498278765;
+  std::int32_t get_id() const final {
+    return ID;
+  }
+
+  using ReturnType = object_ptr<engine_validator_proposalVote>;
+
+  static object_ptr<engine_validator_createProposalVote> fetch(td::TlParser &p);
+
+  explicit engine_validator_createProposalVote(td::TlParser &p);
 
   void store(td::TlStorerCalcLength &s) const final;
 

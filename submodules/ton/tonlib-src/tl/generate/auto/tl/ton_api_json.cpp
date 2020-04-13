@@ -487,7 +487,8 @@ Result<int32> tl_constructor_from_string(ton_api::tonNode_PreparedState *object,
 Result<int32> tl_constructor_from_string(ton_api::validator_Group *object, const std::string &str) {
   static const std::unordered_map<Slice, int32, SliceHash> m = {
     {"validator.group", -120029535},
-    {"validator.groupEx", 479350270}
+    {"validator.groupEx", 479350270},
+    {"validator.groupNew", -1740398259}
   };
   auto it = m.find(str);
   if (it == m.end()) {
@@ -499,6 +500,17 @@ Result<int32> tl_constructor_from_string(ton_api::validator_config_Local *object
   static const std::unordered_map<Slice, int32, SliceHash> m = {
     {"validator.config.local", 1716256616},
     {"validator.config.random.local", 1501795426}
+  };
+  auto it = m.find(str);
+  if (it == m.end()) {
+    return Status::Error(str + "Unknown class");
+  }
+  return it->second;
+}
+Result<int32> tl_constructor_from_string(ton_api::validatorSession_Config *object, const std::string &str) {
+  static const std::unordered_map<Slice, int32, SliceHash> m = {
+    {"validatorSession.config", -1235092029},
+    {"validatorSession.configNew", -139482724}
   };
   auto it = m.find(str);
   if (it == m.end()) {
@@ -714,6 +726,7 @@ Result<int32> tl_constructor_from_string(ton_api::Object *object, const std::str
     {"engine.validator.jsonConfig", 321753611},
     {"engine.validator.keyHash", -1027168946},
     {"engine.validator.oneStat", -1533527315},
+    {"engine.validator.proposalVote", 2137401069},
     {"engine.validator.signature", -76791000},
     {"engine.validator.stats", 1565119343},
     {"engine.validator.success", -1276860789},
@@ -799,6 +812,7 @@ Result<int32> tl_constructor_from_string(ton_api::Object *object, const std::str
     {"tonNode.zeroStateIdExt", 494024110},
     {"validator.group", -120029535},
     {"validator.groupEx", 479350270},
+    {"validator.groupNew", -1740398259},
     {"validator.config.global", -2038562966},
     {"validator.config.local", 1716256616},
     {"validator.config.random.local", 1501795426},
@@ -806,6 +820,7 @@ Result<int32> tl_constructor_from_string(ton_api::Object *object, const std::str
     {"validatorSession.candidate", 2100525125},
     {"validatorSession.candidateId", 436135276},
     {"validatorSession.config", -1235092029},
+    {"validatorSession.configNew", -139482724},
     {"validatorSession.message.startSession", -1767807279},
     {"validatorSession.message.finishSession", -879025437},
     {"validatorSession.pong", -590989459},
@@ -853,6 +868,7 @@ Result<int32> tl_constructor_from_string(ton_api::Function *object, const std::s
     {"engine.validator.checkDhtServers", -773578550},
     {"engine.validator.controlQuery", -1535722048},
     {"engine.validator.createElectionBid", -451038907},
+    {"engine.validator.createProposalVote", 498278765},
     {"engine.validator.delAdnlId", 691696882},
     {"engine.validator.delDhtId", -2063770818},
     {"engine.validator.delListeningPort", 828094543},
@@ -3726,6 +3742,21 @@ Status from_json(ton_api::engine_validator_oneStat &to, JsonObject &from) {
   }
   return Status::OK();
 }
+Status from_json(ton_api::engine_validator_proposalVote &to, JsonObject &from) {
+  {
+    TRY_RESULT(value, get_json_object_field(from, "perm_key", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.perm_key_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "to_send", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json_bytes(to.to_send_, value));
+    }
+  }
+  return Status::OK();
+}
 Status from_json(ton_api::engine_validator_signature &to, JsonObject &from) {
   {
     TRY_RESULT(value, get_json_object_field(from, "signature", JsonValue::Type::Null, true));
@@ -5091,6 +5122,51 @@ Status from_json(ton_api::validator_groupEx &to, JsonObject &from) {
   }
   return Status::OK();
 }
+Status from_json(ton_api::validator_groupNew &to, JsonObject &from) {
+  {
+    TRY_RESULT(value, get_json_object_field(from, "workchain", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.workchain_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "shard", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.shard_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "vertical_seqno", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.vertical_seqno_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "last_key_block_seqno", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.last_key_block_seqno_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "catchain_seqno", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.catchain_seqno_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "config_hash", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.config_hash_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "members", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.members_, value));
+    }
+  }
+  return Status::OK();
+}
 Status from_json(ton_api::validator_config_global &to, JsonObject &from) {
   {
     TRY_RESULT(value, get_json_object_field(from, "zero_state", JsonValue::Type::Null, true));
@@ -5258,6 +5334,63 @@ Status from_json(ton_api::validatorSession_config &to, JsonObject &from) {
     TRY_RESULT(value, get_json_object_field(from, "max_collated_data_size", JsonValue::Type::Null, true));
     if (value.type() != JsonValue::Type::Null) {
       TRY_STATUS(from_json(to.max_collated_data_size_, value));
+    }
+  }
+  return Status::OK();
+}
+Status from_json(ton_api::validatorSession_configNew &to, JsonObject &from) {
+  {
+    TRY_RESULT(value, get_json_object_field(from, "catchain_idle_timeout", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.catchain_idle_timeout_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "catchain_max_deps", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.catchain_max_deps_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "round_candidates", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.round_candidates_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "next_candidate_delay", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.next_candidate_delay_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "round_attempt_duration", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.round_attempt_duration_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "max_round_attempts", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.max_round_attempts_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "max_block_size", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.max_block_size_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "max_collated_data_size", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.max_collated_data_size_, value));
+    }
+  }
+  {
+    TRY_RESULT(value, get_json_object_field(from, "new_catchain_ids", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json(to.new_catchain_ids_, value));
     }
   }
   return Status::OK();
@@ -5864,6 +5997,15 @@ Status from_json(ton_api::engine_validator_createElectionBid &to, JsonObject &fr
     TRY_RESULT(value, get_json_object_field(from, "wallet", JsonValue::Type::Null, true));
     if (value.type() != JsonValue::Type::Null) {
       TRY_STATUS(from_json(to.wallet_, value));
+    }
+  }
+  return Status::OK();
+}
+Status from_json(ton_api::engine_validator_createProposalVote &to, JsonObject &from) {
+  {
+    TRY_RESULT(value, get_json_object_field(from, "vote", JsonValue::Type::Null, true));
+    if (value.type() != JsonValue::Type::Null) {
+      TRY_STATUS(from_json_bytes(to.vote_, value));
     }
   }
   return Status::OK();
@@ -7788,6 +7930,12 @@ void to_json(JsonValueScope &jv, const ton_api::engine_validator_oneStat &object
   jo << ctie("key", ToJson(object.key_));
   jo << ctie("value", ToJson(object.value_));
 }
+void to_json(JsonValueScope &jv, const ton_api::engine_validator_proposalVote &object) {
+  auto jo = jv.enter_object();
+  jo << ctie("@type", "engine.validator.proposalVote");
+  jo << ctie("perm_key", ToJson(object.perm_key_));
+  jo << ctie("to_send", ToJson(JsonBytes{object.to_send_}));
+}
 void to_json(JsonValueScope &jv, const ton_api::engine_validator_signature &object) {
   auto jo = jv.enter_object();
   jo << ctie("@type", "engine.validator.signature");
@@ -8413,6 +8561,17 @@ void to_json(JsonValueScope &jv, const ton_api::validator_groupEx &object) {
   jo << ctie("config_hash", ToJson(object.config_hash_));
   jo << ctie("members", ToJson(object.members_));
 }
+void to_json(JsonValueScope &jv, const ton_api::validator_groupNew &object) {
+  auto jo = jv.enter_object();
+  jo << ctie("@type", "validator.groupNew");
+  jo << ctie("workchain", ToJson(object.workchain_));
+  jo << ctie("shard", ToJson(JsonInt64{object.shard_}));
+  jo << ctie("vertical_seqno", ToJson(object.vertical_seqno_));
+  jo << ctie("last_key_block_seqno", ToJson(object.last_key_block_seqno_));
+  jo << ctie("catchain_seqno", ToJson(object.catchain_seqno_));
+  jo << ctie("config_hash", ToJson(object.config_hash_));
+  jo << ctie("members", ToJson(object.members_));
+}
 void to_json(JsonValueScope &jv, const ton_api::validator_config_global &object) {
   auto jo = jv.enter_object();
   jo << ctie("@type", "validator.config.global");
@@ -8465,6 +8624,9 @@ void to_json(JsonValueScope &jv, const ton_api::validatorSession_candidateId &ob
   jo << ctie("file_hash", ToJson(object.file_hash_));
   jo << ctie("collated_data_file_hash", ToJson(object.collated_data_file_hash_));
 }
+void to_json(JsonValueScope &jv, const ton_api::validatorSession_Config &object) {
+  ton_api::downcast_call(const_cast<ton_api::validatorSession_Config &>(object), [&jv](const auto &object) { to_json(jv, object); });
+}
 void to_json(JsonValueScope &jv, const ton_api::validatorSession_config &object) {
   auto jo = jv.enter_object();
   jo << ctie("@type", "validatorSession.config");
@@ -8476,6 +8638,19 @@ void to_json(JsonValueScope &jv, const ton_api::validatorSession_config &object)
   jo << ctie("max_round_attempts", ToJson(object.max_round_attempts_));
   jo << ctie("max_block_size", ToJson(object.max_block_size_));
   jo << ctie("max_collated_data_size", ToJson(object.max_collated_data_size_));
+}
+void to_json(JsonValueScope &jv, const ton_api::validatorSession_configNew &object) {
+  auto jo = jv.enter_object();
+  jo << ctie("@type", "validatorSession.configNew");
+  jo << ctie("catchain_idle_timeout", ToJson(object.catchain_idle_timeout_));
+  jo << ctie("catchain_max_deps", ToJson(object.catchain_max_deps_));
+  jo << ctie("round_candidates", ToJson(object.round_candidates_));
+  jo << ctie("next_candidate_delay", ToJson(object.next_candidate_delay_));
+  jo << ctie("round_attempt_duration", ToJson(object.round_attempt_duration_));
+  jo << ctie("max_round_attempts", ToJson(object.max_round_attempts_));
+  jo << ctie("max_block_size", ToJson(object.max_block_size_));
+  jo << ctie("max_collated_data_size", ToJson(object.max_collated_data_size_));
+  jo << ctie("new_catchain_ids", ToJson(object.new_catchain_ids_));
 }
 void to_json(JsonValueScope &jv, const ton_api::validatorSession_Message &object) {
   ton_api::downcast_call(const_cast<ton_api::validatorSession_Message &>(object), [&jv](const auto &object) { to_json(jv, object); });
@@ -8722,6 +8897,11 @@ void to_json(JsonValueScope &jv, const ton_api::engine_validator_createElectionB
   jo << ctie("election_date", ToJson(object.election_date_));
   jo << ctie("election_addr", ToJson(object.election_addr_));
   jo << ctie("wallet", ToJson(object.wallet_));
+}
+void to_json(JsonValueScope &jv, const ton_api::engine_validator_createProposalVote &object) {
+  auto jo = jv.enter_object();
+  jo << ctie("@type", "engine.validator.createProposalVote");
+  jo << ctie("vote", ToJson(JsonBytes{object.vote_}));
 }
 void to_json(JsonValueScope &jv, const ton_api::engine_validator_delAdnlId &object) {
   auto jo = jv.enter_object();

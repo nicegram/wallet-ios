@@ -35,13 +35,23 @@
 #include "td/utils/uint128.h"
 #include "ton/ton-types.h"
 #include "ton/ton-shard.h"
-#include "crypto/openssl/digest.h"
+#include "openssl/digest.hpp"
 #include <stack>
 #include <algorithm>
 
 namespace block {
 using namespace std::literals::string_literals;
 using td::Ref;
+
+#define DBG(__n) dbg(__n)&&
+#define DSTART int __dcnt = 0;
+#define DEB DBG(++__dcnt)
+
+static inline bool dbg(int c) TD_UNUSED;
+static inline bool dbg(int c) {
+  std::cerr << '[' << (char)('0' + c / 10) << (char)('0' + c % 10) << ']';
+  return true;
+}
 
 Config::Config(Ref<vm::Cell> config_root, const td::Bits256& config_addr, int _mode)
     : mode(_mode), config_addr(config_addr), config_root(std::move(config_root)) {
@@ -300,8 +310,7 @@ td::Status Config::visit_validator_params() const {
 ton::ValidatorSessionConfig Config::get_consensus_config() const {
   auto cc = get_config_param(29);
   ton::ValidatorSessionConfig c;
-  block::gen::ConsensusConfig::Record r;
-  if (cc.not_null() && tlb::unpack_cell(cc, r)) {
+  auto set = [&c](auto& r, bool new_cc_ids) {
     c.catchain_idle_timeout = r.consensus_timeout_ms * 0.001;
     c.catchain_max_deps = r.catchain_max_deps;
     c.round_candidates = r.round_candidates;
@@ -310,6 +319,13 @@ ton::ValidatorSessionConfig Config::get_consensus_config() const {
     c.max_round_attempts = r.fast_attempts;
     c.max_block_size = r.max_block_bytes;
     c.max_collated_data_size = r.max_collated_bytes;
+    c.new_catchain_ids = new_cc_ids;
+    return true;
+  };
+  if (cc.not_null()) {
+    block::gen::ConsensusConfig::Record_consensus_config_new r1;
+    block::gen::ConsensusConfig::Record_consensus_config r0;
+    (tlb::unpack_cell(cc, r1) && set(r1, r1.new_catchain_ids)) || (tlb::unpack_cell(cc, r0) && set(r0, false));
   }
   return c;
 }
@@ -661,14 +677,20 @@ td::Result<MsgPrices> Config::get_msg_prices(bool is_masterchain) const {
 }
 
 CatchainValidatorsConfig Config::unpack_catchain_validators_config(Ref<vm::Cell> cell) {
-  block::gen::CatchainConfig::Record cfg;
-  if (cell.is_null() || !tlb::unpack_cell(std::move(cell), cfg)) {
-    return {default_mc_catchain_lifetime, default_shard_catchain_lifetime, default_shard_validators_lifetime,
-            default_shard_validators_num};
-  } else {
-    return {cfg.mc_catchain_lifetime, cfg.shard_catchain_lifetime, cfg.shard_validators_lifetime,
-            cfg.shard_validators_num};
+  if (cell.not_null()) {
+    block::gen::CatchainConfig::Record_catchain_config cfg;
+    if (tlb::unpack_cell(cell, cfg)) {
+      return {cfg.mc_catchain_lifetime, cfg.shard_catchain_lifetime, cfg.shard_validators_lifetime,
+              cfg.shard_validators_num};
+    }
+    block::gen::CatchainConfig::Record_catchain_config_new cfg2;
+    if (tlb::unpack_cell(std::move(cell), cfg2)) {
+      return {cfg2.mc_catchain_lifetime, cfg2.shard_catchain_lifetime, cfg2.shard_validators_lifetime,
+              cfg2.shard_validators_num, cfg2.shuffle_mc_validators};
+    }
   }
+  return {default_mc_catchain_lifetime, default_shard_catchain_lifetime, default_shard_validators_lifetime,
+          default_shard_validators_num};
 }
 
 CatchainValidatorsConfig Config::get_catchain_validators_config() const {
@@ -691,29 +713,51 @@ void McShardHash::set_fsm(FsmState fsm, ton::UnixTime fsm_utime, ton::UnixTime f
 }
 
 Ref<McShardHash> McShardHash::unpack(vm::CellSlice& cs, ton::ShardIdFull id) {
-  gen::ShardDescr::Record descr;
-  CurrencyCollection fees_collected, funds_created;
-  if (!(tlb::unpack_exact(cs, descr) && fees_collected.unpack(descr.fees_collected) &&
-        funds_created.unpack(descr.funds_created))) {
-    return {};  // throw ?
+  int tag = gen::t_ShardDescr.get_tag(cs);
+  if (tag < 0) {
+    return {};
   }
-  auto res = Ref<McShardHash>(true, ton::BlockId{id, (unsigned)descr.seq_no}, descr.start_lt, descr.end_lt,
-                              descr.gen_utime, descr.root_hash, descr.file_hash, fees_collected, funds_created,
-                              descr.reg_mc_seqno, descr.min_ref_mc_seqno, descr.next_catchain_seqno,
-                              descr.next_validator_shard, /* descr.nx_cc_updated */ false, descr.before_split,
-                              descr.before_merge, descr.want_split, descr.want_merge);
+  auto create = [&id](auto& descr, Ref<vm::CellSlice> fees, Ref<vm::CellSlice> funds) {
+    CurrencyCollection fees_collected, funds_created;
+    if (!(fees_collected.unpack(std::move(fees)) && funds_created.unpack(std::move(funds)))) {
+      return Ref<McShardHash>{};
+    }
+    return td::make_ref<McShardHash>(ton::BlockId{id, (unsigned)descr.seq_no}, descr.start_lt, descr.end_lt,
+                                     descr.gen_utime, descr.root_hash, descr.file_hash, fees_collected, funds_created,
+                                     descr.reg_mc_seqno, descr.min_ref_mc_seqno, descr.next_catchain_seqno,
+                                     descr.next_validator_shard, /* descr.nx_cc_updated */ false, descr.before_split,
+                                     descr.before_merge, descr.want_split, descr.want_merge);
+  };
+  Ref<McShardHash> res;
+  Ref<vm::CellSlice> fsm_cs;
+  if (tag == gen::ShardDescr::shard_descr) {
+    gen::ShardDescr::Record_shard_descr descr;
+    if (tlb::unpack_exact(cs, descr)) {
+      fsm_cs = std::move(descr.split_merge_at);
+      res = create(descr, std::move(descr.fees_collected), std::move(descr.funds_created));
+    }
+  } else {
+    gen::ShardDescr::Record_shard_descr_new descr;
+    if (tlb::unpack_exact(cs, descr)) {
+      fsm_cs = std::move(descr.split_merge_at);
+      res = create(descr, std::move(descr.r1.fees_collected), std::move(descr.r1.funds_created));
+    }
+  }
+  if (res.is_null()) {
+    return res;
+  }
   McShardHash& sh = res.unique_write();
-  switch (gen::t_FutureSplitMerge.get_tag(*(descr.split_merge_at))) {
+  switch (gen::t_FutureSplitMerge.get_tag(*fsm_cs)) {
     case gen::FutureSplitMerge::fsm_none:
       return res;
     case gen::FutureSplitMerge::fsm_split:
-      if (gen::t_FutureSplitMerge.unpack_fsm_split(descr.split_merge_at.write(), sh.fsm_utime_, sh.fsm_interval_)) {
+      if (gen::t_FutureSplitMerge.unpack_fsm_split(fsm_cs.write(), sh.fsm_utime_, sh.fsm_interval_)) {
         sh.fsm_ = FsmState::fsm_split;
         return res;
       }
       break;
     case gen::FutureSplitMerge::fsm_merge:
-      if (gen::t_FutureSplitMerge.unpack_fsm_merge(descr.split_merge_at.write(), sh.fsm_utime_, sh.fsm_interval_)) {
+      if (gen::t_FutureSplitMerge.unpack_fsm_merge(fsm_cs.write(), sh.fsm_utime_, sh.fsm_interval_)) {
         sh.fsm_ = FsmState::fsm_merge;
         return res;
       }
@@ -726,7 +770,7 @@ Ref<McShardHash> McShardHash::unpack(vm::CellSlice& cs, ton::ShardIdFull id) {
 
 bool McShardHash::pack(vm::CellBuilder& cb) const {
   if (!(is_valid()                                        // (validate)
-        && cb.store_long_bool(11, 4)                      // shard_descr#b
+        && cb.store_long_bool(10, 4)                      // shard_descr_new#a
         && cb.store_long_bool(blk_.id.seqno, 32)          // seq_no:uint32
         && cb.store_long_bool(reg_mc_seqno_, 32)          // reg_mc_seqno:uint32
         && cb.store_long_bool(start_lt_, 64)              // start_lt:uint64
@@ -760,9 +804,11 @@ bool McShardHash::pack(vm::CellBuilder& cb) const {
     default:
       return false;
   }
-  return ok                                    // split_merge_at:FutureSplitMerge
-         && fees_collected_.store_or_zero(cb)  // fees_collected:CurrencyCollection
-         && funds_created_.store_or_zero(cb);  // funds_created:CurrencyCollection = ShardDescr;
+  vm::CellBuilder cb2;
+  return ok                                             // split_merge_at:FutureSplitMerge
+         && fees_collected_.store_or_zero(cb2)          // ^[ fees_collected:CurrencyCollection
+         && funds_created_.store_or_zero(cb2)           //    funds_created:CurrencyCollection ]
+         && cb.store_builder_ref_bool(std::move(cb2));  // = ShardDescr;
 }
 
 Ref<McShardHash> McShardHash::from_block(Ref<vm::Cell> block_root, const ton::FileHash& fhash, bool init_fees) {
@@ -982,27 +1028,45 @@ Ref<McShardHash> ShardConfig::get_shard_hash(ton::ShardIdFull id, bool exact) co
   }
 }
 
+bool McShardHash::extract_cc_seqno(vm::CellSlice& cs, ton::CatchainSeqno* cc) {
+  auto get = [&cs, cc](auto& rec) {
+    if (tlb::unpack_exact(cs, rec)) {
+      *cc = rec.next_catchain_seqno;
+      return true;
+    } else {
+      *cc = std::numeric_limits<ton::CatchainSeqno>::max();
+      return false;
+    }
+  };
+  if (block::gen::t_ShardDescr.get_tag(cs) == block::gen::ShardDescr::shard_descr) {
+    gen::ShardDescr::Record_shard_descr rec;
+    return get(rec);
+  } else {
+    gen::ShardDescr::Record_shard_descr_new rec;
+    return get(rec);
+  }
+}
+
 ton::CatchainSeqno ShardConfig::get_shard_cc_seqno(ton::ShardIdFull shard) const {
   if (shard.is_masterchain() || !shard.is_valid()) {
     return std::numeric_limits<ton::CatchainSeqno>::max();
   }
   ton::ShardIdFull true_id;
-  gen::ShardDescr::Record info;
+  ton::CatchainSeqno cc_seqno, cc_seqno2;
   vm::CellSlice cs;
   if (!(get_shard_hash_raw(cs, shard - 1, true_id, false) &&
         (ton::shard_is_ancestor(true_id, shard) || ton::shard_is_parent(shard, true_id)) &&
-        tlb::unpack_exact(cs, info))) {
+        McShardHash::extract_cc_seqno(cs, &cc_seqno))) {
     return std::numeric_limits<ton::CatchainSeqno>::max();
   }
-  ton::CatchainSeqno cc_seqno = info.next_catchain_seqno;
   if (ton::shard_is_ancestor(true_id, shard)) {
     return cc_seqno;
   }
   if (!(get_shard_hash_raw(cs, shard + 1, true_id, false) && ton::shard_is_parent(shard, true_id) &&
-        tlb::unpack_exact(cs, info))) {
+        McShardHash::extract_cc_seqno(cs, &cc_seqno2))) {
     return std::numeric_limits<ton::CatchainSeqno>::max();
   }
-  return std::max(cc_seqno, info.next_catchain_seqno) + 1;
+  return std::max(cc_seqno, cc_seqno2) + 1;
 }
 
 ton::LogicalTime ShardConfig::get_shard_end_lt_ext(ton::AccountIdPrefixFull acc, ton::ShardIdFull& actual_shard) const {
@@ -1147,9 +1211,10 @@ bool ShardConfig::process_sibling_shard_hashes(std::function<int(McShardHash&, c
     Ref<vm::Cell> root;
     ok = ok && (n == 32) && csr->size_ext() == 0x10000 && std::move(csr)->prefetch_ref_to(root) &&
          process_workchain_sibling_shard_hashes(root, Ref<vm::Cell>{}, ton::ShardIdFull{(int)key.get_int(32)}, func) >=
-             0 &&
-         cb.store_ref_bool(std::move(root));
-    return true;
+             0;
+    bool f = cb.store_ref_bool(std::move(root));
+    ok &= f;
+    return f;
   });
   return ok;
 }
@@ -1162,47 +1227,47 @@ std::vector<ton::BlockId> ShardConfig::get_shard_hash_ids(
   std::vector<ton::BlockId> res;
   bool mcout = mc_shard_hash_.is_null() || !mc_shard_hash_->seqno();  // include masterchain as a shard if seqno > 0
   bool ok = shard_hashes_dict_->check_for_each(
-      [&res, &mcout, mc_shard_hash_ = mc_shard_hash_, &filter ](Ref<vm::CellSlice> cs_ref, td::ConstBitPtr key, int n)
-          ->bool {
-            int workchain = (int)key.get_int(n);
-            if (workchain >= 0 && !mcout) {
-              if (filter(ton::ShardIdFull{ton::masterchainId}, true)) {
-                res.emplace_back(mc_shard_hash_->blk_.id);
-              }
-              mcout = true;
-            }
-            if (!cs_ref->have_refs()) {
+      [&res, &mcout, mc_shard_hash_ = mc_shard_hash_, &filter](Ref<vm::CellSlice> cs_ref, td::ConstBitPtr key,
+                                                               int n) -> bool {
+        int workchain = (int)key.get_int(n);
+        if (workchain >= 0 && !mcout) {
+          if (filter(ton::ShardIdFull{ton::masterchainId}, true)) {
+            res.emplace_back(mc_shard_hash_->blk_.id);
+          }
+          mcout = true;
+        }
+        if (!cs_ref->have_refs()) {
+          return false;
+        }
+        std::stack<std::pair<Ref<vm::Cell>, unsigned long long>> stack;
+        stack.emplace(cs_ref->prefetch_ref(), ton::shardIdAll);
+        while (!stack.empty()) {
+          vm::CellSlice cs{vm::NoVmOrd(), std::move(stack.top().first)};
+          unsigned long long shard = stack.top().second;
+          stack.pop();
+          int t = (int)cs.fetch_ulong(1);
+          if (t < 0) {
+            return false;
+          }
+          if (!filter(ton::ShardIdFull{workchain, shard}, !t)) {
+            continue;
+          }
+          if (!t) {
+            if (!(cs.advance(4) && cs.have(32))) {
               return false;
             }
-            std::stack<std::pair<Ref<vm::Cell>, unsigned long long>> stack;
-            stack.emplace(cs_ref->prefetch_ref(), ton::shardIdAll);
-            while (!stack.empty()) {
-              vm::CellSlice cs{vm::NoVmOrd(), std::move(stack.top().first)};
-              unsigned long long shard = stack.top().second;
-              stack.pop();
-              int t = (int)cs.fetch_ulong(1);
-              if (t < 0) {
-                return false;
-              }
-              if (!filter(ton::ShardIdFull{workchain, shard}, !t)) {
-                continue;
-              }
-              if (!t) {
-                if (!(cs.advance(4) && cs.have(32))) {
-                  return false;
-                }
-                res.emplace_back(workchain, shard, (int)cs.prefetch_ulong(32));
-                continue;
-              }
-              unsigned long long delta = (td::lower_bit64(shard) >> 1);
-              if (!delta || cs.size_ext() != 0x20000) {
-                return false;
-              }
-              stack.emplace(cs.prefetch_ref(1), shard + delta);
-              stack.emplace(cs.prefetch_ref(0), shard - delta);
-            }
-            return true;
-          },
+            res.emplace_back(workchain, shard, (int)cs.prefetch_ulong(32));
+            continue;
+          }
+          unsigned long long delta = (td::lower_bit64(shard) >> 1);
+          if (!delta || cs.size_ext() != 0x20000) {
+            return false;
+          }
+          stack.emplace(cs.prefetch_ref(1), shard + delta);
+          stack.emplace(cs.prefetch_ref(0), shard - delta);
+        }
+        return true;
+      },
       true);
   if (!ok) {
     return {};
@@ -1558,8 +1623,8 @@ td::Result<std::vector<ton::StdSmcAddress>> Config::get_special_smartcontracts(b
     return td::Status::Error(-666, "configuration loaded without fundamental smart contract list");
   }
   std::vector<ton::StdSmcAddress> res;
-  if (!special_smc_dict->check_for_each([&res, &without_config, conf_addr = config_addr.bits() ](
-          Ref<vm::CellSlice> cs_ref, td::ConstBitPtr key, int n) {
+  if (!special_smc_dict->check_for_each([&res, &without_config, conf_addr = config_addr.bits()](
+                                            Ref<vm::CellSlice> cs_ref, td::ConstBitPtr key, int n) {
         if (cs_ref->size_ext() || n != 256) {
           return false;
         }
@@ -1733,18 +1798,32 @@ std::vector<ton::ValidatorDescr> Config::do_compute_validator_set(const block::C
     return {};  // no validators?
   }
   nodes.reserve(count);
+  ValidatorSetPRNG gen{shard, cc_seqno};  // use zero seed (might use a non-trivial seed from ccv_conf in the future)
   if (is_mc) {
-    // simply take needed number of validators from the head of the list
-    // TODO: write a more clever validator list selection algorithm
-    // (if we really need one for the masterchain)
-    for (unsigned i = 0; i < count; i++) {
-      const auto& v = vset.list[i];
-      nodes.emplace_back(v.pubkey, v.weight, v.adnl_addr);
+    if (ccv_conf.shuffle_mc_val) {
+      // shuffle mc validators from the head of the list
+      std::vector<unsigned> idx(count);
+      CHECK(idx.size() == count);
+      for (unsigned i = 0; i < count; i++) {
+        unsigned j = (unsigned)gen.next_ranged(i + 1);  // number 0 .. i
+        CHECK(j <= i);
+        idx[i] = idx[j];
+        idx[j] = i;
+      }
+      for (unsigned i = 0; i < count; i++) {
+        const auto& v = vset.list[idx[i]];
+        nodes.emplace_back(v.pubkey, v.weight, v.adnl_addr);
+      }
+    } else {
+      // simply take needed number of validators from the head of the list
+      for (unsigned i = 0; i < count; i++) {
+        const auto& v = vset.list[i];
+        nodes.emplace_back(v.pubkey, v.weight, v.adnl_addr);
+      }
     }
     return nodes;
   }
   // this is the "true" algorithm for generating shardchain validator subgroups
-  ValidatorSetPRNG gen{shard, cc_seqno};  // use zero seed (might use a non-trivial seed from ccv_conf in the future)
   std::vector<std::pair<td::uint64, td::uint64>> holes;
   holes.reserve(count);
   td::uint64 total_wt = vset.total_weight;

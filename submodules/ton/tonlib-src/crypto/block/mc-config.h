@@ -50,7 +50,7 @@ struct ValidatorDescr {
       : pubkey(_pubkey), weight(_weight), cum_weight(_cum_weight) {
     adnl_addr.set_zero();
   }
-  bool operator<(td::uint64 wt_pos) const & {
+  bool operator<(td::uint64 wt_pos) const& {
     return cum_weight < wt_pos;
   }
 };
@@ -273,6 +273,7 @@ struct McShardHash : public McShardHashI {
   bool pack(vm::CellBuilder& cb) const;
   static Ref<McShardHash> unpack(vm::CellSlice& cs, ton::ShardIdFull id);
   static Ref<McShardHash> from_block(Ref<vm::Cell> block_root, const ton::FileHash& _fhash, bool init_fees = false);
+  static bool extract_cc_seqno(vm::CellSlice& cs, ton::CatchainSeqno* cc);
   McShardHash* make_copy() const override {
     return new McShardHash(*this);
   }
@@ -371,11 +372,14 @@ struct MsgPrices {
 
 struct CatchainValidatorsConfig {
   td::uint32 mc_cc_lifetime, shard_cc_lifetime, shard_val_lifetime, shard_val_num;
-  CatchainValidatorsConfig(td::uint32 mc_cc_lt_, td::uint32 sh_cc_lt_, td::uint32 sh_val_lt_, td::uint32 sh_val_num_)
+  bool shuffle_mc_val;
+  CatchainValidatorsConfig(td::uint32 mc_cc_lt_, td::uint32 sh_cc_lt_, td::uint32 sh_val_lt_, td::uint32 sh_val_num_,
+                           bool shuffle_mc = false)
       : mc_cc_lifetime(mc_cc_lt_)
       , shard_cc_lifetime(sh_cc_lt_)
       , shard_val_lifetime(sh_val_lt_)
-      , shard_val_num(sh_val_num_) {
+      , shard_val_num(sh_val_num_)
+      , shuffle_mc_val(shuffle_mc) {
   }
 };
 

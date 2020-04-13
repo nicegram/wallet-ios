@@ -61,7 +61,8 @@ enum GlobalCapabilities {
   capCreateStatsEnabled = 2,
   capBounceMsgBody = 4,
   capReportVersion = 8,
-  capSplitMergeTransactions = 16
+  capSplitMergeTransactions = 16,
+  capShortDequeue = 32
 };
 
 inline int shard_pfx_len(ShardId shard) {
@@ -459,6 +460,8 @@ struct ValidatorSessionConfig {
 
   td::uint32 max_block_size = (4 << 20);
   td::uint32 max_collated_data_size = (4 << 20);
+
+  bool new_catchain_ids = false;
 };
 
 }  // namespace ton
