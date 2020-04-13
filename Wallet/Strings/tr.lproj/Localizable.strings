@@ -62,6 +62,7 @@
 "Wallet.Send.OwnAddressAlertProceed" = "Devam Et";
 "Wallet.Send.TransactionInProgress" = "Lütfen şu anki işlem tamamlanana kadar bekleyin.";
 "Wallet.Send.SyncInProgress" = "Lütfen cüzdan TON Blokzinciri ile eşitlemeyi bitirene kadar bekleyin.";
+"Wallet.Send.EncryptComment" = "Metni Şifrele";
 "Wallet.Settings.Title" = "Ayarlar";
 "Wallet.Settings.Configuration" = "Sunucu Ayarları";
 "Wallet.Settings.ConfigurationInfo" = "Gelişmiş Ayarlar";
