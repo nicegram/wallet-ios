@@ -94,8 +94,10 @@ private enum WalletSendScreenEntry: ItemListNodeEntry {
             return 5
         case .commentHeader:
             return 6
-        case .commentEncryption:
+        case .comment:
             return 7
+        case .commentEncryption:
+            return 8
         }
     }
     
