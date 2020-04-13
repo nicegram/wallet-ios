@@ -66,11 +66,11 @@ plist_fragment(
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>TON Wallet</string>
+    <string>NG Wallet</string>
     <key>CFBundleIdentifier</key>
     <string>{wallet_bundle_id}</string>
     <key>CFBundleName</key>
-    <string>TON Wallet</string>
+    <string>NG Wallet</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>ITSAppUsesNonExemptEncryption</key>
@@ -83,11 +83,11 @@ plist_fragment(
         <true/>
     </dict>
     <key>NSCameraUsageDescription</key>
-    <string>Please allow TON Wallet access to your camera for scanning QR codes.</string>
+    <string>Please allow NG Wallet access to your camera for scanning QR codes.</string>
     <key>NSFaceIDUsageDescription</key>
-    <string>For better security, please allow TON Wallet to use your Face ID to authenticate payments.</string>
+    <string>For better security, please allow NG Wallet to use your Face ID to authenticate payments.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Please allow TON Wallet access to your Photo Stream in case you need to scan a QR code from a picture.</string>
+    <string>Please allow NG Wallet access to your Photo Stream in case you need to scan a QR code from a picture.</string>
     <key>UIDeviceFamily</key>
     <array>
         <integer>1</integer>
