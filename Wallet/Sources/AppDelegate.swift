@@ -805,7 +805,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
             }
         }
-        
+        var address: String?
         let _ = (resolvedInitialConfig
         |> deliverOnMainQueue).start(next: { initialResolvedConfig in
             let walletContext = WalletContextImpl(basePath: documentsPath, storage: storage, config: initialResolvedConfig.config, blockchainName: initialResolvedConfig.networkName, presentationData: presentationData, navigationBarTheme: navigationBarTheme, window: mainWindow)
@@ -822,11 +822,11 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                         var randomId: Int64 = 0
                         arc4random_buf(&randomId, 8)
                         
-                        let address = parsedUrl.address
+                        address = parsedUrl.address
                         let amount = parsedUrl.amount
                         let comment = parsedUrl.comment
                         
-                        controller.push(walletSendScreen(context: walletContext, randomId: randomId, walletInfo: walletInfo, address: address, amount: amount, comment: comment))
+                        controller.push(walletSendScreen(context: walletContext, randomId: randomId, walletInfo: walletInfo, blockchainNetwork: initialResolvedConfig.activeNetwork, address: address, amount: amount, comment: comment))
                     }   
 
                     var previousBlockchainName = initialResolvedConfig.networkName
@@ -884,10 +884,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                             case let .ready(info, exportCompleted, _):
                                 if exportCompleted {
                                     let infoScreen = WalletInfoScreen(context: walletContext, walletInfo: info, blockchainNetwork: initialResolvedConfig.activeNetwork, enableDebugActions: false)
-                                    beginWithController(infoScreen, launchParsedUrl, record.info)
-                                    self.globalwalletAddress = address
-                                    if let notificationToken = self.notificationToken {
-                                        updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
+                                    beginWithController(infoScreen, launchParsedUrl, info)
+                                    if let address = address {
+                                        self.globalwalletAddress = address
+                                        if let notificationToken = self.notificationToken {
+                                            updateNotificationTokensRegistration(notificationToken: notificationToken, address: address)
+                                            }
                                     }
                                 } else {
                                     let createdScreen = WalletSplashScreen(context: walletContext, blockchainNetwork: initialResolvedConfig.activeNetwork, mode: .created(walletInfo: info, words: nil), walletCreatedPreloadState: nil)

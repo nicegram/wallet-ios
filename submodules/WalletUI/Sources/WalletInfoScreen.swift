@@ -1056,7 +1056,7 @@ private final class WalletInfoScreenNode: ViewControllerTracingNode {
                 let balanceLabel: String
                 switch self.blockchainNetwork {
                 case .mainNet:
-                    balanceLabel = self.presentationData.strings.Wallet_Info_YourBalance*/
+                    balanceLabel = self.presentationData.strings.Wallet_Info_YourBalance
                 case .testNet:
                     balanceLabel = "Your test balance"
                 }
