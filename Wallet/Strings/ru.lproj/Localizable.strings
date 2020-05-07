@@ -66,7 +66,6 @@
 "Wallet.Settings.Configuration" = "Настройки сервера";
 "Wallet.Settings.ConfigurationInfo" = "Дополнительные настройки";
 "Wallet.Settings.BackupWallet" = "Резервная копия кошелька";
-"Wallet.Settings.DeleteWallet" = "Удалить кошелек";
 "Wallet.Settings.DeleteWalletInfo" = "Это позволит отключить кошелек от этого приложения. Вы сможете восстановить свой кошелек, используя 24 секретных слова – или импортировать другой кошелек.\n\nКошельки Gram расположены в децентрализованном блокчейне TON. Если вы хотите, чтобы кошелек был удален, просто перенесите все Gram из него и оставьте его пустым.";
 "Wallet.Intro.NotNow" = "Не сейчас";
 "Wallet.Intro.ImportExisting" = "Импортировать кошелек";
