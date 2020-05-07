@@ -24,7 +24,7 @@ public func getCurrencyData() -> [String:Any]? {
 }
 
 let CURRENCIES = getCurrencyData()
-let TOKENPRICE: Double = 3.5 // $3.5 for 1 GRAM
+let TOKENPRICE: Double = 0.000000000001 // $0.000000000001 for 1 GRAM
 
 
 public func getLocaleAndPrice() -> (Locale, Double) {
@@ -57,7 +57,6 @@ public func getLocaleAndPrice() -> (Locale, Double) {
     
     
     var localeWRegion = languageCode + regionCode!
-    localPrice = 0 // Null token price
     if localPrice == 0 {
         localPrice = TOKENPRICE
         localeWRegion = "en_US"
