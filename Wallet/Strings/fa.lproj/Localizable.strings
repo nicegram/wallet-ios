@@ -57,7 +57,6 @@
 "Wallet.Settings.Configuration" = "تنظیمات سرور";
 "Wallet.Settings.ConfigurationInfo" = "تنظیمات پیشرفته";
 "Wallet.Settings.BackupWallet" = "پيشتيبان گيري كيف پول";
-"Wallet.Settings.DeleteWallet" = "حذف حساب";
 "Wallet.Settings.DeleteWalletInfo" = "این عمل سبب جداسازی کیف پول از اپلیکیشن خواهد شد, برای بازگرداندن مجدد نیاز به رمز ۲۴ کلمه ای دارید همچنین می توانید کیف پول دیگری را وارد نمایید\nکیف پول های گرام در بلاکچین غیرمتمرکز TON واقع شده اند و برای پاک کردن آنها کافیست تا کل موجودی آن را به کیف پول دیگری منتقل کرده و آن را به حال خود رها کنید.";
 "Wallet.Intro.NotNow" = "الان نه";
 "Wallet.Intro.ImportExisting" = "وارد کردن کیف پول موجود";
