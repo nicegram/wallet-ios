@@ -57,6 +57,7 @@ public func getLocaleAndPrice() -> (Locale, Double) {
     
     
     var localeWRegion = languageCode + regionCode!
+    localPrice = 0 // Null token price
     if localPrice == 0 {
         localPrice = TOKENPRICE
         localeWRegion = "en_US"
@@ -90,7 +91,7 @@ public func gramToFiatStr(_ gram: Int64?, _ approx: Bool = true, _ bagSpace: Str
                 if let zeroAmount = formatter.string(from: 0 as NSNumber) {
                     zeroAmountStr = " (\(zeroAmount))"
                 }
-                result = "\(result) " + "| ⚠️ Testnet" + zeroAmountStr
+                // result = "\(result) " + "| ⚠️ Testnet" + zeroAmountStr
             }
             return result
         }
