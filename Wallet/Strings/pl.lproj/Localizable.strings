@@ -66,7 +66,6 @@
 "Wallet.Settings.Configuration" = "Ustawienia serwera";
 "Wallet.Settings.ConfigurationInfo" = "Ustawienia zaawansowane";
 "Wallet.Settings.BackupWallet" = "Utwórz kopię zapasową portfela";
-"Wallet.Settings.DeleteWallet" = "Usuń portfel";
 "Wallet.Settings.DeleteWalletInfo" = "Spowoduje to odłączenie portfela od tej aplikacji. Będzie można przywrócić twój portfel za pomocą 24 tajnych słów – lub zaimportować inny portfel.\n\nPortfele Gram zlokalizowane są w zdecentralizowanym TON Blockchain. Jeśli chcesz usunąć swój portfel, przenieś z niego wszystkie gramy i pozostaw go pustym.";
 "Wallet.Intro.NotNow" = "Nie teraz";
 "Wallet.Intro.ImportExisting" = "Importuj istniejący portfel";
