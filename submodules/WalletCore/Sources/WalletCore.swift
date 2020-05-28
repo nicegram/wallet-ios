@@ -1682,18 +1682,21 @@ public struct LocalWalletConfiguration: Codable, Equatable {
     public enum ActiveNetwork: Int32, Codable {
         case mainNet
         case testNet
+        case newTonTestNet
     }
     
     public var mainNet: LocalBlockchainConfiguration
     public var testNet: LocalBlockchainConfiguration
+    public var newTonTestNet: LocalBlockchainConfiguration
     public var activeNetwork: ActiveNetwork
     
     public init(
         mainNet: LocalBlockchainConfiguration,
-        testNet: LocalBlockchainConfiguration,
+        testNet: LocalBlockchainConfiguration, newTonTestNet: LocalBlockchainConfiguration,
         activeNetwork: ActiveNetwork) {
         self.mainNet = mainNet
         self.testNet = testNet
+        self.newTonTestNet = newTonTestNet
         self.activeNetwork = activeNetwork
     }
 }

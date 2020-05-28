@@ -51,6 +51,7 @@ private enum WalletConfigurationScreenEntry: ItemListNodeEntry, Equatable {
     case networkHeader(WalletTheme, String)
     case networkMainNet(WalletTheme, String, Bool)
     case networkTestNet(WalletTheme, String, Bool)
+    case networkNewtonTestNet(WalletTheme, String, Bool)
     case modeHeader(WalletTheme, String)
     case modeUrl(WalletTheme, String, Bool)
     case modeCustomString(WalletTheme, String, Bool)
@@ -63,7 +64,7 @@ private enum WalletConfigurationScreenEntry: ItemListNodeEntry, Equatable {
    
     var section: ItemListSectionId {
         switch self {
-        case .networkHeader, .networkMainNet, .networkTestNet:
+        case .networkHeader, .networkMainNet, .networkTestNet, .networkNewtonTestNet:
             return WalletConfigurationScreenSection.network.rawValue
         case .modeHeader, .modeUrl, .modeCustomString, .modeInfo:
             return WalletConfigurationScreenSection.mode.rawValue
@@ -82,24 +83,26 @@ private enum WalletConfigurationScreenEntry: ItemListNodeEntry, Equatable {
             return 1
         case .networkTestNet:
             return 2
-        case .modeHeader:
+        case .networkNewtonTestNet:
             return 3
-        case .modeUrl:
+        case .modeHeader:
             return 4
-        case .modeCustomString:
+        case .modeUrl:
             return 5
-        case .modeInfo:
+        case .modeCustomString:
             return 6
-        case .configUrl:
+        case .modeInfo:
             return 7
-        case .configString:
+        case .configUrl:
             return 8
-        case .blockchainNameHeader:
+        case .configString:
             return 9
-        case .blockchainName:
+        case .blockchainNameHeader:
             return 10
-        case .blockchainNameInfo:
+        case .blockchainName:
             return 11
+        case .blockchainNameInfo:
+            return 12
         }
     }
     
@@ -160,6 +163,10 @@ private enum WalletConfigurationScreenEntry: ItemListNodeEntry, Equatable {
             }, action: {})
         case let .blockchainNameInfo(theme, text):
             return ItemListTextItem(theme: theme, text: .plain(text), sectionId: self.section)
+        case let .networkNewtonTestNet(theme, text, isSelected):
+            return ItemListCheckboxItem(theme: theme, title: text, style: .left, checked: isSelected, zeroSeparatorInsets: false, sectionId: self.section, action: {
+                arguments.updateNetwork(.newTonTestNet)
+            })
         }
     }
 }
@@ -187,6 +194,14 @@ private struct WalletConfigurationScreenState: Equatable {
         case let .string(string):
             storedConfigUrl[.testNet] = ""
             storedConfigString[.testNet] = string
+        }
+        switch value.newTonTestNet.source {
+        case let .url(url):
+            storedConfigUrl[.newTonTestNet] = url
+            storedConfigString[.newTonTestNet] = ""
+        case let .string(string):
+            storedConfigUrl[.newTonTestNet] = ""
+            storedConfigString[.newTonTestNet] = string
         }
         
         return WalletConfigurationScreenState(configuration: value, storedConfigUrl: storedConfigUrl, storedConfigString: storedConfigString)
@@ -224,6 +239,22 @@ private struct WalletConfigurationScreenState: Equatable {
             }
         }
         
+        let newTonTestSource: LocalWalletConfigurationSource
+        switch self.configuration.newTonTestNet.source {
+        case .url:
+            if let url = self.storedConfigUrl[.newTonTestNet], !url.isEmpty, URL(string: url) != nil {
+                newTonTestSource = .url(url)
+            } else {
+                return nil
+            }
+        case .string:
+            if let string = self.storedConfigString[.newTonTestNet], !string.isEmpty {
+                newTonTestSource = .string(string)
+            } else {
+                return nil
+            }
+        }
+        
         if self.configuration.testNet.customId == "mainnet" {
             return nil
         }
@@ -231,6 +262,7 @@ private struct WalletConfigurationScreenState: Equatable {
         return LocalWalletConfiguration(
             mainNet: LocalBlockchainConfiguration(source: mainSource, customId: nil),
             testNet: LocalBlockchainConfiguration(source: testSource, customId: self.configuration.testNet.customId),
+            newTonTestNet: LocalBlockchainConfiguration(source: newTonTestSource, customId: self.configuration.newTonTestNet.customId),
             activeNetwork: self.configuration.activeNetwork
         )
     }
@@ -242,6 +274,8 @@ private struct WalletConfigurationScreenState: Equatable {
             blockchainConfiguration = self.configuration.mainNet
         case .testNet:
             blockchainConfiguration = self.configuration.testNet
+        case .newTonTestNet:
+            blockchainConfiguration = self.configuration.newTonTestNet
         }
         
         if self.configuration.testNet.customId == "mainnet" {
@@ -269,19 +303,23 @@ private func walletConfigurationScreenEntries(presentationData: WalletPresentati
     var entries: [WalletConfigurationScreenEntry] = []
     
     let blockchainConfiguration: LocalBlockchainConfiguration
-    let isMainNet: Bool
+    let currentNet: Int
     switch state.configuration.activeNetwork {
     case .mainNet:
         blockchainConfiguration = state.configuration.mainNet
-        isMainNet = true
+        currentNet = 1
     case .testNet:
         blockchainConfiguration = state.configuration.testNet
-        isMainNet = false
+        currentNet = 2
+    case .newTonTestNet:
+        blockchainConfiguration = state.configuration.newTonTestNet
+        currentNet = 3
     }
     
     entries.append(.networkHeader(presentationData.theme, "TON BLOCKCHAIN"))
-    entries.append(.networkMainNet(presentationData.theme, "Main Network", isMainNet))
-    entries.append(.networkTestNet(presentationData.theme, "Test Network", !isMainNet))
+    entries.append(.networkMainNet(presentationData.theme, "Main Network", currentNet == 1))
+    entries.append(.networkTestNet(presentationData.theme, "Test Network", currentNet == 2))
+    entries.append(.networkNewtonTestNet(presentationData.theme, "Newton Test Network", currentNet == 3))
     
     let isUrl: Bool
     switch blockchainConfiguration.source {
@@ -303,7 +341,13 @@ private func walletConfigurationScreenEntries(presentationData: WalletPresentati
         entries.append(.configString(presentationData.theme, presentationData.strings.Wallet_Configuration_SourceJSON, state.storedConfigString[state.configuration.activeNetwork] ?? ""))
     }
     
-    if case .testNet = state.configuration.activeNetwork {
+    if case .testNet = state.configuration.activeNetwork{
+        entries.append(.blockchainNameHeader(presentationData.theme, presentationData.strings.Wallet_Configuration_BlockchainIdHeader))
+        entries.append(.blockchainName(presentationData.theme, presentationData.strings, presentationData.strings.Wallet_Configuration_BlockchainIdPlaceholder, blockchainConfiguration.customId ?? ""))
+        entries.append(.blockchainNameInfo(presentationData.theme, presentationData.strings.Wallet_Configuration_BlockchainIdInfo))
+    }
+    
+    if case .newTonTestNet = state.configuration.activeNetwork{
         entries.append(.blockchainNameHeader(presentationData.theme, presentationData.strings.Wallet_Configuration_BlockchainIdHeader))
         entries.append(.blockchainName(presentationData.theme, presentationData.strings, presentationData.strings.Wallet_Configuration_BlockchainIdPlaceholder, blockchainConfiguration.customId ?? ""))
         entries.append(.blockchainNameInfo(presentationData.theme, presentationData.strings.Wallet_Configuration_BlockchainIdInfo))
@@ -364,6 +408,8 @@ func walletConfigurationScreen(context: WalletContext, currentConfiguration: Loc
                 state.configuration.mainNet.source = source
             case .testNet:
                 state.configuration.testNet.source = source
+            case .newTonTestNet:
+                state.configuration.testNet.source = source
             }
             return state
         }
@@ -374,6 +420,8 @@ func walletConfigurationScreen(context: WalletContext, currentConfiguration: Loc
             case .mainNet:
                 break
             case .testNet:
+                state.configuration.testNet.customId = value
+            case .newTonTestNet:
                 state.configuration.testNet.customId = value
             }
             return state
@@ -395,6 +443,8 @@ func walletConfigurationScreen(context: WalletContext, currentConfiguration: Loc
                 currentBlockchainConfiguration = currentConfiguration.mainNet
             case .testNet:
                 currentBlockchainConfiguration = currentConfiguration.testNet
+            case .newTonTestNet:
+                currentBlockchainConfiguration = currentConfiguration.newTonTestNet
             }
             
             let updatedBlockchainConfiguration: LocalBlockchainConfiguration
@@ -406,6 +456,9 @@ func walletConfigurationScreen(context: WalletContext, currentConfiguration: Loc
             case .testNet:
                 updatedBlockchainConfiguration = updatedConfiguration.testNet
                 updatedEffectiveBlockchainName = updatedConfiguration.testNet.customId ?? "testnet2"
+            case .newTonTestNet:
+                updatedBlockchainConfiguration = updatedConfiguration.newTonTestNet
+                updatedEffectiveBlockchainName = updatedConfiguration.newTonTestNet.customId ?? "Newton"
             }
             
             if currentConfiguration.activeNetwork != updatedConfiguration.activeNetwork || currentBlockchainConfiguration != updatedBlockchainConfiguration {
@@ -424,6 +477,8 @@ func walletConfigurationScreen(context: WalletContext, currentConfiguration: Loc
                             alertText = "Are you sure you want to switch to the Main Gram network? Grams will have real value there.\n\nIf you proceed, you will need to reconnect your wallet using 24 secret words."
                         case .testNet:
                             alertText = "Are you sure you want to switch to the Test Gram network? It exists only for testing purposes.\n\nIf you proceed, you will need to reconnect your wallet using 24 secret words."
+                        case .newTonTestNet:
+                            alertText = "Are you sure you want to switch to the NewTon Test network? It exists only for testing purposes.\n\nIf you proceed, you will need to reconnect your wallet using 24 secret words."
                         }
                         
                         presentControllerImpl?(standardTextAlertController(theme: context.presentationData.theme.alert, title: "Warning", text: alertText, actions: [
