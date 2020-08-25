@@ -243,7 +243,7 @@ private final class WalletReceiveScreenNode: ViewControllerTracingNode {
         switch self.blockchainNetwork {
         case .mainNet:
             headerString = "Share this link with other Gram wallet owners to receive Grams from them."
-        case .testNet, .newTonTestNet:
+        case .testNet, .newTonTestNet, .newTonTestNet2, .tonCommunityTestNet3:
             headerString = self.presentationData.strings.Wallet_Receive_ShareUrlInfo
         }
         

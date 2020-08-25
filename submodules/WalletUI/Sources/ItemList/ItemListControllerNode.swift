@@ -292,6 +292,9 @@ class ItemListControllerNode: ASDisplayNode, UIScrollViewDelegate {
             let (state, arguments) = stateAndArguments
             if state.entries.count > 1 {
                 for i in 1 ..< state.entries.count {
+                    print(state.entries[i - 1])
+                    print("=====")
+                    print(state.entries[i])
                     assert(state.entries[i - 1].isLessThan(state.entries[i]))
                 }
             }

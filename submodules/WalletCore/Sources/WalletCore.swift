@@ -1683,20 +1683,26 @@ public struct LocalWalletConfiguration: Codable, Equatable {
         case mainNet
         case testNet
         case newTonTestNet
+        case newTonTestNet2
+        case tonCommunityTestNet3
     }
     
     public var mainNet: LocalBlockchainConfiguration
     public var testNet: LocalBlockchainConfiguration
     public var newTonTestNet: LocalBlockchainConfiguration
+    public var newTonTestNet2: LocalBlockchainConfiguration
+    public var tonCommunityTestNet3: LocalBlockchainConfiguration
     public var activeNetwork: ActiveNetwork
     
     public init(
         mainNet: LocalBlockchainConfiguration,
-        testNet: LocalBlockchainConfiguration, newTonTestNet: LocalBlockchainConfiguration,
+        testNet: LocalBlockchainConfiguration, newTonTestNet: LocalBlockchainConfiguration, newTonTestNet2: LocalBlockchainConfiguration, tonCommunityTestNet3: LocalBlockchainConfiguration,
         activeNetwork: ActiveNetwork) {
         self.mainNet = mainNet
         self.testNet = testNet
         self.newTonTestNet = newTonTestNet
+        self.newTonTestNet2 = newTonTestNet2
+        self.tonCommunityTestNet3 = tonCommunityTestNet3
         self.activeNetwork = activeNetwork
     }
 }

@@ -1041,6 +1041,10 @@ private final class WalletInfoScreenNode: ViewControllerTracingNode {
                         balanceLabel = "Your test balance"
                     case .newTonTestNet:
                         balanceLabel = "Your NewTon test balance"
+                    case .newTonTestNet2:
+                        balanceLabel = "Your NewTon test2 balance"
+                    case .tonCommunityTestNet3:
+                        balanceLabel = "Your TONCommunity.org balance"
                     }
                     self.headerNode.balanceSubtitleNode.attributedText = NSAttributedString(string: balanceLabel, font: Font.regular(13), textColor: UIColor(white: 1.0, alpha: 0.6))
                     self.headerNode.balanceSubtitleIconNode.isHidden = true
@@ -1063,6 +1067,10 @@ private final class WalletInfoScreenNode: ViewControllerTracingNode {
                     balanceLabel = "Your test balance"
                 case .newTonTestNet:
                     balanceLabel = "Your NewTon test balance"
+                case .newTonTestNet2:
+                    balanceLabel = "Your NewTon test2 balance"
+                case .tonCommunityTestNet3:
+                    balanceLabel = "Your TONCommunity.org balance"
                 }
                 self.headerNode.balanceSubtitleNode.attributedText = NSAttributedString(string: balanceLabel, font: Font.regular(13), textColor: UIColor(white: 1.0, alpha: 0.6))
                 self.headerNode.balanceSubtitleIconNode.isHidden = true

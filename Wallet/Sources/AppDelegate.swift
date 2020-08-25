@@ -307,6 +307,8 @@ private final class WalletStorageInterfaceImpl: WalletStorageInterface {
                 mainNet: value.mainNet.configuration,
                 testNet: value.testNet.configuration,
                 newTonTestNet: value.newTonTestNet.configuration,
+                newTonTestNet2: value.newTonTestNet2.configuration,
+                tonCommunityTestNet3: value.tonCommunityTestNet3.configuration,
                 activeNetwork: value.activeNetwork
             ))
         }
@@ -371,6 +373,8 @@ private final class WalletContextImpl: NSObject, WalletContext, UIImagePickerCon
             current.mainNet.configuration = configuration.mainNet
             current.testNet.configuration = configuration.testNet
             current.newTonTestNet.configuration = configuration.newTonTestNet
+            current.newTonTestNet2.configuration = configuration.newTonTestNet2
+            current.tonCommunityTestNet3.configuration = configuration.tonCommunityTestNet3
             current.activeNetwork = configuration.activeNetwork
             if current.mainNet.configuration.source == source {
                 current.mainNet.resolved = ResolvedLocalWalletConfiguration(source: source, value: resolvedConfig)
@@ -380,6 +384,12 @@ private final class WalletContextImpl: NSObject, WalletContext, UIImagePickerCon
             }
             if current.newTonTestNet.configuration.source == source {
                 current.newTonTestNet.resolved = ResolvedLocalWalletConfiguration(source: source, value: resolvedConfig)
+            }
+            if current.newTonTestNet2.configuration.source == source {
+                current.newTonTestNet2.resolved = ResolvedLocalWalletConfiguration(source: source, value: resolvedConfig)
+            }
+            if current.tonCommunityTestNet3.configuration.source == source {
+                current.tonCommunityTestNet3.resolved = ResolvedLocalWalletConfiguration(source: source, value: resolvedConfig)
             }
             return current
         }
@@ -763,6 +773,12 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
                 if current.newTonTestNet.configuration.source == source {
                     current.newTonTestNet.resolved = ResolvedLocalWalletConfiguration(source: source, value: config)
                 }
+                if current.newTonTestNet2.configuration.source == source {
+                   current.newTonTestNet2.resolved = ResolvedLocalWalletConfiguration(source: source, value: config)
+                }
+                if current.tonCommunityTestNet3.configuration.source == source {
+                   current.tonCommunityTestNet3.resolved = ResolvedLocalWalletConfiguration(source: source, value: config)
+                }
                 return current
             }).start()
         }
@@ -991,6 +1007,8 @@ struct MergedLocalWalletConfiguration: Codable, Equatable {
     var mainNet: MergedLocalBlockchainConfiguration
     var testNet: MergedLocalBlockchainConfiguration
     var newTonTestNet: MergedLocalBlockchainConfiguration
+    var newTonTestNet2: MergedLocalBlockchainConfiguration
+    var tonCommunityTestNet3: MergedLocalBlockchainConfiguration
     var activeNetwork: LocalWalletConfiguration.ActiveNetwork
     
     var effective: EffectiveWalletConfiguration? {
@@ -1013,6 +1031,18 @@ struct MergedLocalWalletConfiguration: Codable, Equatable {
             } else {
                 return nil
             }
+        case .newTonTestNet2:
+            if let resolved = self.newTonTestNet2.resolved, resolved.source == self.newTonTestNet2.configuration.source {
+                return EffectiveWalletConfiguration(networkName: self.newTonTestNet2.configuration.customId ?? "Newton TestNet 2", config: resolved.value, activeNetwork: .newTonTestNet2)
+            } else {
+                return nil
+            }
+        case .tonCommunityTestNet3:
+            if let resolved = self.tonCommunityTestNet3.resolved, resolved.source == self.tonCommunityTestNet3.configuration.source {
+                return EffectiveWalletConfiguration(networkName: self.tonCommunityTestNet3.configuration.customId ?? "TONCommunity.org Network", config: resolved.value, activeNetwork: .tonCommunityTestNet3)
+            } else {
+                return nil
+            }
         }
     }
     
@@ -1032,6 +1062,16 @@ struct MergedLocalWalletConfiguration: Codable, Equatable {
             return EffectiveWalletConfigurationSource(
                 networkName: self.newTonTestNet.configuration.customId ?? "Newton",
                 source: self.newTonTestNet.configuration.source
+            )
+        case .newTonTestNet2:
+            return EffectiveWalletConfigurationSource(
+                networkName: self.newTonTestNet2.configuration.customId ?? "Newton TestNet2",
+                source: self.newTonTestNet2.configuration.source
+            )
+        case .tonCommunityTestNet3:
+            return EffectiveWalletConfigurationSource(
+                networkName: self.tonCommunityTestNet3.configuration.customId ?? "TONCommunity.org Network",
+                source: self.tonCommunityTestNet3.configuration.source
             )
         }
     }
@@ -1057,6 +1097,22 @@ private extension MergedLocalWalletConfiguration {
                 configuration: LocalBlockchainConfiguration(
                     source:
                         .url("https://newton-blockchain.github.io/newton-test.global.config.json"),
+                    customId: nil
+                ),
+                resolved: nil
+            ),
+            newTonTestNet2: MergedLocalBlockchainConfiguration(
+                configuration: LocalBlockchainConfiguration(
+                    source:
+                        .url("https://newton-blockchain.github.io/newton-test.config.json"),
+                    customId: nil
+                ),
+                resolved: nil
+            ),
+            tonCommunityTestNet3: MergedLocalBlockchainConfiguration(
+                configuration: LocalBlockchainConfiguration(
+                    source:
+                        .url("https://toncommunity.org/ton-lite-client-test3.config.json"),
                     customId: nil
                 ),
                 resolved: nil
