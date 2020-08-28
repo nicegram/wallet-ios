@@ -62,7 +62,7 @@
 "Wallet.Send.OwnAddressAlertProceed" = "继续";
 "Wallet.Send.TransactionInProgress" = "请等待当前交易完成。";
 "Wallet.Send.SyncInProgress" = "请等待钱包与 TON 区块链同步完成。";
-"Wallet.Send.EncryptComment" = "文本加密";
+"Wallet.Send.EncryptComment" = "加密文本";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
