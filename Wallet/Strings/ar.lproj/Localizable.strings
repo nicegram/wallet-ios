@@ -48,6 +48,8 @@
 "Wallet.Receive.AddressCopied" = "تم نسخ العنوان إلى الحافظة.";
 "Wallet.Receive.InvoiceUrlCopied" = "تم نسخ رابط الفاتورة إلى الحافظة.";
 "Wallet.Send.Title" = "إرسال Grams";
+"Wallet.Send.AddressHeader" = "عنوان محفظة المستلم";
+"Wallet.Send.AddressText" = "أدخل عنوان المحفظة...";
 "Wallet.SecureStorageReset.BiometryTouchId" = "بصمة";
 "Wallet.SecureStorageReset.BiometryFaceId" = "كاشف الوجه";
 "Wallet.SecureStorageReset.BiometryText" = "لسوء الحظ، لم تعد محفظتك متاحة لأن رمز المرور لنظامك أو %@ قد تم إيقاف تشغيلهما. يرجى تمكينهم قبل المتابعة.";
