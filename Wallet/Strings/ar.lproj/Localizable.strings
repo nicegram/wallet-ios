@@ -1,0 +1,4 @@
+"Wallet.Updated.JustNow" = "تم التحديث الآن";
+"Wallet.Updated.MinutesAgo_0" = "قبل %@ دقائق"; // three to ten
+"Wallet.Updated.MinutesAgo_1" = "قبل دقيقة"; // one
+"Wallet.Updated.MinutesAgo_2" = "قبل دقيقتين"; // two
