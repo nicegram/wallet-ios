@@ -67,7 +67,7 @@
 "Wallet.Settings.Configuration" = "Sunucu Ayarları";
 "Wallet.Settings.ConfigurationInfo" = "Gelişmiş Ayarlar";
 "Wallet.Settings.BackupWallet" = "Cüzdanı Yedekle";
-"Wallet.Settings.DeleteWallet" = "Cüzdanı Sil";
+"Wallet.Settings.DeleteWallet" = "Çıkış Yap";
 "Wallet.Settings.DeleteWalletInfo" = "Bu, cüzdanın bu uygulama ile olan bağlantısını kesecek. 24 gizli kelimeyi kullanarak cüzdanınızı kurtarabilir - ya da başka bir cüzdanda içe aktarabilirsiniz.\n\nGram Cüzdanları merkeziyetsiz TON Blokzincirinde bulunur. Bir cüzdanı silmek istiyorsanız, basitçe içindeki tüm gramları aktarın ve onu boş bırakın.";
 "Wallet.Intro.NotNow" = "Şimdi Değil";
 "Wallet.Intro.ImportExisting" = "Mevcut cüzdanı içe aktar";

@@ -62,11 +62,12 @@
 "Wallet.Send.OwnAddressAlertProceed" = "繼續";
 "Wallet.Send.TransactionInProgress" = "請等候當前交易完成。";
 "Wallet.Send.SyncInProgress" = "請等待錢包與 TON 區塊鏈同步。";
+"Wallet.Send.EncryptComment" = "文字加密";
 "Wallet.Settings.Title" = "設定";
 "Wallet.Settings.Configuration" = "伺服器設定";
 "Wallet.Settings.ConfigurationInfo" = "進階設定";
 "Wallet.Settings.BackupWallet" = "備份錢包";
-"Wallet.Settings.DeleteWallet" = "刪除錢包";
+"Wallet.Settings.DeleteWallet" = "登出";
 "Wallet.Settings.DeleteWalletInfo" = "這會使錢包與 App 中斷連線。您將可以使用 24 組暗號來恢復您的錢包，或匯入另一個錢包。\n\nGram Wallet 存於 TON 區塊鏈，如果您想刪除一個錢包，只需將裡面的 Grams 轉出並且清空。";
 "Wallet.Intro.NotNow" = "稍後再說";
 "Wallet.Intro.ImportExisting" = "匯入現有錢包";

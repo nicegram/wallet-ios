@@ -62,12 +62,12 @@
 "Wallet.Send.OwnAddressAlertProceed" = "继续";
 "Wallet.Send.TransactionInProgress" = "请等待当前交易完成。";
 "Wallet.Send.SyncInProgress" = "请等待钱包与 TON 区块链同步完成。";
-"Wallet.Send.EncryptComment" = "文本加密";
+"Wallet.Send.EncryptComment" = "加密文本";
 "Wallet.Settings.Title" = "设置";
 "Wallet.Settings.Configuration" = "服务器设置";
 "Wallet.Settings.ConfigurationInfo" = "高级设置";
 "Wallet.Settings.BackupWallet" = "备份钱包";
-"Wallet.Settings.DeleteWallet" = "删除钱包";
+"Wallet.Settings.DeleteWallet" = "注销";
 "Wallet.Settings.DeleteWalletInfo" = "这将解除钱包和本 App 的关联。您可以使用 24 组暗号恢复您的钱包，或是导入另一个钱包。\n\nGram Wallet 位于去中心化的 TON 区块链中。如果您想删除一个钱包，只需转走所有的 Grams 并空置它。";
 "Wallet.Intro.NotNow" = "稍后​​​​​";
 "Wallet.Intro.ImportExisting" = "导入现有钱包";

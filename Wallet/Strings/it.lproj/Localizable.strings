@@ -66,7 +66,6 @@
 "Wallet.Settings.Configuration" = "Impostazioni del server";
 "Wallet.Settings.ConfigurationInfo" = "Impostazioni avanzate";
 "Wallet.Settings.BackupWallet" = "Backup del portafoglio";
-"Wallet.Settings.DeleteWallet" = "Elimina il portafoglio";
 "Wallet.Settings.DeleteWalletInfo" = "Questo scollegherà il tuo portafoglio da questa app. Sarai in grado di ripristinare il tuo portafoglio utilizzando le 24 parole segrete – o importando un altro portafoglio.\n\nIl tuo portafoglio si trova nella TON Blockchain. Se vuoi che un portafoglio sia eliminato, basta trasferire tutti i gram fuori da esso e lasciarlo vuoto.";
 "Wallet.Intro.NotNow" = "Non ora";
 "Wallet.Intro.ImportExisting" = "Importa un portafoglio esistente";
